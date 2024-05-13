@@ -5,11 +5,23 @@
 
   padding: 0;
   margin: 0;
+
+  color: inherit;
 }
+
+/* --- PALETA COLORES 
+COLOR PRINCIPAL #7db4b5
+COLOR COMPLEMENTARIO #e0eff1
+COLOR DESTAQUE #680148
+COLOR TEXTO #000000
+COLOR NEGATIVO #ffffff
+--- */
+
 
 /* globales */
 html {
     font-family: "Nunito", sans-serif;
+    color: #000000;
 }
 h1 {
     font-family: "Acme", sans-serif;
@@ -30,12 +42,12 @@ h1 {
     text-transform: uppercase;
   }
   p {
-    font-size: 18px;
+    font-size: 16px;
   }
   a {
     text-decoration: none;
     color: inherit;
-    font-size: 20px;
+    font-size: 16px;
     text-transform: uppercase;
   }
   
@@ -49,9 +61,75 @@ h1 {
     margin: 0 auto;
   }
 
+  .btn {
+    display: inline-block;
+    min-width: 160px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #680148;
+    color: #fff;
+    text-align: center;
+  }
+  .btn:hover {
+    box-shadow: 4px 2px 10px rgb(125, 180, 181);
+    background-color: rgba(104, 1, 71, 0.8);
+  }
+
 
   /* -- HEADER--- */
+  .header {
+    background-color: #7db4b5;
+    padding: 16px 0;
+  }
+  .navbar, .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
+  .logo i, .logo h1 {
+    color: #680148;
+  }
+
+  .nav li {
+    list-style: none;
+    float: left;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .submenu {
+    position: relative;
+  }
+
+  .submenu ul{
+    display: none;
+    position: absolute;
+  }
+
+  .submenu ul li {
+    float: none;
+    text-align: right;
+    border-bottom: 1px solid grey;
+    line-height: 1.5;
+  }
+  .submenu ul li:hover {
+    color: grey;
+  }
+
+  .submenu:hover > ul {
+    display: block;
+    right: -20px;
+    top: 22px;
+  }
 
 
 
@@ -68,6 +146,37 @@ h1 {
 
 
   /*-- FOOTER --*/
+  footer {
+    background-color: #7db4b5;
+  }
+  .nav-footer li {
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  .nav-footer li:hover{
+    color: grey;
+  }
+  .copy {
+    text-transform: capitalize;
+    text-align: center;
+    border-top: 1px solid grey;
+    padding: 4px;
+  }
+
+  .copy span {
+    font-weight: bold;
+  }
+
+  .social {
+    text-align: right;
+    color: #680148;
+    padding: 12px 0;
+  }
+  .social i{
+    margin-left: 10px;
+  }
 
 
 

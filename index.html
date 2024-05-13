@@ -16,14 +16,32 @@
 </head>
 
 <body>
-    <header>
-        <h1>hola mundo</h1>
-        <h2>hola mundo</h2>
-        <h3>hola mundo</h3>
-        <h4>hola mundo</h4>
-        <p>hola mundo</p>
-        <a href="#">enlace y btn</a>
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fa-solid fa-copyright fa-2xl"></i>
+                </a>
+                <h1>tienda</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li  class="carrito"><i class="fa-solid fa-cart-plus fa-xl"></i>
+                        <ul></ul>
+                    </li>
+                    <li class="submenu"><i class="fa-solid fa-bars fa-xl"></i>
+                        <ul>
+                            <li class="item-hover"><a href="#">tienda</a></li>
+                            <li class="item-hover"><a href="#">nosotros</a></li>
+                            <li class="item-hover"><a href="#">contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
+
 
     <main class="hero">
 
@@ -35,8 +53,38 @@
 
     <!-- agregar secciones necesarias -->
 
-    <footer>
 
+
+    
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fa-solid fa-copyright fa-2xl"></i>
+                    </a>
+                    <h1>tienda</h1>
+                </div>
+
+                <ul class="nav-footer">
+                    <li class="item-hover"><a href="#">tienda</a></li>
+                    <li class="item-hover"><a href="#">nosotros</a></li>
+                    <li class="item-hover"><a href="#">contacto</a></li>
+                </ul>
+
+            </div>
+
+            <div class="social">
+                <a href="www.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                <a href="www.twitter.com"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                <a href="www.instagram.com"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
+            </div>
+
+        </div>
+
+        <div class="copy">
+            <p>&copy;2024 · codo a codo · grupo<span>11</span></p>
+        </div>
     </footer>
 
     <script src="app.js"></script>
