@@ -96,7 +96,7 @@ h1 {
   }
 
   .logo i, .logo h1 {
-    color: #680148;
+    color: #fff;
   }
 
   .nav li {
@@ -104,6 +104,7 @@ h1 {
     float: left;
     margin-right: 20px;
     cursor: pointer;
+    color: #fff;
   }
 
   .submenu {
@@ -147,7 +148,8 @@ h1 {
 
   /*-- FOOTER --*/
   footer {
-    background-color: #7db4b5;
+    background-color: #680148;
+    color: #fff;
   }
   .nav-footer li {
     list-style: none;
@@ -171,7 +173,7 @@ h1 {
 
   .social {
     text-align: right;
-    color: #680148;
+    color: #fff;
     padding: 12px 0;
   }
   .social i{
