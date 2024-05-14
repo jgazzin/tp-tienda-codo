@@ -55,11 +55,22 @@ h1 {
   img {
     width: 100%;
   }
+
+  button {
+    cursor: pointer;
+  }
   
   /* utilitarios */
   .container {
-    max-width: 800px;
+    max-width: 80%;
     margin: 0 auto;
+  }
+
+  @media (max-width: 576px) {
+      .container{
+        width: 100%;
+        padding: 0 16px;
+      }
   }
   
   .centrado {
@@ -247,6 +258,20 @@ h1 {
     margin-left: 10px;
   }
 
+  @media (max-width: 576px) {
+      .footer {
+        flex-direction: column;
+      }
+      .nav-footer li{
+        float: none;
+        text-align: center;
+      }
+
+      .social {
+        text-align: center;
+      }
+  }
+
 
   /* --- PAGINA TIENDA --- */
 
@@ -255,16 +280,19 @@ h1 {
     grid-template-columns: 1fr 3fr;
     gap: 1rem;
     padding: 1rem 0;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+      .tienda {
+        grid-template-columns: 1fr;
+      }
   }
 
   .tienda .menu {
     background-color: #e0eff1;
   }
 
-  .productos {
-    position: relative;
-  }
- 
   .producto{
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -308,16 +336,18 @@ h1 {
   }
 
   .producto .img {
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
 
+  .producto .img img{
+    cursor: pointer;
+  }
+
   .img-100 {
     position: absolute;
-    right: 5rem;
-    transform: scale(1.1);
+    top: 0;
     border: 1px solid grey;
     border-radius: 16px;
   }
@@ -338,6 +368,7 @@ h1 {
   gap: 8px;
 
 }
+
 
 .menu fieldset{
   border: none;
@@ -378,4 +409,24 @@ h1 {
   font-weight: bold;
   width: 24px;
   cursor: pointer;
+}
+
+.rango progress {
+  width: 100%;
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+  .menu .categoria {
+    display: flex;
+  }
+}
+@media (max-width: 576px) {
+    .producto{
+      grid-template-columns: 1fr;
+    }
+
+    .img-100{
+      position: static;
+      border: none;
+    }
 }
