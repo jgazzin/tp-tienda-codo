@@ -142,7 +142,31 @@ h1 {
 
   /* -- OTRA SECCIÓN --*/
 
+  /* --- PALETA COLORES 
+COLOR PRINCIPAL #7db4b5
+COLOR COMPLEMENTARIO #e0eff1
+COLOR DESTAQUE #680148
+COLOR TEXTO #000000
+COLOR NEGATIVO #ffffff
+--- */
 
+  .categorias{
+    background-color: #7db4b5 ;
+  }
+
+  .grid-container{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+
+  }
+
+  .caja{
+    border: 1px solid red;
+    height: 250px;
+    margin: 20px;
+
+}
 
 
 
