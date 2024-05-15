@@ -187,6 +187,74 @@ h1 {
 
 
   /* -- OTRA SECCIÓN --*/
+  /* --- PALETA COLORES 
+COLOR PRINCIPAL #7db4b5
+COLOR COMPLEMENTARIO #e0eff1
+COLOR DESTAQUE #680148
+COLOR TEXTO #000000
+COLOR NEGATIVO #ffffff
+--- */
+.categorias{
+  background-color: #e0eff1;
+}
+.grid-container{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.grid-container div:nth-of-type(1){
+  background-image: url(img/oficina.jpg);
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.grid-container div:nth-of-type(2){
+  background-image: url(img/libreria.jpg);
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.grid-container div:nth-of-type(3){
+  background-image: url(img/papeleria.png);
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.grid-container div:nth-of-type(4){
+  background-image: url(img/artistica.png);
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.grid-container div:nth-of-type(5){
+  background-image: url(img/mochilas.jpeg);
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.caja{
+  border: #680148 solid 3px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 250px;
+  margin: 30px;
+  padding: 15px;
+  text-align: center;
+}
+
+.caja:hover{
+  transform: scale(1.2);
+}
 
 
 
