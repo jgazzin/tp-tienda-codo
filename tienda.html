@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/cdd189729f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <title>Tienda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo-32px.png" width="100" alt="logo">
+                </a>
+                <h1>tienda</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li  class="carrito"><i class="fa-solid fa-cart-plus fa-xl"></i>
+                        <ul></ul>
+                    </li>
+                    <li class="submenu"><i class="fa-solid fa-bars fa-xl"></i>
+                        <ul>
+                            <li><a href="index.html">home</a></li>
+                            <li><a href="tienda.html">tienda</a></li>
+                            <li><a href="#">nosotros</a></li>
+                            <li><a href="#">contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="titulo logo">
+        <img src="img/logo-32px.png" width="100" alt="logo">
+        <h2>tienda</h2>
+    </div>
+
+
+    <main class="container tienda">
+
+        <aside class="menu">
+            <div class="titulo">
+                <i class="fa-solid fa-filter fa-lg"></i>
+                <h3>filtrar</h3>
+            </div>
+            <form>
+                <fieldset class="categoria">
+                    <legend>categoría:</legend>
+                    <input type="radio" id="categoria1" name="categoria" value="categoria1">
+                    <label for="categoria1">Categoría 1</label>
+                    <input type="radio" id="categoria2" name="categoria" value="categoria2">
+                    <label for="categoria2">Categoría 2</label>
+                    <input type="radio" id="categoria3" name="categoria" value="categoria3">
+                    <label for="categoria3">Categoría 3</label>
+                    <input type="radio" id="categoria4" name="categoria" value="categoria4">
+                    <label for="categoria4">Categoría 4</label>
+                    <input type="radio" id="categoria5" name="categoria" value="categoria5">
+                    <label for="categoria5">Categoría 5</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>buscar:</legend>
+                    <div class="buscador row">
+                        <input type="text" placeholder="Ingrese una palabra">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Rango de precio:</legend>
+                    <div class="rango row">
+                        <p class="btn-menos">-</p>
+                        <progress id="file" value="50" max="100"></progress>
+                        <p class="btn-mas">+</p>
+                    </div>
+
+                </fieldset>
+            </form>
+        </aside>
+
+        <div class="productos">
+            <div class="producto">
+                <div class="img">
+                    <img src="img/producto-1.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="img">
+                    <img src="img/producto-2.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="img">
+                    <img src="img/producto-3.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="img">
+                    <img src="img//producto-4.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="img">
+                    <img src="img/producto-5.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="img">
+                    <img src="img/producto-6.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="img">
+                    <img src="img/producto-7.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="img">
+                    <img src="img/producto-8.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="img">
+                    <img src="img/producto-9.jpg" width="100" alt="imagen producto">
+                    <button class="btn">agregar al carrito</button>
+                </div>
+                    
+                <div class="textos">
+                    <h3>nombre producto</h3>
+                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
+                    <h2 class="plus">+</h2>
+                    <div class="tags">
+                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <p class="categoria" data-id="cat_1">cat 1</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/logo-32px.png" width="100" alt="logo">
+                    </a>
+                    <h1>tienda</h1>
+                </div>
+
+                <ul class="nav-footer">
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="tienda.html">tienda</a></li>
+                    <li><a href="#">nosotros</a></li>
+                    <li><a href="#">contacto</a></li>
+                </ul>
+
+                <div class="btn-arriba">
+                    <a href="#header">
+                        <i class="fa-solid fa-angle-up fa-2xl"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="social">
+                <a href="www.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                <a href="www.twitter.com"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                <a href="www.instagram.com"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
+            </div>
+
+        </div>
+
+        <div class="copy">
+            <p>&copy;2024 · codo a codo · grupo<span>11</span></p>
+        </div>
+    </footer>
+
+    <script src="app_tienda.js"></script>
+</body>
+
+</html>
