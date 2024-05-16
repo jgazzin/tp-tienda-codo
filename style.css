@@ -207,11 +207,6 @@ h1 {
     border: 1px solid #fff;
   }
 
- 
-
-
-
-
   /* --- PALETA COLORES 
 COLOR PRINCIPAL #7db4b5
 COLOR COMPLEMENTARIO #e0eff1
@@ -219,7 +214,7 @@ COLOR DESTAQUE #680148
 COLOR TEXTO #000000
 COLOR NEGATIVO #ffffff
 --- */
-
+ 
 /* -- categorias-- */
 .categorias{
   background-color: #e0eff1;
@@ -295,6 +290,40 @@ COLOR NEGATIVO #ffffff
   transform: scale(1.2);
 }
 
+ /*-- CONTACT --*/
+form{
+  padding: 20px 0 20px 0;
+  background-color: #e0eff1;
+}
+
+.h2form{
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.formInput{
+  padding: 6px 20px;
+
+}
+
+ .inputContact, textarea, #categoria{
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-left: 4px solid #666;
+  border-radius: 6px;
+ }
+
+
+ #asunto{
+  color:#6e6d6d;
+  font-family: sans-serif;
+ }
+
+ #categoria{
+  width: 20%;
+ }
+
 
 /* -- NOSOTROS --- */
 .nosotros .servicios {
@@ -347,6 +376,7 @@ COLOR NEGATIVO #ffffff
   .nosotros .servicios{
     grid-template-columns: 1fr;
   }
+
 
   .nosotros .presentacion{
     grid-template-columns: 1fr;

@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
-    <title>Tienda</title>
+    <title>Tienda/Contactanos</title>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
                             <li><a href="index.html">home</a></li>
                             <li><a href="tienda.html">tienda</a></li>
                             <li><a href="#">nosotros</a></li>
-                            <li><a href="contacto.html">contacto</a></li>
+                            <li><a href="#">contacto</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -45,68 +45,45 @@
         </div>
     </header>
 
-    <main class="hero">
-        <div class="container texto">
-            <h1>bienvenidos a <span>Tienda</span></h1>
-            <div class="botones">
-                <a href="#nosotros" class="btn">conocenos</a>
-                <a href="tienda.html" class="btn">comprar</a>
-            </div>
+
+
+
+
+
+
+
+    <form>
+        <h2 class="h2form">Formulario de Contacto</h2>
+        <div class="formInput">
+            <input class="inputContact" type="text" required name="Nombre" placeholder="Nombre">
         </div>
-    </main>
-
-    <section class="categorias">
-        <div class="grid-container">
-            <div class="caja"><a href="tienda.html"><h3>oficina</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>libreria</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>papeleria</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>artistica</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>marroniqueria</h3></a></div>
+        <div class="formInput">
+            <input class="inputContact" type="text" required name="Apellido" placeholder="Apellido">
         </div>
-
-    </section>
-
-<!-- NOSOTROS -->
-    <section class="nosotros" id="nosotros">
-        <div class="container">
-            <div class="titulo">
-                <i class="fa-solid fa-people-roof fa-xl"></i>
-                <h2>nosotros</h2>
-            </div>
-
-            <div class="servicios">
-                <div class="card">
-                    <img src="img/envios.svg" alt="icon envios">
-                    <h3>envíos a todo el país</h3>
-                </div>
-                <div class="card">
-                    <img src="img/local.svg" alt="icon envios">
-                    <h3>cantidad de sucursales</h3>
-                </div>
-                <div class="card">
-                    <img src="img/primer-nivel.svg" alt="icon envios">
-                    <h3>productos de primer nivel</h3>
-                </div>
-                <div class="card">
-                    <img src="img/asist-postventa.svg" alt="icon envios">
-                    <h3>asistencia post-venta</h3>
-                </div>
-            </div>
-
-            <div class="presentacion">
-                <img src="img/imagen-pf.png" width="100" alt="imagen empleados">
-                <div class="texto">
-                    <div class="titulo">
-                        <i class="fa-solid fa-people-group fa-xl"></i>
-                        <h3>staff</h3>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam dolorem labore eveniet quo alias maiores repudiandae commodi, reiciendis, corporis at illum excepturi. Dignissimos quo aliquam iure nobis quam voluptatibus error.
-                    </p>
-                    
-                </div>
-            </div>
+        <div class="formInput">
+            <input class="inputContact" type="email" required name="email" placeholder="Example@tienda.com">
         </div>
-    </section>
+        <div class="formInput">
+            <select name="categoria" id="categoria">
+                <option value="">Oficina</option>
+                <option value="">Libreria</option>
+                <option value="">Papeleria</option>
+                <option value="">Artistica</option>
+                <option value="">Marroquineria</option>
+            </select>
+    
+        </div>
+        <div class="formInput">
+            <textarea name="Asunto" id="asunto">Asunto</textarea>
+        </div>
+    </form>
+
+
+
+
+
+
+
 
     <footer>
         <div class="container">
@@ -122,7 +99,6 @@
                     <li><a href="index.html">home</a></li>
                     <li><a href="tienda.html">tienda</a></li>
                     <li><a href="#">nosotros</a></li>
-                    <li><a href="contacto.html">contacto</a></li>
                 </ul>
 
                 <div class="btn-arriba">
