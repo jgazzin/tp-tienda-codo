@@ -59,6 +59,10 @@ h1 {
   button {
     cursor: pointer;
   }
+
+  .m-top{
+    margin-top: 80px;
+  }
   
   /* utilitarios */
   .container {
@@ -110,11 +114,15 @@ h1 {
     text-transform: uppercase;
   }
 
-
   /* -- HEADER--- */
   .header {
     background-color: #680148;
     padding: 16px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1;
   }
   .navbar, .footer {
     display: flex;
@@ -147,20 +155,73 @@ h1 {
     position: relative;
   }
 
+  .carrito{
+    position: relative;
+  }
+
   .submenu ul{
     display: none;
     position: absolute;
+    right: 0;
     background-color: #680148;
     border: 1px solid #fff;
-    border-radius: 16px;
-    padding: 10px 0 10px 10px;
+    border-radius: 8px;
+    padding: 8px;
   }
 
+  .contenedor-carrito{
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-color: #680148;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    padding: 8px;
+    min-width: 240px;
+  }
+  .info-producto .row-producto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .contenedor-carrito li{
+    margin: 0;
+  }
+  .info-producto span{
+    text-align: center;
+    padding-bottom: 4px;
+
+  }
+  .info-producto .nombre{
+    text-transform: uppercase;
+    min-width: 60px;
+  }
+  .info-producto .btn-eliminar{
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .info-producto .btn-eliminar:hover{
+    color: grey;
+  }
+
+  .contenedor-carrito .total{
+    border-top: 1px solid grey;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 4px;
+  }
+  
   .submenu ul li {
     float: none;
     text-align: right;
     border-bottom: 1px solid grey;
     line-height: 1.5;
+    margin: 0;
   }
   .submenu ul li:last-of-type{
     border: none;
@@ -172,8 +233,11 @@ h1 {
 
   .submenu:hover > ul {
     display: block;
-    right: -20px;
     top: 22px;
+  }
+
+  .hidden{
+    display: none;
   }
 
 
@@ -556,16 +620,6 @@ form{
     justify-content: space-between;
   }
 
-  .producto .img img{
-    cursor: pointer;
-  }
-
-  .img-100 {
-    position: absolute;
-    top: 0;
-    border: 1px solid grey;
-    border-radius: 16px;
-  }
 
 /*--- ASIDE ---*/
 .menu {
