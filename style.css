@@ -177,16 +177,36 @@ h1 {
   }
 
 
-
-
   /* -- HERO --*/
   .hero {
     height: 450px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/imagen-hero.jpg);
+    background-size: cover;
+    background-position: center center;
+
   }
 
+  .hero .texto{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
 
+    height: 100%;
+  }
 
-  /* -- OTRA SECCIÓN --*/
+  .hero .botones {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .botones a:first-of-type{
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+
   /* --- PALETA COLORES 
 COLOR PRINCIPAL #7db4b5
 COLOR COMPLEMENTARIO #e0eff1
@@ -194,14 +214,26 @@ COLOR DESTAQUE #680148
 COLOR TEXTO #000000
 COLOR NEGATIVO #ffffff
 --- */
-
-  
+ 
+/* -- categorias-- */
 .categorias{
   background-color: #e0eff1;
 }
 .grid-container{
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+}
+
+@media (max-width: 768px) {
+    .grid-container{
+      grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .grid-container{
+      grid-template-columns: 1fr;
+    }
 }
 
 .grid-container div:nth-of-type(1){
@@ -292,17 +324,69 @@ form{
   width: 20%;
  }
 
- .boton{
-  width: 70px;
-  height: 30px;
- }
 
- .labelForm{
-  line-height: 2;
- }
- 
+/* -- NOSOTROS --- */
+.nosotros .servicios {
+    /* display: flex;
+    justify-content: space-evenly;
+    align-items: baseline; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 2rem;
+    place-items: baseline center;
+}
+
+.servicios .card{
+  text-align: center;
+  place-items: baseline;
+  width: 160px;
+}
+.servicios .card img{
+  width: 80px;
+  opacity: .5;
+}
+
+.nosotros .presentacion{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+.nosotros .presentacion img{
+  width: 220px;
+  height: 220px;
+  border-radius: 100%;
+}
+
+.nosotros .presentacion .texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .nosotros .servicios{
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .nosotros .servicios{
+    grid-template-columns: 1fr;
+  }
 
 
+  .nosotros .presentacion{
+    grid-template-columns: 1fr;
+  }
+
+  .nosotros .presentacion .texto{
+    align-items: center;
+    text-align: center;
+  }
+}
 
   /*-- FOOTER --*/
   footer {
@@ -429,8 +513,27 @@ form{
     flex-direction: column;
   }
   .producto .textos .tags {
-    text-align: right;
     padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap:8px;
+  }
+
+  .tags .precio{
+    background-color:#7db4b5;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+
+  .tags .categoria{
+    background-color:#e0eff1;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
   }
 
   .textos .plus {
