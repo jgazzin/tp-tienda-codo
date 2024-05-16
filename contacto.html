@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/cdd189729f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
+    <title>Tienda/Contactanos</title>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo-32px.png" width="100" alt="logo">
+ 
+                </a>
+                <h1>tienda</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li  class="carrito"><i class="fa-solid fa-cart-plus fa-xl"></i>
+                        <ul></ul>
+                    </li>
+                    <li class="submenu"><i class="fa-solid fa-bars fa-xl"></i>
+                        <ul>
+                            <li><a href="index.html">home</a></li>
+                            <li><a href="tienda.html">tienda</a></li>
+                            <li><a href="#">nosotros</a></li>
+                            <li><a href="#">contacto</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+    <form>
+        <h2 class="h2form">Formulario de Contacto</h2>
+        <div class="formInput">
+            <input class="inputContact" type="text" required name="Nombre" placeholder="Nombre">
+        </div>
+        <div class="formInput">
+            <input class="inputContact" type="text" required name="Apellido" placeholder="Apellido">
+        </div>
+        <div class="formInput">
+            <input class="inputContact" type="email" required name="email" placeholder="Example@tienda.com">
+        </div>
+        <div class="formInput">
+            <select name="categoria" id="categoria">
+                <option value="">Oficina</option>
+                <option value="">Libreria</option>
+                <option value="">Papeleria</option>
+                <option value="">Artistica</option>
+                <option value="">Marroquineria</option>
+            </select>
+    
+        </div>
+        <div class="formInput">
+            <textarea name="Asunto" id="asunto">Asunto</textarea>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/logo-32px.png" width="100" alt="logo">
+                    </a>
+                    <h1>tienda</h1>
+                </div>
+
+                <ul class="nav-footer">
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="tienda.html">tienda</a></li>
+                    <li><a href="#">nosotros</a></li>
+                </ul>
+
+                <div class="btn-arriba">
+                    <a href="#header">
+                        <i class="fa-solid fa-angle-up fa-2xl"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="social">
+                <a href="www.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                <a href="www.twitter.com"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                <a href="www.instagram.com"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
+            </div>
+
+        </div>
+
+        <div class="copy">
+            <p>&copy;2024 · codo a codo · grupo<span>11</span></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
