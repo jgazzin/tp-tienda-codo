@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
-    <title>Tienda</title>
+    <title>Tienda/Contactanos</title>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
                             <li><a href="index.html">home</a></li>
                             <li><a href="tienda.html">tienda</a></li>
                             <li><a href="#">nosotros</a></li>
-                            <li><a href="contacto.html">contacto</a></li>
+                            <li><a href="#">contacto</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -47,31 +47,43 @@
 
 
 
-    <main class="hero">
-
-    </main>
 
 
-    <section class="categorias">
-        <div class="grid-container">
-            <div class="caja"><a href="tienda.html"><h3>oficina</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>libreria</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>papeleria</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>artistica</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>marroniqueria</h3></a></div>
+
+
+
+    <form>
+        <h2 class="h2form">Formulario de Contacto</h2>
+        <div class="formInput">
+            <input class="inputContact" type="text" required name="Nombre" placeholder="Nombre">
         </div>
+        <div class="formInput">
+            <input class="inputContact" type="text" required name="Apellido" placeholder="Apellido">
+        </div>
+        <div class="formInput">
+            <input class="inputContact" type="email" required name="email" placeholder="Example@tienda.com">
+        </div>
+        <div class="formInput">
+            <select name="categoria" id="categoria">
+                <option value="">Oficina</option>
+                <option value="">Libreria</option>
+                <option value="">Papeleria</option>
+                <option value="">Artistica</option>
+                <option value="">Marroquineria</option>
+            </select>
+    
+        </div>
+        <div class="formInput">
+            <textarea name="Asunto" id="asunto">Asunto</textarea>
+        </div>
+    </form>
 
-    </section>
 
-    <section class="container">
-        <form class="contacto">
-            <input type="text" required>
-            <input type="text" required>
-            <input type="checkbox">
-            <input type="submit">
-        </form>
 
-    </section>
+
+
+
+
 
     <footer>
         <div class="container">
@@ -87,7 +99,6 @@
                     <li><a href="index.html">home</a></li>
                     <li><a href="tienda.html">tienda</a></li>
                     <li><a href="#">nosotros</a></li>
-                    <li><a href="contacto.html">contacto</a></li>
                 </ul>
 
                 <div class="btn-arriba">
