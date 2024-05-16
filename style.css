@@ -246,7 +246,7 @@ COLOR NEGATIVO #ffffff
   background-position: center;
 }
 
-.grid-container div:nth-of-type(2){
+.grid-container div:nth-child(2) {
   background-image: url(img/libreria.jpg);
   background-size: cover;
   background-size: contain;
