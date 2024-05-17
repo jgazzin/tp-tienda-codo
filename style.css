@@ -280,6 +280,8 @@ COLOR NEGATIVO #ffffff
 --- */
  
 /* -- categorias-- */
+
+
 .categorias{
   background-color: #e0eff1;
 }
@@ -308,7 +310,7 @@ COLOR NEGATIVO #ffffff
   background-position: center;
 }
 
-.grid-container div:nth-of-type(2){
+.grid-container div:nth-child(2) {
   background-image: url(img/libreria.jpg);
   background-size: cover;
   background-size: contain;
@@ -355,6 +357,8 @@ COLOR NEGATIVO #ffffff
 }
 
  /*-- CONTACT --*/
+
+
 form{
   padding: 20px 0 20px 0;
   background-color: #e0eff1;
@@ -362,16 +366,16 @@ form{
 
 .h2form{
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .formInput{
-  padding: 6px 20px;
+  padding: 10px 20px;
 
 }
 
  .inputContact, textarea, #categoria{
-  width: 100%;
+  width: 70%;
   padding: 5px 10px;
   border: none;
   border-left: 4px solid #666;
@@ -387,6 +391,17 @@ form{
  #categoria{
   width: 20%;
  }
+
+ .labelForm{
+  line-height: 2;
+ }
+
+ .boton{
+  width: 100px;
+  height: 30px;
+ }
+
+
 
 
 /* -- NOSOTROS --- */

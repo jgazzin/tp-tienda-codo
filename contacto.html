@@ -55,27 +55,52 @@
     <form>
         <h2 class="h2form">Formulario de Contacto</h2>
         <div class="formInput">
-            <input class="inputContact" type="text" required name="Nombre" placeholder="Nombre">
+            <label class="labelForm" for="">Nombre Completo</label>
+            <br>
+            <input class="inputContact" type="text" required name="Nombre" placeholder="Juan Carlos">
         </div>
         <div class="formInput">
-            <input class="inputContact" type="text" required name="Apellido" placeholder="Apellido">
+            <label class="labelForm" for="">Apellido Completo</label>
+            <br>
+            <input class="inputContact" type="text" required name="Apellido" placeholder="Rodriguez">
         </div>
         <div class="formInput">
+            <label class="labelForm" for="">Email</label>
+            <br>
             <input class="inputContact" type="email" required name="email" placeholder="Example@tienda.com">
         </div>
         <div class="formInput">
+            <label class="labelForm" for="">Elige una categoria por la cual consulta</label>
+            <br>
             <select name="categoria" id="categoria">
                 <option value="">Oficina</option>
                 <option value="">Libreria</option>
                 <option value="">Papeleria</option>
                 <option value="">Artistica</option>
                 <option value="">Marroquineria</option>
+                <option value="">Ninguna de las anteriores</option>
             </select>
-    
         </div>
         <div class="formInput">
-            <textarea name="Asunto" id="asunto">Asunto</textarea>
+            <label class="labelForm" for="">Escriba aquí su consulta</label>
+            <br>
+            <textarea name="Asunto" id="asunto">Mensaje</textarea>
         </div>
+        <div class="formInput">
+            <label class="labelForm" for="">Dejanos tu archivo adjunto</label> 
+            <input type="file">
+        </div>
+        <div class="formInput">
+            <label class="labelCheckbox"> Acepto enviar esta información
+                <input class="checkbox" type="checkbox">
+                <span class="spanCheckbox"></span>
+            </label>
+        </div>
+        <div class="formInput">
+            <input class="boton" type="submit">
+        </div>
+        
+
     </form>
 
 
