@@ -412,11 +412,6 @@ COLOR NEGATIVO #ffffff
   justify-content: center;
   padding: 2rem;
 }
-@media (max-width: 576px) {
-    .botones{
-      flex-direction: column;
-    }
-}
 
  .inputContact, textarea, #categoria{
   width: 100%;
@@ -436,18 +431,17 @@ COLOR NEGATIVO #ffffff
   line-height: 2;
  }
 
- .boton{
+ /* .boton{
   width: 100px;
   height: 30px;
- }
-
- 
+ } */
 
 /* Ocultar el input original */
 input[type="file"] {
   opacity: 0;
   position: absolute;
   z-index: -1;
+  width: 200px;
 }
 
 .alertas{
@@ -466,6 +460,15 @@ input[type="file"] {
 
 .alertas .error{
   background-color: red;
+}
+
+@media (max-width: 576px) {
+  .form{
+    width: 100%;
+  }
+  .botones{
+    flex-direction: column;
+  }
 }
 
 
