@@ -30,14 +30,27 @@
             <nav class="nav">
                 <ul>
                     <li  class="carrito"><i class="fa-solid fa-cart-plus fa-xl"></i>
-                        <ul></ul>
+                        <ul class="contenedor-carrito hidden">
+                            <!-- <li class="info-producto">
+                                <div class="row-producto">
+                                    <span class="cantidad">1</span>
+                                    <span class="nombre">lapiz</span>
+                                    <span class="precio">$0</span>
+                                    <span class="btn-eliminar">x</span>
+                                </div>
+                            </li> -->
+                            <li class="total">
+                                <p class="precio-total">$0</p>
+                            </li>
+                        </ul>
                     </li>
                     <li class="submenu"><i class="fa-solid fa-bars fa-xl"></i>
                         <ul>
                             <li><a href="index.html">home</a></li>
                             <li><a href="tienda.html">tienda</a></li>
-                            <li><a href="#">nosotros</a></li>
+                            <li><a href="#nosotros">nosotros</a></li>
                             <li><a href="contacto.html">contacto</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -45,7 +58,8 @@
         </div>
     </header>
 
-    <main class="hero">
+    <a id="inicio"></a>
+    <main class="hero m-top">
         <div class="container texto">
             <h1>bienvenidos a <span>Tienda</span></h1>
             <div class="botones">
@@ -120,12 +134,12 @@
                 <ul class="nav-footer">
                     <li><a href="index.html">home</a></li>
                     <li><a href="tienda.html">tienda</a></li>
-                    <li><a href="#">nosotros</a></li>
+                    <li><a href="#nosotros">nosotros</a></li>
                     <li><a href="contacto.html">contacto</a></li>
                 </ul>
 
                 <div class="btn-arriba">
-                    <a href="#header">
+                    <a href="#inicio">
                         <i class="fa-solid fa-angle-up fa-2xl"></i>
                     </a>
                 </div>
