@@ -288,7 +288,7 @@ COLOR NEGATIVO #ffffff
 }
 .grid-container{
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
 }
 
 @media (max-width: 768px) {
