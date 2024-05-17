@@ -30,14 +30,27 @@
             <nav class="nav">
                 <ul>
                     <li  class="carrito"><i class="fa-solid fa-cart-plus fa-xl"></i>
-                        <ul></ul>
+                        <ul class="contenedor-carrito hidden">
+                            <!-- <li class="info-producto">
+                                <div class="row-producto">
+                                    <span class="cantidad">1</span>
+                                    <span class="nombre">lapiz</span>
+                                    <span class="precio">$0</span>
+                                    <span class="btn-eliminar">x</span>
+                                </div>
+                            </li> -->
+                            <li class="total">
+                                <p class="precio-total">$0</p>
+                            </li>
+                        </ul>
                     </li>
                     <li class="submenu"><i class="fa-solid fa-bars fa-xl"></i>
                         <ul>
                             <li><a href="index.html">home</a></li>
                             <li><a href="tienda.html">tienda</a></li>
-                            <li><a href="#">nosotros</a></li>
-                            <li><a href="#">contacto</a></li>
+                            <li><a href="index.html#nosotros">nosotros</a></li>
+                            <li><a href="contacto.html">contacto</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -45,107 +58,103 @@
         </div>
     </header>
 
-
-
-
-
-
-
 <div class="container">
-    <form>
-        <h2 class="h2form">Formulario de Contacto</h2>
+    <div class="titulo m-top">
+        <i class="fa-solid fa-comments fa-lg"></i>
+        <h3>Contáctanos</h3>
+    </div>
+    <form class="form" novalidate>
+
         <div class="formInput">
             <label class="labelForm" for="">Nombre Completo</label>
-            <br>
+
             <input class="inputContact" type="text" required name="Nombre" placeholder="Juan Carlos">
         </div>
         <div class="formInput">
             <label class="labelForm" for="">Apellido Completo</label>
-            <br>
+
             <input class="inputContact" type="text" required name="Apellido" placeholder="Rodriguez">
         </div>
         <div class="formInput">
             <label class="labelForm" for="">Email</label>
-            <br>
+
             <input class="inputContact" type="email" required name="email" placeholder="Example@tienda.com">
         </div>
         <div class="formInput">
-            <label class="labelForm" for="">Elige una categoria por la cual consulta</label>
-            <br>
-            <select name="categoria" id="categoria">
-                <option value="">Oficina</option>
-                <option value="">Libreria</option>
-                <option value="">Papeleria</option>
-                <option value="">Artistica</option>
-                <option value="">Ninguna de las anteriores</option>
-            </select>
+            <label class="labelForm" for="">Elige una categoria por la cual consulta:</label>
+            <div>
+                <select name="categoria" id="categoria">
+                    <option value="oficina">Oficina</option>
+                    <option value="libreria">Libreria</option>
+                    <option value="papeleria">Papeleria</option>
+                    <option value="artistica">Artistica</option>
+                    <option value="otra">Ninguna de las anteriores</option>
+                </select>
+            </div>
         </div>
         <div class="formInput">
             <label class="labelForm" for="">Escriba aquí su consulta</label>
-            <br>
-            <textarea name="Asunto" id="asunto">Mensaje</textarea>
+
+            <textarea name="Asunto" id="asunto" rows="10" placeholder="Escriba un mensaje o suba un listado para consultar presupuesto..."></textarea>
         </div>
         <div class="formInput">
-            <label class="labelForm" for="">Dejanos tu archivo adjunto</label> 
-            <input type="file" class="btn">
+            <label class="labelForm btn" for="">Subir archivo</label> 
+            <input type="file">
         </div>
         <div class="formInput">
-            <label class="labelCheckbox"> Acepto enviar esta información
+            <label class="labelCheckbox"> 
                 <input class="checkbox" type="checkbox">
-                <span class="spanCheckbox"></span>
+                <span class="spanCheckbox">Acepto enviar esta información</span>
             </label>
         </div>
-        <div class="formInput">
-            <input class="btn" type="submit">
+        <div class="alertas"></div>
+        <div class="formbtn botones">
+            <a href="index.html" class="btn">volver</a>
+            <input class="btn" type="submit" value="enviar">
         </div>
         
 
     </form>
 </div>
 
-
-
-
-
-
-
-    <footer>
-        <div class="container">
-            <div class="footer">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="img/logo-32px.png" width="100" alt="logo">
-                    </a>
-                    <h1>tienda</h1>
-                </div>
-
-                <ul class="nav-footer">
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="tienda.html">tienda</a></li>
-                    <li><a href="#">nosotros</a></li>
-                </ul>
-
-                <div class="btn-arriba">
-                    <a href="#header">
-                        <i class="fa-solid fa-angle-up fa-2xl"></i>
-                    </a>
-                </div>
-
+<footer>
+    <div class="container">
+        <div class="footer">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo-32px.png" width="100" alt="logo">
+                </a>
+                <h1>tienda</h1>
             </div>
 
-            <div class="social">
-                <a href="www.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                <a href="www.twitter.com"><i class="fa-brands fa-twitter fa-xl"></i></a>
-                <a href="www.instagram.com"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
+            <ul class="nav-footer">
+                <li><a href="index.html">home</a></li>
+                <li><a href="tienda.html">tienda</a></li>
+                <li><a href="index.html#nosotros">nosotros</a></li>
+                <li><a href="contacto.html">contacto</a></li>
+            </ul>
+
+            <div class="btn-arriba">
+                <a href="#inicio">
+                    <i class="fa-solid fa-angle-up fa-2xl"></i>
+                </a>
             </div>
 
         </div>
 
-        <div class="copy">
-            <p>&copy;2024 · codo a codo · grupo<span>11</span></p>
+        <div class="social">
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-xl"></i></a>
+            <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter fa-xl"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
         </div>
-    </footer>
 
+    </div>
+
+    <div class="copy">
+        <p>&copy;2024 · codo a codo · grupo<span>11</span></p>
+    </div>
+</footer>
+    <script src="validacion.js"></script>
     <script src="app.js"></script>
 </body>
 
