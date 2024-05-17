@@ -66,22 +66,22 @@
     <form class="form" novalidate>
 
         <div class="formInput">
-            <label class="labelForm" for="">Nombre Completo</label>
+            <label class="labelForm" for="nombre">Nombre Completo</label>
 
-            <input class="inputContact" type="text" required name="Nombre" placeholder="Juan Carlos">
+            <input class="inputContact" type="text" required name="Nombre" placeholder="Juan Carlos" id="nombre">
         </div>
         <div class="formInput">
-            <label class="labelForm" for="">Apellido Completo</label>
+            <label class="labelForm" for="apellido">Apellido Completo</label>
 
-            <input class="inputContact" type="text" required name="Apellido" placeholder="Rodriguez">
+            <input class="inputContact" type="text" required id="apellido" name="Apellido" placeholder="Rodriguez">
         </div>
         <div class="formInput">
-            <label class="labelForm" for="">Email</label>
+            <label class="labelForm" for="email">Email</label>
 
-            <input class="inputContact" type="email" required name="email" placeholder="Example@tienda.com">
+            <input class="inputContact" type="email" required name="email" id="email" placeholder="Example@tienda.com">
         </div>
         <div class="formInput">
-            <label class="labelForm" for="">Elige una categoria por la cual consulta:</label>
+            <label class="labelForm" for="categoria">Elige una categoria por la cual consulta:</label>
             <div>
                 <select name="categoria" id="categoria">
                     <option value="oficina">Oficina</option>
@@ -93,13 +93,13 @@
             </div>
         </div>
         <div class="formInput">
-            <label class="labelForm" for="">Escriba aquí su consulta</label>
+            <label class="labelForm" for="asunto">Escriba aquí su consulta</label>
 
             <textarea name="Asunto" id="asunto" rows="10" placeholder="Escriba un mensaje o suba un listado para consultar presupuesto..."></textarea>
         </div>
         <div class="formInput">
-            <label class="labelForm btn" for="">Subir archivo</label> 
-            <input type="file">
+            <label class="labelForm btn" for="adjunto">Subir archivo</label> 
+            <input type="file" name="adjunto" id="adjunto">
         </div>
         <div class="formInput">
             <label class="labelCheckbox"> 
