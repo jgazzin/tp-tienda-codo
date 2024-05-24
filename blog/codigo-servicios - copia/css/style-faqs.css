@@ -1,0 +1,214 @@
+:root{
+    --primariColor: #CCFF00;
+    --secondariColor: #F1E811;
+    --textPrimari: #000;
+    --textSecondari: #242424;
+    --textLight: #707070;
+
+    --fontPrimari: 'Sora', sans-serif;
+    --fontSecondari: 'Inter', sans-serif;
+
+}
+
+html {
+    font-family: var(--textPrimari);
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: var(--primariColor);
+    position: relative;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+}
+
+*,*::after, *::before{
+    box-sizing: border-box;
+}
+
+.font-secondari {
+    font-family: var(--textSecondari);
+}
+
+.text-secondari {
+    color: var(--textSecondari);
+}
+
+.textLight {
+    color: var(--textLight);
+}
+
+.navegacion {
+    height: 60px;
+}
+
+.header {
+    position: relative;
+    height: calc(100vh - 60px);
+}
+
+.header::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.a-hover:hover {
+    border-bottom: solid 1px black;
+}
+
+.degrade {
+    background: radial-gradient(50% 50% at 50% 50%, #F1E811 0%, rgba(224, 252, 109, 0.1) 100%);
+    height: 90%;
+}
+
+.hero {
+    position: absolute;
+    height: inherit;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.img-arbol {
+    width: 100%;
+    padding: 0 3%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 70px;
+
+}
+
+.img-cut {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.img-cut-reverse {
+    width: 100%;
+    rotate: 180deg;
+    position: absolute;
+    top: 0;
+    
+}
+
+.contacto {
+    position: relative;
+    height: 600px;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .contacto {
+        height: 600px;
+    }
+}
+
+.contacto::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.contacto::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.text-centrado {
+    height: 100%;
+}
+
+.logo-img {
+    width: 70%;
+}
+
+.img-clientes {
+    width: 150px;
+    margin: 10px;
+}
+
+
+.dropdown-menu {
+    background-color: var(--fontPrimari);
+}
+
+.btn-add {
+    border: 2px solid #1b1b1b;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.card-w {
+    width: 100%;
+    margin-bottom: 15px;
+} 
+
+@media (min-width: 768px) {
+    .card-w {
+        width: 32%;
+        gap: 1%;
+        margin-bottom: 0;
+    } 
+}
+
+.img-card-h {
+    height: 60%;
+}
+
+.pregunta {
+    padding-top: 15px;
+    border-bottom: solid 2px black;
+}
+
+.accion {
+    height: 300px;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .accion {
+        height: 500px;
+    }
+}
+
+.accion::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+
+.copy {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+}
