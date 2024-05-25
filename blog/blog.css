@@ -1,279 +1,102 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: aliceblue;
+   
+}
+header{
     background-color: rgb(104, 1, 72);
+    width: 100%;
+    height: 60%;
+    font-size: 20px;
+    
 }
-.post1 {
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
+.contenedor1 {
+
+    background-color: rgb(67, 155, 232);
+    width: 60%;
+    height: 100%;
+    position: relative;
+    left: 40%;
+    font-size: 20px;
 
 }
-.comments1 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
 
-}
-.comment1 {
+.respuesta {
     border-bottom: 1px dashed #ccc;
     margin-bottom: 10px;
     background-color: azure;
-    border-radius: 50px / 30px;
+    border-radius: 50px / 30px; 
+    padding: 20px; 
+    font-size: 17px;  
 }
 
+footer{
 
-
-
-.post2 {
-    border: 1px solid #ccc;
+    width: 100%;
+    height: 80%;
+    background-color: rgb(104, 1, 72);
+   
+}
+.respuesta {
+    display: none;
+}
+.linea1 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments2 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment2 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post3 {
-    border: 1px solid #ccc;
+  }
+  .linea2 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments3 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment3 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post4 {
-    border: 1px solid #ccc;
+  }
+  .linea3 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments4 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment4 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post5 {
-    border: 1px solid #ccc;
+  }
+  .linea4 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments5 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment5 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post6 {
-    border: 1px solid #ccc;
+  }
+  .linea5 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments6 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment6 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post7 {
-    border: 1px solid #ccc;
+  }
+  .linea6 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments7 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comments7 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post8 {
-    border: 1px solid #ccc;
+  }
+  .linea7 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments8 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-
-}
-.comment8 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-.post9 {
-    border: 1px solid #ccc;
+  }
+  .linea8 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-
-}
-.comments9 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment9 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post10 {
-    border: 1px solid #ccc;
+  }
+  .linea9 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments10 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment10 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post11 {
-    border: 1px solid #ccc;
+  }
+  .linea10 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments11 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment11 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post12 {
-    border: 1px solid #ccc;
+  }
+  .linea11 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments12 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment12 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
-
-
-.post13 {
-    border: 1px solid #ccc;
+  }
+  .linea12 {
+    border-top: 1px dotted black;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    background-color: azure;
-}
-.comments13 {
-    background-color: #eee;
-    padding: 20px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-.comment13 {
-    border-bottom: 1px dashed #ccc;
-    margin-bottom: 10px;
-    background-color: azure;
-    border-radius: 50px / 30px;
-}
-
+  }
