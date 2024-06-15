@@ -1,10 +1,9 @@
 // contenedor carrito
 const btnCarrito = document.querySelector('nav .carrito i')
-const contenedorCarrito = document.querySelector('.contenedor-carrito')
+const contenedorCarrito = document.querySelector('.contenedor-carrito');
 
-btnCarrito.addEventListener('click', () => {
-    contenedorCarrito.classList.toggle('hidden')
-})
+const vaciar = document.querySelector('#vaciar')
+vaciar.addEventListener('click', vaciarCarrito)
 
 // carrito
 const rowProducto = document.querySelector('.contenedor-carrito .row-producto')
@@ -16,6 +15,7 @@ let productosSeleccionados = [];
 
 // total a pagar
 const totalPagar = document.querySelector('.contenedor-carrito .precio-total')
+let total;
 
 // evento carrito
 listadoProductos.addEventListener('click', e => {
@@ -56,7 +56,7 @@ function imprimirHtml() {
     infoProducto.innerHTML = '';
 
     // total
-    let total = 0;
+    total = 0;
     
     // listados productos seleccionados
     productosSeleccionados.forEach( producto => {
@@ -90,6 +90,12 @@ infoProducto.addEventListener('click', (e) => {
     }
 })
 
+// vaciar carrito
+function vaciarCarrito() {
+    productosSeleccionados = [];
+    total = 0;
+    imprimirHtml()
+}
 
 
 // -------    formulario filtros  ---------
