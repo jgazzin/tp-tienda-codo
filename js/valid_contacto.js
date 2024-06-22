@@ -1,18 +1,18 @@
-const nombre = document.querySelector('.inputContact[name="Nombre"]');
-const email = document.querySelector('.inputContact[name="email"]');
-const mensaje = document.querySelector('#asunto')
-const btnEnviar = document.querySelector('.btn[type="submit"]')
-const terminos = document.querySelector('.checkbox')
-const contenedorAlertas = document.querySelector('.form .alertas')
 
 // validar
-btnEnviar.addEventListener('click', (e) => {
+document.querySelector('.contactar').addEventListener('click', (e) => {
+
+    const nombre = document.querySelector('.inputContact[name="Nombre"]');
+    const email = document.querySelector('.inputContact[name="email"]');
+    const mensaje = document.querySelector('#asunto')
+    const terminos = document.querySelector('.checkbox')
+    const alertasContainer = document.querySelector('.form .alertas')
+
+
     e.preventDefault()
     validar()
-});
 
-
-// funciones
+    // funciones
 function validarEmail() {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if(email.value === "") {
@@ -48,8 +48,8 @@ function validarterminos() {
 }
 function validar() {
     // limpiar alertas anteriores
-    if (contenedorAlertas.firstChild) {
-        contenedorAlertas.innerHTML=''
+    if (alertasContainer.firstChild) {
+        alertasContainer.innerHTML=''
     }
 
     if (validarNombre() &
@@ -73,6 +73,10 @@ function alertas(texto, tipo='error') {
         elementoAlerta.classList.add('ok')
     }
     elementoAlerta.textContent= texto;
-    contenedorAlertas.append(elementoAlerta)
+    alertasContainer.append(elementoAlerta)
 }
+});
+
+
+
 

@@ -121,9 +121,7 @@
   }
   
   /*Log In*/
-  input{
-    border: none;
-  }
+
   .contenedor-registro form{
     display: grid;
     grid-template-rows: 4fr 0.5fr 2fr;
@@ -148,8 +146,9 @@
     font-weight: bold;
   }
   
-  .item input{
+  input{
     background-color: transparent;
+    border: none;
     border-bottom: 1px solid var(--color-negativo);
     height: 25px;
   }
