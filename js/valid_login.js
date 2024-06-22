@@ -7,15 +7,17 @@ registro.addEventListener('click', (e) => {
         const form = e.target.parentElement.parentElement;
         if (validar(form)) {
             alertas(form, 'Enviando...', 'ok')
+
+            setTimeout(() => {
+                form.querySelector('.alertas').innerHTML=''
+                const alertasResult = form.querySelectorAll('.result')
+                alertasResult.forEach(result => {
+                    result.classList.remove('result')
+                });
+                form.reset()
+            }, 2000);
         }
-        setTimeout(() => {
-            form.querySelector('.alertas').innerHTML=''
-            const alertasResult = form.querySelectorAll('.result')
-            alertasResult.forEach(result => {
-                result.classList.remove('result')
-            });
-            form.reset()
-        }, 2000);
+
 
 
     }
