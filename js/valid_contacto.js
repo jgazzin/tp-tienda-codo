@@ -2,8 +2,8 @@ const nombre = document.querySelector('.inputContact[name="Nombre"]');
 const email = document.querySelector('.inputContact[name="email"]');
 const mensaje = document.querySelector('#asunto')
 const btnEnviar = document.querySelector('.btn[type="submit"]')
-const contenedorAlertas = document.querySelector('.form .alertas')
 const terminos = document.querySelector('.checkbox')
+const contenedorAlertas = document.querySelector('.form .alertas')
 
 // validar
 btnEnviar.addEventListener('click', (e) => {
@@ -64,7 +64,7 @@ function validar() {
 } 
 
 function alertas(texto, tipo='error') {
-
+    
     const elementoAlerta = document.createElement('p')
     elementoAlerta.classList.add('alertas')
     if(tipo === "error"){

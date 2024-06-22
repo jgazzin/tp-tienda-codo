@@ -1,0 +1,168 @@
+/* --- PAGINA TIENDA --- */
+
+.tienda {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    position: relative;
+
+  }
+
+  @media (max-width: 768px) {
+      .tienda {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+      }
+  }
+
+  .tienda .menu {
+    background-color: #e0eff1;
+  }
+
+  .producto{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .producto:hover{
+    box-shadow: 4px 2px 10px rgb(125, 180, 181);
+    transform: scale(1.01);
+  }
+  .producto:last-of-type{
+    margin-bottom: 0;
+  }
+
+  .producto .textos{
+    display: flex;
+    flex-direction: column;
+  }
+  .producto .textos .tags {
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap:8px;
+  }
+
+  .tags .precio{
+    background-color:#7db4b5;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+
+  .tags .categoria{
+    background-color:#e0eff1;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .textos .plus {
+    cursor: pointer;
+    text-align: right;
+    padding-right: 16px;
+  }
+
+  .producto .textos .detalle {
+    overflow: hidden;
+  }
+
+  .alto-ofw{
+    height: 60px;
+  }
+
+  .producto .img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+/*--- ASIDE ---*/
+.menu {
+  text-align: left;
+  padding: 0 8px;
+}
+
+.menu .titulo {
+  justify-content: start;
+}
+
+.menu .categoria {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 8px;
+
+}
+
+
+.menu fieldset{
+  border: none;
+  margin-bottom: 16px;
+}
+
+.menu legend {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+
+.menu .buscador {
+  border: 1px solid grey;
+  border-radius: 16px;
+  padding: 8px 16px;
+  background-color: #fff;
+}
+
+input{
+  border: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #680147b0;
+}
+
+input:focus {
+  outline: none;
+}
+
+.rango .btn-menos, .rango .btn-mas {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  width: 24px;
+  cursor: pointer;
+}
+
+.rango progress {
+  width: 100%;
+}
+
+@media (max-width: 768px) and (min-width: 576px) {
+  .menu .categoria {
+    display: flex;
+  }
+}
+@media (max-width: 576px) {
+    .producto{
+      grid-template-columns: 1fr;
+    }
+
+    .img-100{
+      position: static;
+      border: none;
+    }
+}
