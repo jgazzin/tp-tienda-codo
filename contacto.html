@@ -12,7 +12,8 @@
         href="https://fonts.googleapis.com/css2?family=Acme&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contacto.css">
     <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
     <title>Tienda/Contactanos</title>
 </head>
@@ -34,7 +35,8 @@
                 </div>
             </div>
         </nav>
-    </header>
+
+
     <div class="desplegable hidden" id="carrito">
         <div class="container">
             <div class="contenedor-carrito">
@@ -51,7 +53,7 @@
                 </div>
                 <div class="botones">
                     <button class="btn">Vaciar</button>
-                    <button class="btn">comprar</button>
+                    <a href="compra.html" class="btn">comprar</a>
                 </div>
             </div>
         </div>
@@ -62,7 +64,7 @@
             <div class="contenedor-menu">
                 <a href="index.html">home</a>
                 <a href="tienda.html">tienda</a>
-                <a href="#nosotros">nosotros</a>
+                <a href="index.html#nosotros">nosotros</a>
                 <a href="contacto.html">contacto</a>
             </div> 
         </div>
@@ -76,13 +78,14 @@
                         <legend>Ingresar</legend>
                         <div class="item">
                             <label for="log-name">User Name</label>
-                            <input type="text" id="log-name">
+                            <input type="text" id="log-name" class="name">
                         </div>
                         <div class="item">
                             <label for="log-pass">Pasword</label>
-                            <input type="password" id="log-pass">
+                            <input type="password" id="log-pass" class="pass">
                         </div>
                     </fieldset>
+                    <div class="alertas"></div>
                     <div>
                         <button class="btn">Ingresar</button>
                     </div>
@@ -97,11 +100,11 @@
                         <legend>Registrarse</legend>
                         <div class="item">
                             <label for="reg-name">User Name</label>
-                            <input type="text" id="reg-name">
+                            <input type="text" id="reg-name" class="name">
                         </div>
                         <div class="item">
                             <label for="reg-pass">Pasword</label>
-                            <input type="password" id="reg-pass">
+                            <input type="password" id="reg-pass" class="pass">
                         </div>
                         <div class="item">
                             <label for="reg-repass">Confirmar Pasword</label>
@@ -120,6 +123,7 @@
             </div>
         </div>
     </div>
+    </header>
 
     <div class="container">
         <div class="titulo m-top">
@@ -217,8 +221,9 @@
             <p>&copy;2024 · codo a codo · grupo<span>11</span></p>
         </div>
     </footer>
-    <script src="validacion.js"></script>
-    <script src="app.js"></script>
+    <script src="js/valid_contacto.js"></script>
+    <script src="js/valid_login.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
