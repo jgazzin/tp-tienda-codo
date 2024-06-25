@@ -40,7 +40,7 @@
   
   .desplegable {
     background-color:rgba(125, 180, 181, 0.95);
-    position: absolute;
+    position: fixed;
     top: var(--nav-h);
     width: 100%;
     height: var(--hero-h);
@@ -123,8 +123,9 @@
   /*Log In*/
 
   .contenedor-registro form{
-    display: grid;
-    grid-template-rows: 4fr 0.5fr 2fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
   }
   
@@ -220,4 +221,5 @@
         height: 80vh;
       }
   }
+
   

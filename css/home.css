@@ -5,8 +5,17 @@
   }
   .grid-container{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
+
+  }
+
+  .grid-container div{
+    display: grid;
+    place-items: center;
+    text-shadow: 0 0 5px #ffffff;
+    color: var(--color-destaque);
+    box-shadow: 2px 2px 5px grey;
   }
   
   @media (max-width: 768px) {
@@ -24,7 +33,7 @@
   .grid-container div:nth-of-type(1){
     background-image: url(../img/oficina.jpg);
     background-size: cover;
-    background-size: contain;
+
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -32,7 +41,7 @@
   .grid-container div:nth-child(2) {
     background-image: url(../img/libreria.jpg);
     background-size: cover;
-    background-size: contain;
+
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -40,7 +49,7 @@
   .grid-container div:nth-of-type(3){
     background-image: url(../img/papeleria.png);
     background-size: cover;
-    background-size: contain;
+
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -48,7 +57,7 @@
   .grid-container div:nth-of-type(4){
     background-image: url(../img/artistica.png);
     background-size: cover;
-    background-size: contain;
+
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -56,14 +65,15 @@
   .caja{
     border: #680148 solid 1px;
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 10px;
     height: 250px;
     padding: 15px;
     text-align: center;
   }
   
   .caja:hover{
-    transform: scale(1.2);
+    transform: scale(1.05);
+    transition: 300ms all ease-in-out;
   }
 
   /* -- NOSOTROS --- */
@@ -79,6 +89,9 @@
   place-items: baseline;
   width: 160px;
 }
+.servicios .card h3{
+  font-size: 16px;
+}
 .servicios .card img{
   width: 80px;
   opacity: .5;
@@ -90,16 +103,22 @@
   gap: 2rem;
   padding: 2rem;
 }
-.nosotros .presentacion img{
+.nosotros .presentacion .staff{
   width: 220px;
   height: 220px;
   border-radius: 100%;
+}
+.staff{
+  background-image: url(/img/img-nosotros.jpg);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 1px 1px 10px var(--color-ppal);
 }
 
 .nosotros .presentacion .texto {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: start;
 }
 
