@@ -5,6 +5,13 @@ const contenedorCarrito = document.querySelector('.contenedor-carrito');
 const vaciar = document.querySelector('#vaciar')
 vaciar.addEventListener('click', vaciarCarrito)
 
+// vaciar carrito
+function vaciarCarrito() {
+    productosSeleccionados = [];
+    total = 0;
+    imprimirHtml()
+}
+
 // carrito
 const rowProducto = document.querySelector('.contenedor-carrito .row-producto')
 const infoProducto = document.querySelector('.contenedor-carrito .info-producto')
@@ -47,6 +54,8 @@ listadoProductos.addEventListener('click', e => {
         // imprimir en html
         imprimirHtml()
     }
+
+
 })
 
 // FUNCIONES CARRITO
@@ -90,12 +99,7 @@ infoProducto.addEventListener('click', (e) => {
     }
 })
 
-// vaciar carrito
-function vaciarCarrito() {
-    productosSeleccionados = [];
-    total = 0;
-    imprimirHtml()
-}
+
 
 
 // -------    formulario filtros  ---------
