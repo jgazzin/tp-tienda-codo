@@ -3,10 +3,6 @@
 
 }
 
-.listado_productos_seleccionados .btn{
-    min-width: min-content !important;
-}
-
 .listado_productos_seleccionados .titulo {
     justify-content: left;
 }
@@ -42,11 +38,12 @@
     border-bottom: 2px solid grey;
 }
 
-.listado_productos_seleccionados .row{
+.listado_productos_seleccionados .bottons{
     margin: 4px 0;
     width: 100%;
     display: flex;
     justify-content: right;
+    gap: 1rem;
 }
 
 @media (max-width: 576px) {
@@ -57,5 +54,9 @@
         grid-template-columns: 1fr;
         text-align: left;
         border-bottom: 2px solid grey;
+    }
+    .listado_productos_seleccionados .bottons{
+        flex-direction: column;
+        margin-top: 1rem;
     }
 }
