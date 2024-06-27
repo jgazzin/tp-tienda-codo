@@ -146,23 +146,27 @@
                 <i class="fa-solid fa-filter fa-lg"></i>
                 <h3>filtrar</h3>
             </div>
-            <form>
+            <form class="filtros">
                 <fieldset class="categoria">
                     <legend>categoría:</legend>
-                    <input type="radio" id="catTodo" name="categoria" value="catTodo" checked>
-                    <label for="catTodo">todo</label>
-                    <input type="radio" id="catOficina" name="categoria" value="catOficina">
-                    <label for="catOficina">oficina</label>
-                    <input type="radio" id="catLibreria" name="categoria" value="catLibreria">
-                    <label for="catLibreria">librería</label>
-                    <input type="radio" id="catPapeleria" name="categoria" value="catPapeleria">
-                    <label for="catPapeleria">Papelería</label>
-                    <input type="radio" id="catArtistica" name="categoria" value="catArtistica">
-                    <label for="catArtistica">artística</label>
+                    <input type="radio" id="todo" name="categoria" value="todo" checked>
+                    <label for="todo">todo</label>
+
+                    <input type="radio" id="oficina" name="categoria" value="oficina">
+                    <label for="oficina">oficina</label>
+
+                    <input type="radio" id="librería" name="categoria" value="librería">
+                    <label for="librería">librería</label>
+
+                    <input type="radio" id="papelería" name="categoria" value="papelería">
+                    <label for="papelería">Papelería</label>
+
+                    <input type="radio" id="artística" name="categoria" value="artística">
+                    <label for="artística">artística</label>
                 </fieldset>
 
                 <fieldset>
-                    <legend>buscar:</legend>
+                    <legend>buscar por producto:</legend>
                     <div class="buscador row">
                         <input type="text" placeholder="Ingrese una palabra">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -173,7 +177,7 @@
                     <legend>Rango de precio:</legend>
                     <div class="rango row">
                         <p class="btn-menos">-</p>
-                        <progress id="file" value="50" max="100"></progress>
+                        <progress id="file" value="100" max="100"></progress>
                         <p class="btn-mas">+</p>
                     </div>
 
@@ -182,7 +186,7 @@
         </aside>
 
         <div class="productos">
-            <div class="producto">
+            <!-- <div class="producto">
                 <div class="img">
                     <img src="img/producto-1.jpg" width="100" alt="imagen producto">
                     <button class="btn comprar">agregar al carrito</button>
@@ -198,153 +202,10 @@
                         <p class="categoria" data-id="cat_1">cat 1</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-2.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>bibliorato</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>160</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-3.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>separadores</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>35</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img//producto-4.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>ganchos</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>86</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-5.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>birome</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>120</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-6.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>corrector líquido</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>230</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-7.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>agujereadora</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>45</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-8.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>abrochadora</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>75</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-9.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>tijera</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>60</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
+            </div> -->
 
         </div>
+        <div class="alerta"></div>
 
     </main>
 
