@@ -240,14 +240,22 @@ const progress = document.querySelector('.filtros .rango');
 
 btnCategoria.addEventListener('change', ()=>{
     const checked = btnCategoria.querySelector('input:checked').id;
-    const productos_filtrados = productos.filter(product => product.categoria === checked)
-    console.log(checked);
-    if(productos_filtrados.length === 0){
-        document.querySelector('.alerta').textContent = `No hay productos en la categoría: ${checked}`;
+
+    if( checked === 'todo') {
+        imprimirProductos(productos)
     } else {
-        document.querySelector('.alerta').textContent = '';
-    } 
-    imprimirProductos(productos_filtrados)
+        const productos_filtrados = productos.filter(product => product.categoria === checked)
+        console.log(checked);
+        if(productos_filtrados.length === 0){
+            document.querySelector('.alerta').textContent = `No hay productos en la categoría: ${checked}`;
+        }  else {
+            document.querySelector('.alerta').textContent = '';
+
+        } 
+        imprimirProductos(productos_filtrados)
+    }
+
+    
 
 })
 

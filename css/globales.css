@@ -112,6 +112,17 @@
     color: tomato;
   }
   
+  .guardar{
+    background-color: transparent;
+    border: 2px solid rgb(8, 34, 8);
+    color: rgb(8, 34, 8);
+  }
+  .random{
+    background-color: transparent;
+    border: 2px solid var(--color-destaque);
+    color: var(--color-destaque);
+  }
+  
   
   .titulo {
     display: flex;
