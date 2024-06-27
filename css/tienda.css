@@ -112,7 +112,7 @@
 }
 
 .menu legend {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   padding: 8px 0;
@@ -165,4 +165,8 @@ input:focus {
       position: static;
       border: none;
     }
+}
+
+.filtros .buscador i {
+  cursor: pointer;
 }
