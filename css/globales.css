@@ -1,0 +1,136 @@
+:root {
+    --color-ppal:  #7db4b5;
+    --color-complemento: #e0eff1;
+    --color-destaque: #680148;
+    --color-texto: #0e060e;
+    --color-negativo: #fff;
+  
+    --hero-h: 500px;
+    --nav-h:80px;
+  }
+  
+  
+  /* globales */
+  html {
+      font-family: "Nunito", sans-serif;
+      color: #000000;
+  }
+  h1 {
+      font-family: "Acme", sans-serif;
+      font-size: 32px;
+      text-transform: capitalize;
+  }
+  h2 {
+    font-size: 28px;
+    text-transform: capitalize;
+  }
+  h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-style: italic;
+  }
+  p {
+    font-size: 16px;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .m-top{
+    margin-top: 80px;
+  }
+  
+  /* utilitarios */
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 576px) {
+      .container{
+        width: 100%;
+        padding: 0 16px;
+      }
+  }
+  
+  .centrado {
+    margin: 0 auto;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    min-width: 150px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--color-destaque);
+    border: 2px solid var(--color-destaque);
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+  }
+  .btn:hover {
+    box-shadow: 2px 2px 8px rgb(87, 87, 87);
+  }
+  
+  .google{
+    background-color: #ffffff50;
+    width: min-content;
+    margin: 0 auto;
+    border: 1px solid var(--color-negativo);
+    margin-top: 1rem;
+  }
+
+  .eliminar{
+    background-color: transparent;
+    border: 2px solid tomato;
+    color: tomato;
+  }
+  
+  .guardar{
+    background-color: transparent;
+    border: 2px solid rgb(8, 34, 8);
+    color: rgb(8, 34, 8);
+  }
+  .random{
+    background-color: transparent;
+    border: 2px solid var(--color-destaque);
+    color: var(--color-destaque);
+  }
+  
+  
+  .titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    text-transform: uppercase;
+  }
+
+  

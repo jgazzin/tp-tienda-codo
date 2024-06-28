@@ -13,9 +13,9 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/compra.css">
     <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
-    <title>Tienda/Contactanos</title>
+    <title>Tienda</title>
 </head>
 
 <body>
@@ -133,61 +133,78 @@
         </div>
     </div>
     </header>
+    
+    <a id="inicio"></a>
+    <main class="container orden">
+        <div class="titulo logo m-top">
+            <img src="img/logo-32px.png" width="100" alt="logo">
+            <h2>Orden de compra</h2>
+        </div>
 
-    <div class="container">
-        <div class="titulo m-top">
-            <i class="fa-solid fa-comments fa-lg"></i>
-            <h3>Contáctanos</h3>
-        </div>
-        <form class="form" novalidate>
-
-        <div class="formInput">
-            <label class="labelForm" for="nombre">Nombre Completo</label>
-            <input class="inputContact" type="text" name="Nombre" placeholder="Juan Carlos" id="nombre">
-        </div>
-        <div class="formInput">
-            <label class="labelForm" for="apellido">Apellido Completo</label>
-            <input class="inputContact" type="text" id="apellido" name="Apellido" placeholder="Rodriguez">
-        </div>
-        <div class="formInput">
-            <label class="labelForm" for="email">Email</label>
-            <input class="inputContact" type="email" name="email" id="email" placeholder="Example@tienda.com">
-        </div>
-        <div class="formInput">
-            <label class="labelForm" for="categoria">Elige una categoria por la cual consulta:</label>
-            <div>
-                <select name="categoria" id="categoria">
-                    <option value="oficina">Oficina</option>
-                    <option value="libreria">Libreria</option>
-                    <option value="papeleria">Papeleria</option>
-                    <option value="artistica">Artistica</option>
-                    <option value="otra">Ninguna de las anteriores</option>
-                </select>
+        <section class="listado_productos_seleccionados">
+            <div class="titulo logo">
+                <i class="fa-solid fa-map-pin fa-lg"></i>
+                <h3>productos</h3>
             </div>
-        </div>
-        <div class="formInput">
-            <label class="labelForm" for="asunto">Escriba aquí su consulta</label>
+            <div class="t-row head">
+                <p>cantidad</p>
+                <p>nombre</p>
+                <p>precio</p>
+                <p>vendedor</p>
+                
+            </div>
+            <div class="listado_productos_items">
 
-            <textarea name="Asunto" id="asunto" rows="10" placeholder="Escriba un mensaje o suba un listado para consultar presupuesto..."></textarea>
-        </div>
-        <div class="formInput">
-            <label class="labelForm btn" for="adjunto">Subir archivo</label> 
-            <input type="file" name="adjunto" id="adjunto">
-        </div>
-        <div class="formInput">
-            <label class="labelCheckbox"> 
-                <input class="checkbox" type="checkbox">
-                <span class="spanCheckbox">Acepto enviar esta información</span>
-            </label>
-        </div>
-        <div class="alertas"></div>
-        <div class="formbtn botones">
-            <a href="index.html" class="btn">volver</a>
-            <button class="btn contactar" type="submit">Enviar</button>
-        </div>
-        
-        </form>
-    </div>
+                <div class="t-row">
+                    <p class="cantidad">1
+                        <span><i class="fa-solid fa-square-plus fa-xl"></i></span>
+                        <span><i class="fa-solid fa-square-minus fa-xl"></i></span>
+                    </p>
+                    <p>nombre</p>
+                    <p>precio</p>
+                    <p>vendedor</p>
+                    <button class="btn eliminar">eliminar</button>
+                </div>
+
+                <div class="t-row">
+                    <p class="cantidad">1
+                        <span><i class="fa-solid fa-square-plus fa-xl"></i></span>
+                        <span><i class="fa-solid fa-square-minus fa-xl"></i></span>
+                    </p>
+                    <p>nombre</p>
+                    <p>precio</p>
+                    <p>vendedor</p>
+                    <button class="btn eliminar">eliminar</button>
+                </div>
+
+                <div class="t-row">
+                    <p class="cantidad">1
+                        <span><i class="fa-solid fa-square-plus fa-xl"></i></span>
+                        <span><i class="fa-solid fa-square-minus fa-xl"></i></span>
+                    </p>
+                    <p>nombre</p>
+                    <p>precio</p>
+                    <p>vendedor</p>
+                    <button class="btn eliminar">eliminar</button>
+                </div>
+
+                <!-- completar con productos guardados en localStorage desde carrito -->
+            </div>
+            
+            <div class="bottons">
+                <a href="tienda.html" class="btn random">volver</a>
+                <button class="btn">comprar</button>
+            </div>
+            
+            
+        </section>
+
+
+
+
+
+    </main>
+
 
     <footer>
         <div class="container">
@@ -202,7 +219,7 @@
                 <ul class="nav-footer">
                     <li><a href="index.html">home</a></li>
                     <li><a href="tienda.html">tienda</a></li>
-                    <li><a href="perfil.html">nosotros</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
                     <li><a href="contacto.html">contacto</a></li>
                 </ul>
 
@@ -226,9 +243,10 @@
             <p>&copy;2024 · codo a codo · grupo<span>11</span>+<span>12</span>+<span>1</span></p>
         </div>
     </footer>
-    <script src="js/valid_contacto.js"></script>
-    <script src="js/valid_login.js"></script>
+
     <script src="js/app.js"></script>
+    <script src="js/valid_login.js"></script>
+    <script src="js/opinions.js"></script>
 </body>
 
 </html>

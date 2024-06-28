@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="zxx">
 
 <head>
     <meta charset="UTF-8">
@@ -12,48 +12,127 @@
         href="https://fonts.googleapis.com/css2?family=Acme&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
     <title>Tienda</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tienda.css">
     <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
 </head>
 
 <body>
     <header class="header" id="header">
-        <div class="container navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="img/logo-32px.png" width="100" alt="logo">
-                </a>
-                <h1>tienda</h1>
+        <nav class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/logo-32px.png" width="100" alt="logo">
+                    </a>
+                    <h1>tienda</h1>
+                </div>
+                <div class="icons">
+                        <i class="fa-solid fa-cart-plus fa-xl"></i>
+                        <i class="fa-solid fa-bars fa-xl"></i>
+                        <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+                </div>
             </div>
-            <nav class="nav">
-                <ul>
-                    <li  class="carrito"><i class="fa-solid fa-cart-plus fa-xl"></i>
-                        <ul class="contenedor-carrito hidden">
-                            <li class="info-producto">
-                                <!-- <div class="row-producto">
-                                    <span class="cantidad">1</span>
-                                    <span class="nombre">lapiz</span>
-                                    <span class="precio">$0</span>
-                                    <span class="btn-eliminar">x</span>
-                                </div> -->
-                            </li>
-                            <li class="total">
-                                <p class="precio-total">$0</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="submenu"><i class="fa-solid fa-bars fa-xl"></i>
-                        <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li><a href="tienda.html">tienda</a></li>
-                            <li><a href="contacto.html">contacto</a></li>
-                            <li><a href="index.html#nosotros">nosotros</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+        </nav>
+
+
+    <div class="desplegable hidden" id="carrito">
+        <div class="container">
+            <div class="contenedor-carrito">
+                <div class="info-producto">
+                    <!-- <div class="row-producto">
+                        <span class="cantidad">1</span>
+                        <span class="nombre">lapiz</span>
+                        <span class="precio">$10</span>
+                        <span class="btn-eliminar">x</span>
+                    </div> -->
+                </div>
+                <div class="total">
+                    <p class="precio-total">$0</p>
+                </div>
+                <div class="botones">
+                    <button class="btn" id="vaciar">Vaciar</button>
+                    <a href="compra.html" class="btn">comprar</a>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="desplegable hidden"  id="menus">
+        <div class="container">
+            <div class="contenedor-menu">
+                <a href="index.html">home</a>
+                <a href="tienda.html">tienda</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="contacto.html">contacto</a>
+            </div> 
+        </div>
+    </div>
+
+    <div class="desplegable hidden" id="registro">
+        <div class="container">
+            <div class="contenedor-registro">
+                <form>
+                    <div>
+                        <fieldset class="info">
+                            <legend>Ingresar</legend>
+                            <div class="item">
+                                <label for="log-name">User Name</label>
+                                <input type="text" id="log-name" class="name">
+                            </div>
+                            <div class="item">
+                                <label for="log-pass">Pasword</label>
+                                <input type="password" id="log-pass" class="pass">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <div class="alertas"></div>
+                        <div>
+                            <button class="btn">Ingresar</button>
+                        </div>
+                        <fieldset class="item">
+                            <p>o ingresar con</p>
+                            <button class="btn google">Google</button>
+                        </fieldset>
+                    </div>
+
+                </form>
+                <form>
+                    <div>
+                        <fieldset class="info">
+                            <legend>Registrarse</legend>
+                            <div class="item">
+                                <label for="reg-name">User Name</label>
+                                <input type="text" id="reg-name" class="name">
+                            </div>
+                            <div class="item">
+                                <label for="reg-pass">Pasword</label>
+                                <input type="password" id="reg-pass" class="pass">
+                            </div>
+                            <div class="item">
+                                <label for="reg-repass">Confirmar Pasword</label>
+                                <input type="password" id="reg-repass">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <div class="alertas"></div>
+                        <div>
+                            <button class="btn">Registrar</button>
+                        </div>
+                        <fieldset class="item">
+                            <p>o registrarse con</p>
+                            <button class="btn google">Google</button>
+                        </fieldset>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
     </header>
+
     <a id="inicio"></a>
     <div class="titulo logo m-top">
         <img src="img/logo-32px.png" width="100" alt="logo">
@@ -67,23 +146,27 @@
                 <i class="fa-solid fa-filter fa-lg"></i>
                 <h3>filtrar</h3>
             </div>
-            <form>
+            <form class="filtros">
                 <fieldset class="categoria">
                     <legend>categoría:</legend>
-                    <input type="radio" id="categoria1" name="categoria" value="categoria1">
-                    <label for="categoria1">Categoría 1</label>
-                    <input type="radio" id="categoria2" name="categoria" value="categoria2">
-                    <label for="categoria2">Categoría 2</label>
-                    <input type="radio" id="categoria3" name="categoria" value="categoria3">
-                    <label for="categoria3">Categoría 3</label>
-                    <input type="radio" id="categoria4" name="categoria" value="categoria4">
-                    <label for="categoria4">Categoría 4</label>
-                    <input type="radio" id="categoria5" name="categoria" value="categoria5">
-                    <label for="categoria5">Categoría 5</label>
+                    <input type="radio" id="todo" name="categoria" value="todo" checked>
+                    <label for="todo">todo</label>
+
+                    <input type="radio" id="oficina" name="categoria" value="oficina">
+                    <label for="oficina">oficina</label>
+
+                    <input type="radio" id="librería" name="categoria" value="librería">
+                    <label for="librería">librería</label>
+
+                    <input type="radio" id="papelería" name="categoria" value="papelería">
+                    <label for="papelería">Papelería</label>
+
+                    <input type="radio" id="artística" name="categoria" value="artística">
+                    <label for="artística">artística</label>
                 </fieldset>
 
                 <fieldset>
-                    <legend>buscar:</legend>
+                    <legend>buscar por producto:</legend>
                     <div class="buscador row">
                         <input type="text" placeholder="Ingrese una palabra">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -94,7 +177,7 @@
                     <legend>Rango de precio:</legend>
                     <div class="rango row">
                         <p class="btn-menos">-</p>
-                        <progress id="file" value="50" max="100"></progress>
+                        <progress id="file" value="100" max="100"></progress>
                         <p class="btn-mas">+</p>
                     </div>
 
@@ -103,7 +186,7 @@
         </aside>
 
         <div class="productos">
-            <div class="producto">
+            <!-- <div class="producto">
                 <div class="img">
                     <img src="img/producto-1.jpg" width="100" alt="imagen producto">
                     <button class="btn comprar">agregar al carrito</button>
@@ -115,157 +198,14 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
                     <h2 class="plus">+</h2>
                     <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
+                        <h3 class="precio">$<span>65</span>.-</h3>
                         <p class="categoria" data-id="cat_1">cat 1</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-2.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>bibliorato</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-3.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>separadores</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img//producto-4.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>ganchos</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-5.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>birome</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-6.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>corrector líquido</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-7.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>agujereadora</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-8.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>abrochadora</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="producto">
-                <div class="img">
-                    <img src="img/producto-9.jpg" width="100" alt="imagen producto">
-                    <button class="btn comprar">agregar al carrito</button>
-                </div>
-                    
-                <div class="textos">
-                    <h3>tijera</h3>
-                    <p class="detalle alto-ofw">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci. <br>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptas quaerat laborum, voluptatem error placeat tenetur voluptatum illum debitis. A. </p>
-                    <h2 class="plus">+</h2>
-                    <div class="tags">
-                        <h3 class="precio">$<span>100</span>.-</h3>
-                        <p class="categoria" data-id="cat_1">cat 1</p>
-                    </div>
-                </div>
-            </div>
+            </div> -->
 
         </div>
+        <div class="alerta"></div>
 
     </main>
 
@@ -285,7 +225,7 @@
                 <ul class="nav-footer">
                     <li><a href="index.html">home</a></li>
                     <li><a href="tienda.html">tienda</a></li>
-                    <li><a href="index.html#nosotros">nosotros</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
                     <li><a href="contacto.html">contacto</a></li>
                 </ul>
 
@@ -298,19 +238,21 @@
             </div>
 
             <div class="social">
-                <a href="www.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                <a href="www.twitter.com"><i class="fa-brands fa-twitter fa-xl"></i></a>
-                <a href="www.instagram.com"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
             </div>
 
         </div>
 
         <div class="copy">
-            <p>&copy;2024 · codo a codo · grupo<span>11</span></p>
+            <p>&copy;2024 · codo a codo · grupo<span>11</span>+<span>12</span>+<span>1</span></p>
         </div>
     </footer>
 
-    <script src="app_tienda.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/valid_login.js"></script>
+    <script src="js/app_tienda.js"></script>
 </body>
 
 </html>

@@ -12,77 +12,138 @@
         href="https://fonts.googleapis.com/css2?family=Acme&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
     <title>Tienda</title>
 </head>
 
-<>
+<body>
     <header class="header" id="header">
-        <div class="container navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="img/logo-32px.png" width="100" alt="logo">
- 
-                </a>
-                <h1>tienda</h1>
+        <nav class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="img/logo-32px.png" width="100" alt="logo">
+                    </a>
+                    <h1>tienda</h1>
+                </div>
+                <div class="icons">
+                        <i class="fa-solid fa-cart-plus fa-xl"></i>
+                        <i class="fa-solid fa-bars fa-xl"></i>
+                        <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+                </div>
             </div>
-            <nav class="nav">
-                <ul>
-                    <li  class="carrito"><i class="fa-solid fa-cart-plus fa-xl"></i>
-                        <ul class="contenedor-carrito hidden">
-                            <!-- <li class="info-producto">
-                                <div class="row-producto">
-                                    <span class="cantidad">1</span>
-                                    <span class="nombre">lapiz</span>
-                                    <span class="precio">$0</span>
-                                    <span class="btn-eliminar">x</span>
-                                </div>
-                            </li> -->
-                            <li class="total">
-                                <p class="precio-total">$0</p>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="submenu"><i class="fa-solid fa-bars fa-xl"></i>
-                        <ul>
-                            <li><a href="index.html">home</a></li>
-                            <li><a href="tienda.html">tienda</a></li>
-                            <li><a href="#nosotros">nosotros</a></li>
-                            <li><a href="contacto.html">contacto</a></li>
+        </nav>
 
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+
+    <div class="desplegable hidden" id="carrito">
+        <div class="container">
+            <div class="contenedor-carrito">
+                <div class="info-producto">
+                    <!-- <div class="row-producto">
+                        <span class="cantidad">1</span>
+                        <span class="nombre">lapiz</span>
+                        <span class="precio">$10</span>
+                        <span class="btn-eliminar">x</span>
+                    </div> -->
+                </div>
+                <div class="total">
+                    <p class="precio-total">$0</p>
+                </div>
+                <div class="botones">
+                    <button class="btn" id="vaciar">Vaciar</button>
+                    <a href="compra.html" class="btn">comprar</a>
+                </div>
+            </div>
         </div>
-    </header>
+    </div>
 
+    <div class="desplegable hidden"  id="menus">
+        <div class="container">
+            <div class="contenedor-menu">
+                <a href="index.html">home</a>
+                <a href="tienda.html">tienda</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="contacto.html">contacto</a>
+            </div> 
+        </div>
+    </div>
+
+    <div class="desplegable hidden" id="registro">
+        <div class="container">
+            <div class="contenedor-registro">
+                <form>
+                    <div>
+                        <fieldset class="info">
+                            <legend>Ingresar</legend>
+                            <div class="item">
+                                <label for="log-name">User Name</label>
+                                <input type="text" id="log-name" class="name">
+                            </div>
+                            <div class="item">
+                                <label for="log-pass">Pasword</label>
+                                <input type="password" id="log-pass" class="pass">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <div class="alertas"></div>
+                        <div>
+                            <button class="btn">Ingresar</button>
+                        </div>
+                        <fieldset class="item">
+                            <p>o ingresar con</p>
+                            <button class="btn google">Google</button>
+                        </fieldset>
+                    </div>
+
+                </form>
+                <form>
+                    <div>
+                        <fieldset class="info">
+                            <legend>Registrarse</legend>
+                            <div class="item">
+                                <label for="reg-name">User Name</label>
+                                <input type="text" id="reg-name" class="name">
+                            </div>
+                            <div class="item">
+                                <label for="reg-pass">Pasword</label>
+                                <input type="password" id="reg-pass" class="pass">
+                            </div>
+                            <div class="item">
+                                <label for="reg-repass">Confirmar Pasword</label>
+                                <input type="password" id="reg-repass">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <div class="alertas"></div>
+                        <div>
+                            <button class="btn">Registrar</button>
+                        </div>
+                        <fieldset class="item">
+                            <p>o registrarse con</p>
+                            <button class="btn google">Google</button>
+                        </fieldset>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    </header>
+    
     <a id="inicio"></a>
-    <main class="hero m-top">
+    <main class="hero">
         <div class="container texto">
             <h1>bienvenidos a <span>Tienda</span></h1>
             <div class="botones">
-                <a href="#nosotros" class="btn">conocenos</a>
+                <a href="contacto.html" class="btn">contactar</a>
                 <a href="tienda.html" class="btn">comprar</a>
             </div>
         </div>
     </main>
-
-  
-<!-- CATEGORIAS -->
-  
-
-    <section class="categorias">
-        <div class="container">
-        <div class="grid-container">
-            <div class="caja"><a href="tienda.html"><h3>oficina</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>libreria</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>papeleria</h3></a></div>
-            <div class="caja"><a href="tienda.html"><h3>artistica</h3></a></div>
-        </div>
-        </div>
-    </section>
 
 <!-- NOSOTROS -->
     <section class="nosotros" id="nosotros">
@@ -112,7 +173,9 @@
             </div>
 
             <div class="presentacion">
-                <img src="img/imagen-pf.png" width="100" alt="imagen empleados">
+                <div class="staff">
+
+                </div>
                 <div class="texto">
                     <div class="titulo">
                         <i class="fa-solid fa-people-group fa-xl"></i>
@@ -126,6 +189,20 @@
         </div>
     </section>
 
+    <!-- CATEGORIAS -->
+  
+
+    <section class="categorias">
+        <div class="container">
+        <div class="grid-container">
+            <div class="caja"><a href="tienda.html"><h3>oficina</h3></a></div>
+            <div class="caja"><a href="tienda.html"><h3>libreria</h3></a></div>
+            <div class="caja"><a href="tienda.html"><h3>papeleria</h3></a></div>
+            <div class="caja"><a href="tienda.html"><h3>artistica</h3></a></div>
+        </div>
+        </div>
+    </section>
+    
  <!--OPINIONES-->   
 
  <section class="opiniones">
@@ -176,7 +253,7 @@
                 <ul class="nav-footer">
                     <li><a href="index.html">home</a></li>
                     <li><a href="tienda.html">tienda</a></li>
-                    <li><a href="#nosotros">nosotros</a></li>
+                    <li><a href="perfil.html">perfil</a></li>
                     <li><a href="contacto.html">contacto</a></li>
                 </ul>
 
@@ -189,20 +266,21 @@
             </div>
 
             <div class="social">
-                <a href="www.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                <a href="www.twitter.com"><i class="fa-brands fa-twitter fa-xl"></i></a>
-                <a href="www.instagram.com"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-xl"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter fa-xl"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram fa-xl"></i></a>
             </div>
 
         </div>
 
         <div class="copy">
-            <p>&copy;2024 · codo a codo · grupo<span>11</span></p>
+            <p>&copy;2024 · codo a codo · grupo<span>11</span>+<span>12</span>+<span>1</span></p>
         </div>
     </footer>
 
-    <script src="app.js"></script>
-    <script src="opinions.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/valid_login.js"></script>
+    <script src="js/opinions.js"></script>
 </body>
 
 </html>
