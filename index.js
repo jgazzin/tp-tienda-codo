@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname,'public')));
 // });
 
 app.use('/usuarios', usuariosRouters);
-//app.use('/productos', productosRouters);
+app.use('/productos', productosRouters);
 
 app.listen(port, () =>
 {
