@@ -1,8 +1,8 @@
 const express = require('express');
 
-const router = express.Router();
+const router_usuarios = express.Router();
 
-router.get('/', (req, res) =>
+router_usuarios.get('/', (req, res) =>
 {
     res.json(
         {
@@ -11,4 +11,4 @@ router.get('/', (req, res) =>
     )
 });
 
-module.exports = router;
+module.exports = router_usuarios;
