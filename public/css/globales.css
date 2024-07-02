@@ -6,7 +6,7 @@
     --color-negativo: #fff;
   
     --hero-h: 500px;
-    --nav-h:80px;
+    --nav-h:90px;
   }
   
   
@@ -98,13 +98,6 @@
     box-shadow: 2px 2px 8px rgb(87, 87, 87);
   }
   
-  .google{
-    background-color: #ffffff50;
-    width: min-content;
-    margin: 0 auto;
-    border: 1px solid var(--color-negativo);
-    margin-top: 1rem;
-  }
 
   .eliminar{
     background-color: transparent;
@@ -133,4 +126,3 @@
     text-transform: uppercase;
   }
 
-  
