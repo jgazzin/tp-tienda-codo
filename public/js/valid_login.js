@@ -1,10 +1,11 @@
+
 const registro = document.querySelector('.contenedor-registro')
 
 registro.addEventListener('click', (e) => {
     e.preventDefault()
 
     if(e.target.classList.contains('btn')){
-        const form = e.target.parentElement.parentElement.parentElement;
+        const form = e.target.parentElement.parentElement;
         console.log(form);
         if (validar_login(form)) {
             alertas_login(form, 'Enviando...', 'ok')
@@ -15,15 +16,30 @@ registro.addEventListener('click', (e) => {
                 alertasResult.forEach(result => {
                     result.classList.remove('result')
                 });
-                form.reset()
+                guardarUserLocalST(form)
+                window.location.reload()
             }, 2000);
+            
         }
-
-
 
     }
 
         // FUNCIONES
+    function guardarUserLocalST(form) {
+        localStorage.removeItem('userSession');
+
+        let email = form.querySelector('input.name').value;
+        console.log(email);
+        let pass = form.querySelector('input.pass').value;
+        console.log(pass);
+        const userSession = {
+            email: email,
+            pass: pass
+        };
+        localStorage.setItem('userSession', JSON.stringify(userSession));
+    }
+
+    
     function validar_login(form) {
         const contenedorAlertas = form.querySelector('.alertas')
 
@@ -42,6 +58,7 @@ registro.addEventListener('click', (e) => {
         } else {
             email.classList.remove('err')
             email.classList.add('result')
+            console.log(email);
         }
 
         const pass = form.querySelector('.pass')
@@ -56,10 +73,21 @@ registro.addEventListener('click', (e) => {
             pass.classList.remove('err')
             pass.classList.add('result')
         }
-        if (!contenedorAlertas.firstChild) {
-            return true;
+
+        if(form.classList.contains('form_registro')){
+            const rePass= form.querySelector('#reg-repass');
+            if(rePass.value != pass.value || rePass.value === '' || pass.value.length < 8){
+                alertas_login(form, 'Las contraseñas no coinciden');
+                rePass.classList.add('err')
+            } else {
+                rePass.classList.remove('err')
+                rePass.classList.add('result')
+            }
         }
 
+        if (!contenedorAlertas.firstChild) {
+            return true;
+        } 
     }
 
 
@@ -67,16 +95,16 @@ registro.addEventListener('click', (e) => {
         const contenedorAlertas = form.querySelector('.alertas')
         const elementoAlerta = document.createElement('p')
 
-        //elementoAlerta.classList.add('alertas')
-        // if(tipo === "error"){
-        //     elementoAlerta.classList.add('error')
-        // } else {
-        //     elementoAlerta.classList.add('ok')
-        // }
+        elementoAlerta.classList.add('alertas')
+        if(tipo === "error"){
+            elementoAlerta.classList.add('error')
+        } else {
+            elementoAlerta.classList.add('ok')
+        }
         elementoAlerta.textContent= texto;
         contenedorAlertas.appendChild(elementoAlerta)
-        console.log(elementoAlerta);
-        console.log(contenedorAlertas);
+        // console.log(elementoAlerta);
+        // console.log(contenedorAlertas);
     }
 })
 

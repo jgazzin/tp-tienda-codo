@@ -21,11 +21,14 @@
     <header class="header" id="header">
         <nav class="container">
             <div class="navbar">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="img/logo-32px.png" width="100" alt="logo">
-                    </a>
-                    <h1>tienda</h1>
+                <div>
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="img/logo-32px.png" width="100" alt="logo">
+                        </a>
+                        <h1>tienda</h1>
+                    </div>
+                    <p class="saludoUser">Bienvenido <span></span></p>
                 </div>
                 <div class="icons">
                         <i class="fa-solid fa-cart-plus fa-xl"></i>
@@ -72,60 +75,52 @@
     <div class="desplegable hidden" id="registro">
         <div class="container">
             <div class="contenedor-registro">
-                <form>
-                    <div>
-                        <fieldset class="info">
-                            <legend>Ingresar</legend>
-                            <div class="item">
-                                <label for="log-name">User Name</label>
-                                <input type="text" id="log-name" class="name">
-                            </div>
-                            <div class="item">
-                                <label for="log-pass">Pasword</label>
-                                <input type="password" id="log-pass" class="pass">
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div>
-                        <div class="alertas"></div>
-                        <div>
-                            <button class="btn">Ingresar</button>
+                <form class="form_login">
+                    <fieldset class="info">
+                        <legend>Ingresar</legend>
+                        <div class="item">
+                            <label for="log-name">email</label>
+                            <input type="text" id="log-name" class="name">
                         </div>
-                        <fieldset class="item">
-                            <p>o ingresar con</p>
-                            <button class="btn google">Google</button>
-                        </fieldset>
+                        <div class="item">
+                            <label for="log-pass">Pasword</label>
+                            <input type="password" id="log-pass" class="pass">
+                        </div>
+                    </fieldset>
+                    <div class="alertas"></div>
+                    <div>
+                        <button class="btn">Ingresar</button>
                     </div>
+                    <fieldset class="item">
+                        <p>Si no tiene una cuenta</p>
+                        <a href="" class="cambiar_form">Regístrese</a>
+                    </fieldset>
 
                 </form>
-                <form>
-                    <div>
-                        <fieldset class="info">
-                            <legend>Registrarse</legend>
-                            <div class="item">
-                                <label for="reg-name">User Name</label>
-                                <input type="text" id="reg-name" class="name">
-                            </div>
-                            <div class="item">
-                                <label for="reg-pass">Pasword</label>
-                                <input type="password" id="reg-pass" class="pass">
-                            </div>
-                            <div class="item">
-                                <label for="reg-repass">Confirmar Pasword</label>
-                                <input type="password" id="reg-repass">
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div>
-                        <div class="alertas"></div>
-                        <div>
-                            <button class="btn">Registrar</button>
+                <form class="form_registro hidden">
+                    <fieldset class="info">
+                        <legend>Registrarse</legend>
+                        <div class="item">
+                            <label for="reg-name">email</label>
+                            <input type="text" id="reg-name" class="name">
                         </div>
-                        <fieldset class="item">
-                            <p>o registrarse con</p>
-                            <button class="btn google">Google</button>
-                        </fieldset>
+                        <div class="item">
+                            <label for="reg-pass">Pasword</label>
+                            <input type="password" id="reg-pass" class="pass">
+                        </div>
+                        <div class="item">
+                            <label for="reg-repass">Confirmar Pasword</label>
+                            <input type="password" id="reg-repass">
+                        </div>
+                    </fieldset>
+                    <div class="alertas"></div>
+                    <div>
+                        <button class="btn">Registrar</button>
                     </div>
+                    <fieldset class="item">
+                        <p>Si ya tiene una cuenta</p>
+                        <a href="" class="cambiar_form">Inicie sesión</a>
+                    </fieldset>
 
                 </form>
             </div>
