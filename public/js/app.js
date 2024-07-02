@@ -31,3 +31,18 @@ icon.addEventListener('click', (e) => {
 
     }
 })
+
+
+// forms registros usuarios mostrar
+const cambiarForm = document.querySelectorAll('.cambiar_form');
+cambiarForm.forEach(ancla => {
+    ancla.addEventListener('click', ()=>{
+        document.querySelector('.form_registro').classList.toggle('hidden')
+        document.querySelector('.form_login').classList.toggle('hidden')
+    })
+})
+
+// saludo usuario
+const saludoUser = document.querySelector('.navbar .saludoUser span');
+const usuarioActual = JSON.parse(localStorage.getItem('userSession'));
+saludoUser.textContent = usuarioActual.email;
