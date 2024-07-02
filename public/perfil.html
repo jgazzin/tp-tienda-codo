@@ -141,18 +141,61 @@
             <i class="fa-solid fa-people-roof fa-xl"></i>
             <h2>Perfil</h2>
         </div>
-    
-            <div class="titulo logo">
+
+        <div class="cabecera">
+            <div class="titulo">
                 <i class="fa-solid fa-map-pin fa-lg"></i>
                 <h3>Bienvenido</h3>
             </div>
             <div class="t-row head">
-                <p>Datos Personales</p>
-                <p>productos en venta</p>
-                <p>mensajeria</p>
+                <a href="#formActualizarDatosUsuarios"><p>Datos Personales</p></a>
+                <a href=""><p>productos en venta</p></a>
+                <a href=""><p>mensajeria</p></a>
             </div>
-            
+        </div>
+    
+    <div class="cabecera2">
+        <div class="titulo">
+            <i class="fa-solid fa-map-pin fa-lg"></i>
+            <h3>datos personales</h3>
+        </div>
+            <button id="mostrarFormBtn" class="btn">Modificar</button>
+    </div>
 
+    <section id="formActualizarDatosUsuario">
+        <form id="formAct" class="hidden" enctype="multipart/form-data">
+            <div class="formularioActualizacionUsuarios">
+                <div class="formParte1">
+                    <div>
+                        <label for="nombre">Nombre: </label>
+                        <input class="inputForm" type="text" id="nombre" name="nombre" required placeholder="Nombre de Usuario">
+                    </div>
+                    <div>
+                        <label for="contraseña">Contraseña: </la>
+                        <input class="inputForm" type="password" id="contraseña" name="contraseña" required placeholder="*********">
+                    </div>
+                </div>
+
+                <div class="formParte2">
+                    <div>
+                        <label for="mail">Email</label>
+                        <input class="inputForm" type="email" id="mail" name="mail" required placeholder="Example@gmail.com">
+                    </div>
+                    <div>
+                        <label for="repContraseña">Repetir Contraseña</label>
+                        <input class="inputForm" type="password" id="repContraseña" name="repContraseña" required placeholder="*********">
+                    </div>
+                </div>
+            </div>
+        
+    
+
+            <div class="boton">
+                <button class="btn" type="submit">actualizar</button>
+            </div>
+
+        </form>
+    </section>
 
     </main>
 
@@ -197,6 +240,7 @@
 
     <script src="js/app.js"></script>
     <script src="js/valid_login.js"></script>
+    <script src="js/perfil.js"></script>
 
 </body>
 
