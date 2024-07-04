@@ -137,7 +137,12 @@ const infoProducto = document.querySelector('.contenedor-carrito .info-producto'
 
 const listadoProductos = document.querySelector('.tienda .productos')
 // arreglo de productos seleccionados
-let productosSeleccionados = [];
+if(JSON.parse(sessionStorage.getItem('carritoSession'))=== null){
+    let productosSeleccionados = [];
+} else{
+    productosSeleccionados = JSON.parse(sessionStorage.getItem('carritoSession'))
+}
+
 
 // total a pagar
 const totalPagar = document.querySelector('.contenedor-carrito .precio-total')
