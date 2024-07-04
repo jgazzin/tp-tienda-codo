@@ -11,9 +11,11 @@ const obtenerProductos = (req, res) => {
     })
 }
 
+
 const obtenerProductoID = (req, res) => {
     const {id} = req.params;
     const sql = 'SELECT * FROM tienda_productos WHERE id = ?';
+
 
     db.query(sql, [id], (err, result) => {
         if(err) {
@@ -69,10 +71,12 @@ const borrarProducto = (req, res) => {
     })
 };
 
+
 module.exports = { 
     obtenerProductos,
     creatProducto, 
     modificarProducto, 
     borrarProducto,
     obtenerProductoID};
+
 

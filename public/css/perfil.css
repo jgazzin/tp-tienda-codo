@@ -1,28 +1,38 @@
+.linea{
+    border-top: 2px solid grey;
+}
+
 .cabecera .titulo{
     justify-content: left;
     margin-bottom: -10px;
 }
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
 
-.cabecera .t-row{
+
+.hashtag .t-row{
     display: grid;
     grid-template-columns: 2fr 2fr 1fr 2fr 1.5fr;
     text-align: center;
     padding: 4px 0;
 }
 
-.cabecera .t-row.head{
+.hashtag .t-row.head{
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.cabecera .t-row.head p {
+.hashtag .t-row.head p {
     text-transform: capitalize;
     color:rgb(153, 187, 248) ;
 }
 
-.cabecera .t-row.head h4 {
+.hashtag .t-row.head h4 {
     color: var(--color-complemento);
     text-shadow:
     1px 1px 0 var(--color-texto),
@@ -35,9 +45,6 @@
     justify-content: left;
 }
 
-.cabecera2 {
-    border-bottom: 2px solid grey;
-}
 
 .cabecera2 {
     display: flex;
@@ -73,9 +80,73 @@
     margin: 10px;
 }
 
-form {
-    border-bottom: 2px solid grey;
+
+.verYModificar .titulo{
+    justify-content: left;
 }
+
+.verYModificar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.crearProductoNuevo .titulo{
+    justify-content: left;
+}
+
+.crearProductoNuevo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search {
+    position: relative;
+}
+
+.search label {
+    display: block;
+}
+
+.search input {
+    margin-top: 5px;
+    width: 70%;
+    padding: 5px 10px;
+    border: 2px solid var(--color-complemento);
+    border-radius: 6px;
+}
+
+.search input::placeholder {
+    padding-left: 0.8rem;
+}
+
+
+#iconito {
+    position: absolute;
+    bottom: 0.1rem;
+    left: 0.4rem;
+}
+
+.crearProducto {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+}
+
+
+.crearProducto textarea, input, select {
+    margin-top: 5px;
+    width: 90%;
+    padding: 5px 10px;
+    border: 2px solid var(--color-complemento);
+    border-radius: 6px;
+}
+
+
+
+
+
+
+
 
 
 /*.orden{
