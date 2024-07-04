@@ -17,6 +17,16 @@
   .saludoUser{
     color: var(--color-negativo);
     padding-bottom: 1rem;
+    color: var(--color-ppal);
+  }
+  .saludoUser span{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 4px;
+  }
+
+  .saludoUser i{
+    cursor: pointer;
   }
   .logo {
     display: flex;
@@ -115,12 +125,14 @@
   .contenedor-menu a:hover{
     color: var(--color-destaque);
   }
+
+  /*--- INICIO SESION Y REGISTRO ---*/
   
   .contenedor-registro{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     color: var(--color-negativo);
 
   }
@@ -144,23 +156,20 @@
   
   .contenedor-registro fieldset{
     border: none;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   .contenedor-registro .item {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
-  .contenedor-registro .item:last-of-type{
-    gap: 0;
-  }
+
   .info .item{
     text-align: start;
   }
   .info legend {
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: bold;
     padding: 4px 16px;
     border: 1px solid var(--color-negativo);
