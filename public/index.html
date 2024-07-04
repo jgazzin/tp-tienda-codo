@@ -21,22 +21,23 @@
 <body>
     <header class="header" id="header">
         <nav class="container">
-            <div class="navbar">
-                <div>
+            <div>
+                <div class="navbar">
                     <div class="logo">
                         <a href="index.html">
                             <img src="img/logo-32px.png" width="100" alt="logo">
                         </a>
                         <h1>tienda</h1>
                     </div>
-                    <p class="saludoUser">Bienvenido <span></span></p>
-                </div>
-                <div class="icons">
-                        <i class="fa-solid fa-cart-plus fa-xl"></i>
-                        <i class="fa-solid fa-bars fa-xl"></i>
-                        <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+                    <div class="icons">
+                            <i class="fa-solid fa-cart-plus fa-xl"></i>
+                            <i class="fa-solid fa-bars fa-xl"></i>
+                            <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+                    </div>
+
                 </div>
             </div>
+            <p class="saludoUser row">Bienvenido <span></span><i class="fa-solid fa-right-from-bracket fa-lg logout"></i></p>
         </nav>
 
 
@@ -76,9 +77,13 @@
     <div class="desplegable hidden" id="registro">
         <div class="container">
             <div class="contenedor-registro">
-                <form class="form_login">
+                <form class="form_login" enctype="multipart/form-data">
                     <fieldset class="info">
                         <legend>Ingresar</legend>
+                        <div class="item">
+                            <label for="log-user">usuario</label>
+                            <input type="text" id="log-user" class="user">
+                        </div>
                         <div class="item">
                             <label for="log-name">email</label>
                             <input type="text" id="log-name" class="name">
@@ -98,12 +103,16 @@
                     </fieldset>
 
                 </form>
-                <form class="form_registro hidden">
+                <form class="form_registro hidden" enctype="multipart/form-data" action="">
                     <fieldset class="info">
                         <legend>Registrarse</legend>
                         <div class="item">
-                            <label for="reg-name">email</label>
-                            <input type="text" id="reg-name" class="name">
+                            <label for="reg-user">usuario</label>
+                            <input type="text" id="reg-user" class="user">
+                        </div>
+                        <div class="item">
+                            <label for="reg-email">email</label>
+                            <input type="text" id="reg-email" class="name">
                         </div>
                         <div class="item">
                             <label for="reg-pass">Pasword</label>

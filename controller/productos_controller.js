@@ -11,17 +11,17 @@ const obtenerProductos = (req, res) => {
     })
 }
 
-// const obtenerUserID = (req, res) => {
-//     const {id} = req.params;
-//     const sql = 'SELECT * FROM usuarios WHERE id = ?';
+const obtenerProductoID = (req, res) => {
+    const {id} = req.params;
+    const sql = 'SELECT * FROM tienda_productos WHERE id = ?';
 
-//     db.query(sql, [id], (err, result) => {
-//         if(err) {
-//             throw err;
-//         } 
-//         res.json(result);
-//     })
-// };
+    db.query(sql, [id], (err, result) => {
+        if(err) {
+            throw err;
+        } 
+        res.json(result);
+    })
+};
 
 
 const creatProducto = (req, res) => {
@@ -69,5 +69,10 @@ const borrarProducto = (req, res) => {
     })
 };
 
-module.exports = { obtenerProductos, creatProducto, modificarProducto, borrarProducto};
+module.exports = { 
+    obtenerProductos,
+    creatProducto, 
+    modificarProducto, 
+    borrarProducto,
+    obtenerProductoID};
 
