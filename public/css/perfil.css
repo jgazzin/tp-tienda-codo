@@ -141,11 +141,7 @@
     border-radius: 6px;
 }
 
-.crearProducto .botonDerecha {
-    display: flex;
-    justify-items:end ;
-    height: 50%;
-}
+
 
 
 
