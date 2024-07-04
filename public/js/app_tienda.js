@@ -11,7 +11,7 @@ let productos = [
     vendedor: 1
     },
     {
-    id: 1,
+    id: 2,
     imagen: 'producto-2.jpg',
     nombre: 'bibliorato',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
@@ -20,7 +20,7 @@ let productos = [
     vendedor: 4
     },
     {
-    id: 1,
+    id: 3,
     imagen: 'producto-3.jpg',
     nombre: 'separadores',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
@@ -29,7 +29,7 @@ let productos = [
     vendedor: 2
     },
     {
-    id: 1,
+    id: 4,
     imagen: 'producto-4.jpg',
     nombre: 'ganchos',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
@@ -38,7 +38,7 @@ let productos = [
     vendedor: 2
     },
     {
-    id: 1,
+    id: 5,
     imagen: 'producto-5.jpg',
     nombre: 'birome',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
@@ -47,7 +47,7 @@ let productos = [
     vendedor: 3
     },
     {
-    id: 1,
+    id: 6,
     imagen: 'producto-6.jpg',
     nombre: 'corrector líquido',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
@@ -56,7 +56,7 @@ let productos = [
     vendedor: 4
     },
     {
-    id: 1,
+    id: 7,
     imagen: 'producto-7.jpg',
     nombre: 'agujereadora',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
@@ -65,7 +65,7 @@ let productos = [
     vendedor: 1
     },
     {
-    id: 1,
+    id: 8,
     imagen: 'producto-8.jpg',
     nombre: 'abrochadora',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
@@ -74,7 +74,7 @@ let productos = [
     vendedor: 2
     },
     {
-    id: 1,
+    id: 9,
     imagen: 'producto-9.jpg',
     nombre: 'tijera',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
@@ -86,10 +86,9 @@ let productos = [
 
 const contenedor_producto = document.querySelector('.productos');
 document.addEventListener('DOMContentLoaded', () =>{
-
-    console.log(contenedor_producto);
-
+    //console.log(contenedor_producto);
     imprimirProductos(productos)
+    imprimirCarrito()
 })
 
 // función global imprimir
@@ -125,20 +124,12 @@ async function imprimirProductos(objeto) {
 }
 
 
-
 // contenedor carrito
 const btnCarrito = document.querySelector('nav .carrito i')
 const contenedorCarrito = document.querySelector('.contenedor-carrito');
 
 const vaciar = document.querySelector('#vaciar')
 vaciar.addEventListener('click', vaciarCarrito)
-
-// vaciar carrito
-function vaciarCarrito() {
-    productosSeleccionados = [];
-    total = 0;
-    imprimirHtml()
-}
 
 // carrito
 const rowProducto = document.querySelector('.contenedor-carrito .row-producto')
@@ -152,15 +143,26 @@ let productosSeleccionados = [];
 const totalPagar = document.querySelector('.contenedor-carrito .precio-total')
 let total;
 
+// vaciar carrito
+function vaciarCarrito() {
+    productosSeleccionados = [];
+    total = 0;
+    guardarCarritoSessionlST()
+    imprimirCarrito()
+}
+
 // evento carrito
 listadoProductos.addEventListener('click', e => {
     if(e.target.classList.contains('comprar')) {
         let producto = e.target.parentElement.nextElementSibling;
+        let productoContenedor = producto.parentElement;
 
         const datosProducto = {
             cant: 1,
             nombre: producto.querySelector('h3').textContent,
-            precio: producto.querySelector('.tags .precio span').textContent
+            precio: producto.querySelector('.tags .precio span').textContent,
+            id: productoContenedor.getAttribute("data-id"),
+            vendedor: productoContenedor.getAttribute("data-vendedor")
         }
         // verificacion producto existentes
         const existe = productosSeleccionados.some(producto => producto.nombre === datosProducto.nombre)
@@ -178,25 +180,27 @@ listadoProductos.addEventListener('click', e => {
             productosSeleccionados = [... productosSeleccionados, datosProducto]
         }
 
-        console.log(productosSeleccionados);
+        // guardar carrito en sessionStorage
+        guardarCarritoSessionlST()
         // imprimir en html
-        imprimirHtml()
+        imprimirCarrito()
     }
 
 
 })
 
 // FUNCIONES CARRITO
-function imprimirHtml() {
+function imprimirCarrito() {
     
     // limpiar html
     infoProducto.innerHTML = '';
 
     // total
     total = 0;
-    
+   
     // listados productos seleccionados
-    productosSeleccionados.forEach( producto => {
+    let productosSession = JSON.parse(sessionStorage.getItem('carritoSession'));
+    productosSession.forEach( producto => {
         const elementoProducto = document.createElement('div');
         elementoProducto.classList.add('row-producto');
         elementoProducto.innerHTML = `
@@ -212,20 +216,30 @@ function imprimirHtml() {
         total += parseInt(producto.precio) * producto.cant;
     })
     totalPagar.innerHTML = `$${total}`
+
 }
+
 
 // eliminar producto
 infoProducto.addEventListener('click', (e) => {
     if(e.target.classList.contains('btn-eliminar')) {
         const producto = e.target.parentElement;
         const nombre = producto.children[1].textContent;
-
-        console.log(nombre);
+        
+        productosSeleccionados = JSON.parse(sessionStorage.getItem('carritoSession'))
         productosSeleccionados = productosSeleccionados.filter(producto => producto.nombre !== nombre)
-        console.log(productosSeleccionados);
-        imprimirHtml()
+        guardarCarritoSessionlST()
+        imprimirCarrito()
     }
 })
+
+// guardar en sessionStorage
+function guardarCarritoSessionlST() {
+    //sessionStorage.removeItem('carritoSession');
+    // console.log(productosSeleccionados)
+    sessionStorage.setItem('carritoSession', JSON.stringify(productosSeleccionados));
+  
+}
 
 
 
