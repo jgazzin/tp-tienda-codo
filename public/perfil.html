@@ -131,7 +131,7 @@
 
 //MAIN --------------------------------------------
     
-    <main class="container" style="height: 800px;">
+    <main class="container">
         <div class="titulo m-top">
             <i class="fa-solid fa-people-roof fa-xl"></i>
             <h2>Perfil</h2>
@@ -139,15 +139,20 @@
 
         <div class="cabecera">
             <div class="titulo">
-                <i class="fa-solid fa-map-pin fa-lg"></i>
-                <h3>Bienvenido</h3>
+                    <i class="fa-solid fa-map-pin fa-lg"></i>
+                    <h3>Bienvenido</h3>
             </div>
+                    <i class="fa-solid fa-circle-arrow-left"></i>
+        </div>
+        <div class="hashtag">
             <div class="t-row head">
                 <a href="#formActualizarDatosUsuarios"><p>Datos Personales</p></a>
-                <a href=""><p>productos en venta</p></a>
+                <a href="#mostrarMisProductos"><p>productos en venta</p></a>
+                <a href="#crearProducto"><p>crear nuevo producto</p></a>
                 <a href=""><p>mensajeria</p></a>
             </div>
         </div>
+        
     
     <div class="cabecera2">
         <div class="titulo">
@@ -156,6 +161,8 @@
         </div>
             <button id="mostrarFormBtn" class="btn">Modificar</button>
     </div>
+
+    <div class="linea"></div>
 
     <section id="formActualizarDatosUsuario">
         <form id="formAct" class="hidden" enctype="multipart/form-data">
@@ -189,8 +196,95 @@
                 <button class="btn" type="submit">actualizar</button>
             </div>
 
-        </form>
+            <div class="linea"></div>
+
+        </form><br>
+
+        <h3>Nombre: </h3>
+        <br>
+        <h3>Mail: </h3>
+        <br>
+        <h3>Contraseña: </h3><br><br>
     </section>
+
+    <section id="mostrarMisProductos">
+        <div class="verYModificar">
+            <div class="titulo">
+                <i class="fa-solid fa-map-pin fa-lg"></i>
+                <h3>productos en venta</h3>
+            </div>
+            <div>
+                <button id="mostrarListaProductosBtn" class="btn" type="submit">Mostrar</button>
+            </div>
+
+        </div>
+        <div class="linea"></div>
+
+        <br><div class="search">
+            <label>Buscar</label>
+            <input class="inputFormCrear" type="search" id="buscar" name="buscar"  placeholder="Buscar Producto por nombre">
+            <span id="iconito"><i class="fa-solid fa-magnifying-glass"></i></span>
+
+        </div>
+        <ul id="listaProductos"></ul><br><br>
+    </section>
+
+    <br><section id="crearProducto">
+        <div class="crearProductoNuevo">
+            <div class="titulo">
+                <i class="fa-solid fa-map-pin fa-lg"></i>
+                <h3>agregar nuevo producto</h3>
+            </div>
+            <div>
+                <button id="crearNuevoProductoBtn" class="btn" type="submit">Crear Nuevo</button>
+            </div>
+            
+        </div>
+        <div class="linea"></div><br>
+
+    </section>
+
+    <section id="CrearNuevo">
+            <div class="formularioCrearProducto">
+                <form class="crearProducto">
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" placeholder="Nombre del producto">
+                    </div>
+                    <div><label>Categoria</label>
+                        <select name="categoria" id="categoria">
+                            <option value="oficina">Oficina</option>
+                            <option value="libreria">Libreria</option>
+                            <option value="papeleria">Papeleria</option>
+                            <option value="artistica">Artistica</option>
+                            <option value="otra">Ninguna de las anteriores</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Precio</label>
+                        <input type="number" placeholder="Sin $ y puntos">
+                    </div>
+                    
+
+                    <div>
+                        <label> Adjuntar imagen</label>
+                        <input type="file">
+                    </div>
+
+                    <div>
+                        <label>Descripcion</label>
+                        <textarea name="" id="" rows="5" placeholder="Escriba una descripción del producto"></textarea>
+                    </div>
+                    <div class="botonDerecha">
+                        <button class="btn eliminar" type="submit">Crear Producto</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+        
+    </section><br>
 
     </main>
 

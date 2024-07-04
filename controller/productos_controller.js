@@ -11,17 +11,18 @@ const obtenerProductos = (req, res) => {
     })
 }
 
-// const obtenerUserID = (req, res) => {
-//     const {id} = req.params;
-//     const sql = 'SELECT * FROM usuarios WHERE id = ?';
+//descomente este
+const obtenerUserID = (req, res) => {
+    const {id} = req.params;
+    const sql = 'SELECT * FROM usuarios WHERE id = ?';
 
-//     db.query(sql, [id], (err, result) => {
-//         if(err) {
-//             throw err;
-//         } 
-//         res.json(result);
-//     })
-// };
+    db.query(sql, [id], (err, result) => {
+        if(err) {
+            throw err;
+        } 
+        res.json(result);
+    })
+};
 
 
 const creatProducto = (req, res) => {
@@ -69,5 +70,6 @@ const borrarProducto = (req, res) => {
     })
 };
 
-module.exports = { obtenerProductos, creatProducto, modificarProducto, borrarProducto};
+//agregue el obtenerUserID
+module.exports = { obtenerProductos, obtenerUserID, creatProducto, modificarProducto, borrarProducto};
 
