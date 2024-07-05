@@ -30,6 +30,7 @@ connection.connect((err) =>{
                 console.error('Error al cambiar a tienda_bd', err);
             }
         
+            // TABLA USUARIOS
             const createtableUsuariosQuery = `
             CREATE TABLE IF NOT EXISTS tienda_usuarios(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -47,6 +48,7 @@ connection.connect((err) =>{
                 console.log(('Tabla tienda_usuarios asegurada'));
             });
 
+            // TABLA PRODUCTOS
             const createtableProductosQuery = `
             CREATE TABLE IF NOT EXISTS tienda_productos(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -62,6 +64,24 @@ connection.connect((err) =>{
                     return;
                 }
                 console.log(('Tabla tienda_productos asegurada'));
+            });
+
+            // TABLA VENDIDOS
+            const createtableVendidosQuery = `
+            CREATE TABLE IF NOT EXISTS tienda_vendidos(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nombre VARCHAR(50) NOT NULL,
+            descripcion TEXT NOT NULL,
+            categoria VARCHAR(50) NOT NULL,
+            precio FLOAT(2) NOT NULL,
+            vendedor INT NOT NULL);`;
+
+            connection.query(createtableVendidosQuery, (err, result) => {
+                if(err) {
+                    console.log('Error creando la tabla tienda_vendidos: ', err);
+                    return;
+                }
+                console.log(('Tabla tienda_vendidos asegurada'));
             });
 
         });

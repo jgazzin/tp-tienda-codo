@@ -21,22 +21,23 @@
 <body>
     <header class="header" id="header">
         <nav class="container">
-            <div class="navbar">
-                <div>
+            <div>
+                <div class="navbar">
                     <div class="logo">
                         <a href="index.html">
                             <img src="img/logo-32px.png" width="100" alt="logo">
                         </a>
                         <h1>tienda</h1>
                     </div>
-                    <p class="saludoUser">Bienvenido <span></span></p>
-                </div>
-                <div class="icons">
-                        <i class="fa-solid fa-cart-plus fa-xl"></i>
-                        <i class="fa-solid fa-bars fa-xl"></i>
-                        <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+                    <div class="icons">
+                            <i class="fa-solid fa-cart-plus fa-xl"></i>
+                            <i class="fa-solid fa-bars fa-xl"></i>
+                            <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+                    </div>
+
                 </div>
             </div>
+            <p class="saludoUser row">Bienvenido <span></span><i class="fa-solid fa-right-from-bracket fa-lg logout"></i></p>
         </nav>
 
 
@@ -76,9 +77,13 @@
     <div class="desplegable hidden" id="registro">
         <div class="container">
             <div class="contenedor-registro">
-                <form class="form_login">
+                <form class="form_login" enctype="multipart/form-data">
                     <fieldset class="info">
                         <legend>Ingresar</legend>
+                        <div class="item">
+                            <label for="log-user">usuario</label>
+                            <input type="text" id="log-user" class="user">
+                        </div>
                         <div class="item">
                             <label for="log-name">email</label>
                             <input type="text" id="log-name" class="name">
@@ -98,12 +103,16 @@
                     </fieldset>
 
                 </form>
-                <form class="form_registro hidden">
+                <form class="form_registro hidden" enctype="multipart/form-data" action="">
                     <fieldset class="info">
                         <legend>Registrarse</legend>
                         <div class="item">
-                            <label for="reg-name">email</label>
-                            <input type="text" id="reg-name" class="name">
+                            <label for="reg-user">usuario</label>
+                            <input type="text" id="reg-user" class="user">
+                        </div>
+                        <div class="item">
+                            <label for="reg-email">email</label>
+                            <input type="text" id="reg-email" class="name">
                         </div>
                         <div class="item">
                             <label for="reg-pass">Pasword</label>
@@ -140,9 +149,9 @@
         <div class="cabecera">
             <div class="titulo">
                     <i class="fa-solid fa-map-pin fa-lg"></i>
-                    <h3>Bienvenido</h3>
+                    <h3>Bienvenido <span id="userSession"></span></h3>
             </div>
-                    <i class="fa-solid fa-circle-arrow-left"></i>
+                <i class="fa-solid fa-right-from-bracket fa-xl logout"></i>
         </div>
         <div class="hashtag">
             <div class="t-row head">
@@ -154,7 +163,7 @@
         </div>
         
     
-    <div class="cabecera2">
+    <div class="cabecera">
         <div class="titulo">
             <i class="fa-solid fa-map-pin fa-lg"></i>
             <h3>datos personales</h3>
@@ -190,8 +199,6 @@
                 </div>
             </div>
         
-    
-
             <div class="boton">
                 <button class="btn" type="submit">actualizar</button>
             </div>
@@ -200,11 +207,17 @@
 
         </form><br>
 
-        <h3>Nombre: </h3>
-        <br>
-        <h3>Mail: </h3>
-        <br>
-        <h3>Contraseña: </h3><br><br>
+        <div class="dataUser">
+            <div>
+                <p>Usuario: <span class="user"></span></p>
+                <p>E-mail: <span class="email"></span></p>
+                <p>Password <span class="pass"></span></p>
+            </div>
+            <div>
+                <p>Nombre: <span class="name"></span></p>
+                <p>Apellido: <span class="apellido"></span></p>
+            </div>
+        </div>
     </div>
 
 
@@ -222,8 +235,10 @@
 
         <br><div class="search">
             <label>Buscar</label>
-            <input class="inputFormCrear" type="search" id="buscar" name="buscar"  placeholder="Buscar Producto por nombre">
-            <span id="iconito"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <div class="buscador">
+                <input class="inputFormCrear" type="search" id="buscar" name="buscar"  placeholder="Buscar Producto por nombre">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
 
         </div>
         <ul id="listaProductos"></ul><br><br>
@@ -236,7 +251,7 @@
                 <h3>agregar nuevo producto</h3>
             </div>
             <div>
-                <button id="crearNuevoProductoBtn" class="btn">Crear Nuevo</button>
+                <button id="crearNuevoProductoBtn" class="btn" type="submit">+ Nuevo</button>
             </div>
             
         </div>
@@ -246,38 +261,43 @@
     <div class="crearProductoNuevoForm">
         <form id="crearProducto" class="hidden" enctype="multipart/form-data">
             <div class="formularioCrearProducto">
-                
-                    <div>
-                        <label>Nombre</label>
-                        <input type="text" placeholder="Nombre del producto">
-                    </div>
-                    <div><label>Categoria</label>
-                        <select name="categoria" id="categoria">
-                            <option value="oficina">Oficina</option>
-                            <option value="libreria">Libreria</option>
-                            <option value="papeleria">Papeleria</option>
-                            <option value="artistica">Artistica</option>
-                            <option value="otra">Ninguna de las anteriores</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Precio</label>
-                        <input type="number" placeholder="Sin $ y puntos">
-                    </div>
-                    
+                <form class="crearProducto">
+                    <fieldset>
+                        <div>
+                            <label>Nombre</label>
+                            <input type="text" placeholder="Nombre del producto">
+                        </div>
+                        <div><label>Categoria</label>
+                            <select name="categoria" id="categoria">
+                                <option value="oficina">Oficina</option>
+                                <option value="libreria">Libreria</option>
+                                <option value="papeleria">Papeleria</option>
+                                <option value="artistica">Artistica</option>
+                                <option value="otra">Ninguna de las anteriores</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Precio</label>
+                            <input type="number" placeholder="Sin $ y puntos">
+                        </div>
+                    </fieldset>
 
-                    <div>
-                        <label> Adjuntar imagen</label>
-                        <input type="file">
-                    </div>
+                    <fieldset>
+                        <div>
+                            <label> Adjuntar imagen</label>
+                            <input type="file">
+                        </div>
+    
+                        <div>
+                            <label>Descripcion</label>
+                            <textarea name="" id="" rows="5" placeholder="Escriba una descripción del producto"></textarea>
+                        </div>
+                        <div class="botonDerecha">
+                            <button class="btn eliminar" type="submit">Crear Producto</button>
+                        </div>
+                    </fieldset>
 
-                    <div>
-                        <label>Descripcion</label>
-                        <textarea name="" id="" rows="5" placeholder="Escriba una descripción del producto"></textarea>
-                    </div>
-                    <div class="botonDerecha">
-                        <button class="btn eliminar" type="submit">Crear Producto</button>
-                    </div>
+                </form>
             </div>
         </form>
     </div>

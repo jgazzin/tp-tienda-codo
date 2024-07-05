@@ -1,6 +1,7 @@
 const icon = document.querySelector('.icons');
 const desplegable = document.querySelectorAll('.desplegable');
 
+// menús desplegables header
 icon.addEventListener('click', (e) => {
     if(e.target.classList.contains('fa-cart-plus')) {
         desplegable.forEach(item => {
@@ -33,7 +34,7 @@ icon.addEventListener('click', (e) => {
 })
 
 
-// forms registros usuarios mostrar
+//---------- forms registros usuarios mostrar
 const cambiarForm = document.querySelectorAll('.cambiar_form');
 cambiarForm.forEach(ancla => {
     ancla.addEventListener('click', ()=>{
@@ -49,7 +50,7 @@ cambiarForm.forEach(ancla => {
     })
 })
 
-// saludo usuario
+//---------------- saludo usuario
 const saludoUser = document.querySelector('.saludoUser span');
 const usuarioActual = JSON.parse(sessionStorage.getItem('userSession'));
 if ( usuarioActual != null){
@@ -58,11 +59,10 @@ if ( usuarioActual != null){
 
 }
 
-// log out
+// -------- log out
 const logout = document.querySelector('.saludoUser .logout')
 logout.addEventListener('click', ()=>{
     sessionStorage.removeItem('userSession');
     saludoUser.textContent = ''
     saludoUser.setAttribute("data-id-user", '')
 })
-
