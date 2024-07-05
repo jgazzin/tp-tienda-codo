@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/compra.css">
     <link rel="shortcut icon" href="img/icon-favicon.png" type="image/png">
+
     <title>Tienda</title>
 </head>
 
@@ -138,7 +139,6 @@
     </div>
     </header>
     
-    <a id="inicio"></a>
     <main class="container orden">
         <div class="titulo logo m-top">
             <img src="img/logo-32px.png" width="100" alt="logo">
@@ -166,9 +166,55 @@
                 <p class="precio_total">$<span></span></p>
                 <button class="btn" id="generarCompra">comprar</button>
             </div>
-            
-            
+               
         </section>
+
+        <section class="ticket_compra">
+            <div class="spinner hidden">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+              </div>
+
+              <div class="ticket hidden">
+                <div class="titulo logo">
+                    <i class="fa-solid fa-map-pin fa-lg"></i>
+                    <h3>comprobante de compra</h3>
+                </div>
+                <div class="t-row head">
+                    <p>cantidad</p>
+                    <p>nombre</p>
+                    <p>precio</p>
+                </div>
+                <div class="listado_productos_ticket">
+                    <!-- <div class="t-row">
+                        <p class="cantidad">jafjds</p>
+                        <p class="nombre">ajfdjskf</p>
+                        <p class="precio">ajfksdjf</p>
+                    </div>
+                    <div class="t-row">
+                        <p class="cantidad">jafjds</p>
+                        <p class="nombre">ajfdjskf</p>
+                        <p class="precio">ajfksdjf</p>
+                    </div> -->
+                    <!-- desde compras.js -->
+                </div>
+                
+                <div class="t-row">
+                    <h3>total</h3>
+                    <p></p>
+                    <p class="ticket_total">$<span></span></p>
+                </div>
+                <div class="btn-row">
+                    <a href="tienda.html" class="btn guardar">volver</a>
+                    <button class="btn" id="descargarTicket">descargar</button>
+                </div>
+              </div>
+        </section>
+
+
 
     </main>
 
