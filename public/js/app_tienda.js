@@ -1,6 +1,7 @@
 // -------    generación FRONT TIENDA  ---------
+
 // reemplazar por bd
-let productos = [
+let productos_buck = [
     {
     id: 1,
     imagen: 'producto-1.jpg',
@@ -43,7 +44,7 @@ let productos = [
     nombre: 'birome',
     detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
     precio: '30',
-    categoria: 'olibrería',
+    categoria: 'librería',
     vendedor: 3
     },
     {
@@ -84,47 +85,188 @@ let productos = [
     },
 ];
 
+
 const contenedor_producto = document.querySelector('.productos');
 document.addEventListener('DOMContentLoaded', () =>{
-    //console.log(contenedor_producto);
-    imprimirProductos(productos)
+    imprimirProductos()
     imprimirCarrito()
 })
 
 // función global imprimir
-async function imprimirProductos(objeto) {
-    // const productos = await fetch('/productos')
-    // const productos = await response.json()
-    // *** descomentar cuando se trabaje con bd y servidor
-
+async function imprimirProductos() {
     contenedor_producto.innerHTML = '';
-    objeto.forEach(product =>{
-        const card = document.createElement('DIV')
-        card.classList.add('producto')
-        card.setAttribute("data-id", product.id)
-        card.setAttribute("data-vendedor", product.vendedor)
-        card.innerHTML= `
-            <div class="img">
-                <img src="img/${product.imagen}" width="100" alt="imagen producto">
-                <button class="btn comprar">agregar al carrito</button>
-            </div>
-                
-            <div class="textos">
-                <h3>${product.nombre}</h3>
-                <p class="detalle alto-ofw">${product.detalle}</p>
-                <h2 class="plus">+</h2>
-                <div class="tags">
-                    <h3 class="precio">$<span>${product.precio}</span>.-</h3>
-                    <p class="categoria" data-id="cat_1">${product.categoria}</p>
-                </div>
-            </div>
-        `;
-        contenedor_producto.appendChild(card)
+    const response = await fetch('/productos')
+    const productos =await response.json()
+
+    productos.forEach(product =>{
+        contenedor_producto.appendChild(htmlProducto(product))
     })
 }
 
+// fincion imprimir cada producto
+function htmlProducto(product){
+    const card = document.createElement('DIV')
+    card.classList.add('producto')
+    card.setAttribute("data-id", product.id)
+    card.setAttribute("data-vendedor", product.vendedor)
+    card.innerHTML= `
+        <div class="img">
+            <img src="img/${product.img}" width="100" alt="imagen producto">
+            <button class="btn comprar">agregar al carrito</button>
+        </div>
+            
+        <div class="textos">
+            <h3>${product.nombre}</h3>
+            <p class="detalle alto-ofw">${product.descripcion}</p>
+            <h2 class="plus">+</h2>
+            <div class="tags">
+                <h3 class="precio">$<span>${product.precio}</span>.-</h3>
+                <p class="categoria" data-id="cat_1">${product.categoria}</p>
+            </div>
+        </div>
+    `;
+    return card
+}
 
-// contenedor carrito
+// -------    formulario filtros  ---------
+const mostrarTexto= document.querySelectorAll('.productos .plus');
+const btnMenos= document.querySelector('.rango .btn-menos');
+const btnMas= document.querySelector('.rango .btn-mas');
+const btnCategoria = document.querySelector('.filtros .categoria');
+const buscarPorNombre = document.querySelector('.filtros .buscador');
+const progress = document.querySelector('.filtros .rango');
+
+btnCategoria.addEventListener('change', ()=>{
+    const checked = btnCategoria.querySelector('input:checked').id;
+    console.log(checked);
+    if( checked === 'todo') {
+        imprimirProductos()
+    } else {
+        imprimirProductoCategoria(checked)
+    }
+
+})
+buscarPorNombre.querySelector('i').addEventListener('click', () =>{
+    const nombreBuscar = buscarPorNombre.querySelector('input').value;
+    
+    if(nombreBuscar != '') {
+        imprimirProductoNombre(nombreBuscar)
+
+    } else {
+        imprimirProductos()
+    }
+})
+progress.addEventListener('click', ()=>{
+    const precioValue = progress.querySelector('progress').value;
+    if(precioValue < 100) {
+        imprimirPorPrecio(precioValue)
+
+    } else {
+        imprimirProductos()
+    }
+
+})
+
+async function imprimirProductoCategoria(categoria) {
+    contenedor_producto.innerHTML = '';
+    const response = await fetch(`/productos`)
+    const productos = await response.json()
+    let i = 0
+    productos.forEach(product =>{
+
+        if(product.categoria === categoria){
+            contenedor_producto.appendChild(htmlProducto(product))
+            i++
+        }   
+    })
+    
+    if(i === 0){
+        document.querySelector('.alerta').textContent = `No hay productos en la categoría: ${categoria}`;
+    } else {
+        document.querySelector('.alerta').textContent = '';
+    }
+    
+}
+async function imprimirProductoNombre(nombre) {
+    contenedor_producto.innerHTML = '';
+    const response = await fetch(`/productos`)
+    const productos = await response.json()
+    let i = 0
+    productos.forEach(product =>{
+        if(product.nombre.includes(nombre)){
+            contenedor_producto.appendChild(htmlProducto(product))
+            i++
+        }   
+    })
+    
+    if(i === 0){
+        document.querySelector('.alerta').textContent = `No se encontraron productos con el nombre: ${nombre}`;
+    } else {
+        document.querySelector('.alerta').textContent = '';
+    }
+    
+}
+async function imprimirPorPrecio(precio) {
+    contenedor_producto.innerHTML = '';
+    const response = await fetch(`/productos`)
+    const productos = await response.json()
+
+    const precios = productos.map(product => product.precio)
+    const precioMaximo = Math.max.apply(null, precios)
+    const precioEvaluado = precio * precioMaximo / 100;
+
+    let i = 0
+    productos.forEach(product =>{
+        if(product.precio <= precioEvaluado){
+            contenedor_producto.appendChild(htmlProducto(product))
+            i++
+        }   
+    })
+    
+    if(i === 0){
+        document.querySelector('.alerta').textContent = `No hay productos menores a: $${precio}`;
+    } else {
+        document.querySelector('.alerta').textContent = '';
+    } 
+}
+
+
+mostrarTexto.forEach(plus => {
+    plus.addEventListener('click', mostrar);
+});
+
+btnMas.addEventListener('click', () => {
+    rangoPrecio('mas');
+})
+btnMenos.addEventListener('click', () => {
+    rangoPrecio('menos');
+})
+
+function rangoPrecio(params) {
+    const barraPrecio = document.querySelector('#file');
+    if (params === 'mas') {
+        barraPrecio.value += 5;
+    } else {
+        barraPrecio.value -= 5;
+    }
+}
+
+// funcion mostrar descripcion
+function mostrar(e) {
+    const detalle = e.target.previousElementSibling;
+
+    console.log(detalle)
+    if (detalle.classList.contains('alto-ofw')) {
+        e.target.textContent = '-';
+    } else {
+        e.target.textContent = '+';
+    }
+    
+    detalle.classList.toggle('alto-ofw');
+}
+
+
+//---------- contenedor carrito
 const btnCarrito = document.querySelector('nav .carrito i')
 const contenedorCarrito = document.querySelector('.contenedor-carrito');
 
@@ -136,9 +278,10 @@ const rowProducto = document.querySelector('.contenedor-carrito .row-producto')
 const infoProducto = document.querySelector('.contenedor-carrito .info-producto')
 
 const listadoProductos = document.querySelector('.tienda .productos')
+let productosSeleccionados = [];
 // arreglo de productos seleccionados
 if(JSON.parse(sessionStorage.getItem('carritoSession'))=== null){
-    let productosSeleccionados = [];
+    productosSeleccionados = []
 } else{
     productosSeleccionados = JSON.parse(sessionStorage.getItem('carritoSession'))
 }
@@ -169,6 +312,7 @@ listadoProductos.addEventListener('click', e => {
             id: productoContenedor.getAttribute("data-id"),
             vendedor: productoContenedor.getAttribute("data-vendedor")
         }
+
         // verificacion producto existentes
         const existe = productosSeleccionados.some(producto => producto.nombre === datosProducto.nombre)
         if (existe) {
@@ -191,8 +335,8 @@ listadoProductos.addEventListener('click', e => {
         imprimirCarrito()
     }
 
-
 })
+
 
 // FUNCIONES CARRITO
 function imprimirCarrito() {
@@ -205,22 +349,25 @@ function imprimirCarrito() {
    
     // listados productos seleccionados
     let productosSession = JSON.parse(sessionStorage.getItem('carritoSession'));
-    productosSession.forEach( producto => {
-        const elementoProducto = document.createElement('div');
-        elementoProducto.classList.add('row-producto');
-        elementoProducto.innerHTML = `
-            <span class="cantidad">${producto.cant}</span>
-            <span class="nombre">${producto.nombre}</span>
-            <span class="precio">$${producto.precio}</span>
-            <span class="btn-eliminar">x</span>
-        `;
+    if(productosSession != null){
+        productosSession.forEach( producto => {
+            const elementoProducto = document.createElement('div');
+            elementoProducto.classList.add('row-producto');
+            elementoProducto.innerHTML = `
+                <span class="cantidad">${producto.cant}</span>
+                <span class="nombre">${producto.nombre}</span>
+                <span class="precio">$${producto.precio}</span>
+                <span class="btn-eliminar">x</span>
+            `;
+    
+            infoProducto.append(elementoProducto);
+    
+            // total a pagar
+            total += parseInt(producto.precio) * producto.cant;
+        })
+        totalPagar.innerHTML = `$${total}`
 
-        infoProducto.append(elementoProducto);
-
-        // total a pagar
-        total += parseInt(producto.precio) * producto.cant;
-    })
-    totalPagar.innerHTML = `$${total}`
+    }
 
 }
 
@@ -244,107 +391,4 @@ function guardarCarritoSessionlST() {
     // console.log(productosSeleccionados)
     sessionStorage.setItem('carritoSession', JSON.stringify(productosSeleccionados));
   
-}
-
-
-
-
-// -------    formulario filtros  ---------
-const mostrarTexto= document.querySelectorAll('.productos .plus');
-const btnMenos= document.querySelector('.rango .btn-menos');
-const btnMas= document.querySelector('.rango .btn-mas');
-const btnCategoria = document.querySelector('.filtros .categoria');
-const buscarPorNombre = document.querySelector('.filtros .buscador');
-const progress = document.querySelector('.filtros .rango');
-
-btnCategoria.addEventListener('change', ()=>{
-    const checked = btnCategoria.querySelector('input:checked').id;
-
-    if( checked === 'todo') {
-        imprimirProductos(productos)
-    } else {
-        const productos_filtrados = productos.filter(product => product.categoria === checked)
-        console.log(checked);
-        if(productos_filtrados.length === 0){
-            document.querySelector('.alerta').textContent = `No hay productos en la categoría: ${checked}`;
-        }  else {
-            document.querySelector('.alerta').textContent = '';
-
-        } 
-        imprimirProductos(productos_filtrados)
-    }
-
-    
-
-})
-
-buscarPorNombre.querySelector('i').addEventListener('click', () =>{
-    const nombreBuscar = buscarPorNombre.querySelector('input').value;
-    if(nombreBuscar != '') {
-        const productos_filtrados = productos.filter(product => product.nombre === nombreBuscar)
-        if(productos_filtrados.length === 0){
-            document.querySelector('.alerta').textContent = `No hay productos con el nombre: ${nombreBuscar}`;
-        } else {
-            document.querySelector('.alerta').textContent = '';
-        } 
-        imprimirProductos(productos_filtrados)
-
-    } else {
-        imprimirProductos(productos)
-    }
-})
-
-progress.addEventListener('click', ()=>{
-    const precioValue = progress.querySelector('progress').value;
-    const precios = productos.map(product => product.precio)
-    const precioMaximo = Math.max.apply(null, precios)
-    const precioEvaluado = precioValue * precioMaximo / 100;
-
-    const productos_filtrados = productos.filter(product => product.precio <= precioEvaluado)
-    if(productos_filtrados.length === 0){
-        document.querySelector('.alerta').textContent = `No hay productos de menor precio a: $${precioEvaluado}`;
-    } else {
-        document.querySelector('.alerta').textContent = '';
-    } 
-    imprimirProductos(productos_filtrados)
-
-})
-
-
-mostrarTexto.forEach(plus => {
-    plus.addEventListener('click', mostrar);
-});
-
-
-btnMas.addEventListener('click', () => {
-    rangoPrecio('mas');
-})
-btnMenos.addEventListener('click', () => {
-    rangoPrecio('menos');
-})
-
-
-
-
-// funciones
-function mostrar(e) {
-    const detalle = e.target.previousElementSibling;
-
-    console.log(detalle)
-    if (detalle.classList.contains('alto-ofw')) {
-        e.target.textContent = '-';
-    } else {
-        e.target.textContent = '+';
-    }
-    
-    detalle.classList.toggle('alto-ofw');
-}
-
-function rangoPrecio(params) {
-    const barraPrecio = document.querySelector('#file');
-    if (params === 'mas') {
-        barraPrecio.value += 5;
-    } else {
-        barraPrecio.value -= 5;
-    }
 }

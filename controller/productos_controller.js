@@ -1,7 +1,7 @@
 const db = require('../db/data_base');
 
 const obtenerProductos = (req, res) => {
-    const sql = 'SELECT * FROM productos_tienda';
+    const sql = 'SELECT * FROM tienda_productos';
 
     db.query(sql, (err, result) => {
         if(err) {
@@ -23,12 +23,13 @@ const obtenerProductoID = (req, res) => {
         } 
         res.json(result);
     })
+    
 };
 
 
 const creatProducto = (req, res) => {
-    const { nombre, descripcion, categoria, precio, vendedor } = req.body;
-    const sql = 'INSERT INTO tienda_productos (nombre, descripcion, categoria, precio, vendedor) VALUES (?, ?, ?, ?, ?)';
+    const { nombre, descripcion, categoria, precio, vendedor, img } = req.body;
+    const sql = 'INSERT INTO tienda_productos (nombre, descripcion, categoria, precio, vendedor, img) VALUES (?, ?, ?, ?, ?, ?)';
 
     db.query(sql, [nombre, descripcion, categoria, precio, vendedor], (err, result) => {
         if(err) {
@@ -71,12 +72,25 @@ const borrarProducto = (req, res) => {
     })
 };
 
+const obtenerProductoCategoria = (req, res) =>{
+    const {categoria} = req.params;
+    const sql = 'SELECT * FROM tienda_productos WHERE categoria = ?;'
+
+    db.query(sql, [categoria], (err, result) =>{
+        if(err) {
+            throw err
+        }
+        res.json(result);
+    })
+}
+
 
 module.exports = { 
     obtenerProductos,
     creatProducto, 
     modificarProducto, 
     borrarProducto,
-    obtenerProductoID};
+    obtenerProductoID,
+    obtenerProductoCategoria};
 
 
