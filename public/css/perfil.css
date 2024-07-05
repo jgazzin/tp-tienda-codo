@@ -126,14 +126,13 @@
     left: 0.4rem;
 }
 
-.crearProducto {
+.formularioCrearProducto {
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto auto;
 }
 
 
-.crearProducto textarea, input, select {
+.formularioCrearProducto textarea, input, select {
     margin-top: 5px;
     width: 90%;
     padding: 5px 10px;
@@ -141,7 +140,12 @@
     border-radius: 6px;
 }
 
-
+.botonDerecha {
+    text-align: end;
+    position: relative;
+    top: 80px;
+    right: 60px;
+}
 
 
 

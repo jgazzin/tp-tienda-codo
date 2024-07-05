@@ -148,7 +148,7 @@
             <div class="t-row head">
                 <a href="#formActualizarDatosUsuarios"><p>Datos Personales</p></a>
                 <a href="#mostrarMisProductos"><p>productos en venta</p></a>
-                <a href="#crearProducto"><p>crear nuevo producto</p></a>
+                <a href="#irACrearProducto"><p>crear nuevo producto</p></a>
                 <a href=""><p>mensajeria</p></a>
             </div>
         </div>
@@ -164,7 +164,7 @@
 
     <div class="linea"></div>
 
-    <section id="formActualizarDatosUsuario">
+    <div id="formActualizarDatosUsuario">
         <form id="formAct" class="hidden" enctype="multipart/form-data">
             <div class="formularioActualizacionUsuarios">
                 <div class="formParte1">
@@ -205,10 +205,10 @@
         <h3>Mail: </h3>
         <br>
         <h3>Contraseña: </h3><br><br>
-    </section>
+    </div>
 
-    <section id="mostrarMisProductos">
-        <div class="verYModificar">
+
+        <div class="verYModificar" id="mostrarMisProductos">
             <div class="titulo">
                 <i class="fa-solid fa-map-pin fa-lg"></i>
                 <h3>productos en venta</h3>
@@ -227,26 +227,26 @@
 
         </div>
         <ul id="listaProductos"></ul><br><br>
-    </section>
+    
 
-    <br><section id="crearProducto">
-        <div class="crearProductoNuevo">
+   
+        <div class="crearProductoNuevo" id="irACrearProducto">
             <div class="titulo">
                 <i class="fa-solid fa-map-pin fa-lg"></i>
                 <h3>agregar nuevo producto</h3>
             </div>
             <div>
-                <button id="crearNuevoProductoBtn" class="btn" type="submit">Crear Nuevo</button>
+                <button id="crearNuevoProductoBtn" class="btn">Crear Nuevo</button>
             </div>
             
         </div>
         <div class="linea"></div><br>
 
-    </section>
-
-    <section id="CrearNuevo">
+    
+    <div class="crearProductoNuevoForm">
+        <form id="crearProducto" class="hidden" enctype="multipart/form-data">
             <div class="formularioCrearProducto">
-                <form class="crearProducto">
+                
                     <div>
                         <label>Nombre</label>
                         <input type="text" placeholder="Nombre del producto">
@@ -278,13 +278,10 @@
                     <div class="botonDerecha">
                         <button class="btn eliminar" type="submit">Crear Producto</button>
                     </div>
-                </form>
             </div>
-
-
-
-        
-    </section><br>
+        </form>
+    </div>
+            
 
     </main>
 

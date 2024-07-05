@@ -4,23 +4,31 @@ document.addEventListener('DOMContentLoaded', () =>
     const mostrarFormBtn = document.getElementById('mostrarFormBtn');
     //guarda el form
     const formAct = document.getElementById('formAct');
-
-        //otras const
-
+    //guardar btn crear producto
+    const crearNuevoProductoBtn = document.getElementById('crearNuevoProductoBtn');
+    //guardar el form
+    const crearProducto = document.getElementById('crearProducto');
+       
+    
+    //otras const
         const mostrarListaProductosBtn = document.getElementById('mostrarListaProductosBtn');
         //aca va lo que va a mostrar de la base de datos
         const listaProductos = document.getElementById('listaProductos');
         //boton de crear producto
-        const crearNuevoProductoBtn = document.getElementById('crearNuevoProductoBtn');
     
         //formulario de crear producto
     
         //mostrar u ocultar el form
-    
+  
 
 mostrarFormBtn.addEventListener('click', () =>
 {
     formAct.classList.toggle('hidden');
+});
+
+crearNuevoProductoBtn.addEventListener('click', () =>
+{
+    crearProducto.classList.toggle('hidden');
 });
 
 });
