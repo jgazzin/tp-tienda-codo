@@ -166,6 +166,11 @@ input:focus {
       border: none;
     }
 }
+.buscador {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .filtros .buscador i {
   cursor: pointer;
