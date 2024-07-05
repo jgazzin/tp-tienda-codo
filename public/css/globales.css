@@ -75,7 +75,6 @@
   
   .row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 1rem;
   }
@@ -122,7 +121,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 2rem 0 1rem 0;
     text-transform: uppercase;
   }
 

@@ -35,8 +35,9 @@ connection.connect((err) =>{
             id INT AUTO_INCREMENT PRIMARY KEY,
             user VARCHAR(30) NOT NULL,
             email VARCHAR(50) NOT NULL,
-            nombre VARCHAR(100) NOT NULL,
-            apellido VARCHAR(100) NOT NULL);`;
+            nombre VARCHAR(100),
+            apellido VARCHAR(100),
+            password VARCHAR(20) NOT NULL);`;
 
             connection.query(createtableUsuariosQuery, (err, result) => {
                 if(err) {

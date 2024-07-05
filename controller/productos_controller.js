@@ -11,10 +11,11 @@ const obtenerProductos = (req, res) => {
     })
 }
 
-//descomente este
-const obtenerUserID = (req, res) => {
+
+const obtenerProductoID = (req, res) => {
     const {id} = req.params;
-    const sql = 'SELECT * FROM usuarios WHERE id = ?';
+    const sql = 'SELECT * FROM tienda_productos WHERE id = ?';
+
 
     db.query(sql, [id], (err, result) => {
         if(err) {
@@ -70,6 +71,12 @@ const borrarProducto = (req, res) => {
     })
 };
 
-//agregue el obtenerUserID
-module.exports = { obtenerProductos, obtenerUserID, creatProducto, modificarProducto, borrarProducto};
+
+module.exports = { 
+    obtenerProductos,
+    creatProducto, 
+    modificarProducto, 
+    borrarProducto,
+    obtenerProductoID};
+
 

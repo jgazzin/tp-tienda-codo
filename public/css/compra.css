@@ -6,17 +6,18 @@
 .listado_productos_seleccionados .titulo {
     justify-content: left;
 }
-.listado_productos_seleccionados .t-row{
+.t-row{
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr 2fr 1.5fr;
+    grid-template-columns: 1.5fr 2fr 2fr 1.5fr;
     text-align: center;
+    place-items: center;
     padding: 4px 0;
 }
 .listado_productos_seleccionados .t-row p{
     padding: 4px;
     font-style: italic;
 }
-.listado_productos_seleccionados .t-row p:first-of-type{
+.listado_productos_seleccionados .t-row p:first-of-type:not(.precio_total){
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -45,6 +46,7 @@
     justify-content: right;
     gap: 1rem;
 }
+
 
 @media (max-width: 576px) {
     .listado_productos_seleccionados .t-row.head{
