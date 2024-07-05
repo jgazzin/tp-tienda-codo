@@ -1,12 +1,11 @@
 // generar orden de compra
 const contenedorListadoProductos = document.querySelector('.listado_productos_items')
 let listadoProductos = JSON.parse(sessionStorage.getItem('carritoSession'));
-
+let total = 0;
 
 // imprimir lista
 function imprimirOrden() {
     contenedorListadoProductos.innerHTML= ''
-    let total = 0;
     listadoProductos.forEach(producto => {
         const itemProducto = document.createElement('div')
         itemProducto.classList.add('t-row')
@@ -87,25 +86,70 @@ function guardarProductosSessionST() {
 
 // ----- COMPRAR
 document.querySelector('#generarCompra').addEventListener('click', ()=>{
-    
-    listadoProductos.forEach(producto => {
-        // eliminarProducto(producto.id)
-        const productoBD = buscarProducto(producto.id)
+    // spinner pensando
+    const spinner = document.querySelector('.ticket_compra .spinner')
+    const ticket = document.querySelector('.ticket_compra .ticket')
+    spinner.classList.remove('hidden')
+    console.log(spinner);
+    setInterval(() => {
+        spinner.classList.add('hidden')
+        ticket.classList.remove('hidden')
+    }, 3000);
 
+    if(listadoProductos.length >0 ){
+        listadoProductos.forEach(product => {
+            crearVendidos(product.id)
+            imprimir_Producto(product)
+            eliminarProductoBD(product.id)
+            
+        })
+        imprimir_Total()
+        
+        // borrar orden de compra + sessionST
+        listadoProductos = []
+        guardarProductosSessionST()
+        total = 0;
+        imprimirOrden() 
+    } else {
+        crearAlerta()
+    }
 
-        // crearVendido()
-        console.log(productoBD);
-    })
 })
 
-// ---- conecciones a BD
-async function buscarProducto(ID) {
-    const id = parseInt(ID)
-    const response = await fetch(`/usuarios/${id}`)
-    const usuario = await response.json()
-    console.log(usuario);
+// alerta
+function crearAlerta() {
+    const contenedor = document.querySelector('.ticket .listado_productos_ticket');
+    const mensaje = document.createElement('p')
+    mensaje.classList.add('err')
+    mensaje.textContent = 'No hay productos en el carrito'
+    contenedor.innerHTML= ''
+    contenedor.appendChild(mensaje)
 }
-async function eliminarProductos(id) {
+
+// imprimir ticket
+function imprimir_Producto(producto){
+    console.log('imprimir producto');
+    const contenedor = document.querySelector('.ticket .listado_productos_ticket')
+    const row_Producto = document.createElement('div')
+    row_Producto.classList.add('t-row')
+    row_Producto.innerHTML = `
+    <p class="cantidad">${producto.cant}</p>
+    <p class="nombre">${producto.nombre}</p>
+    <p class="precio">${producto.precio}</p>
+    `;
+    contenedor.innerHTML=''
+    contenedor.appendChild(row_Producto)
+}
+
+function imprimir_Total(){
+    const total_ticket = total;
+    document.querySelector('.ticket_compra .ticket_total span').textContent = total_ticket;
+}
+
+
+// ---- conecciones a BD
+
+async function eliminarProductoBD(id) {
     const response = await fetch(`/productos/${id}`, {
         method: 'DELETE'
     })
@@ -113,16 +157,30 @@ async function eliminarProductos(id) {
     console.log(result)
 }
 
-// async function crearVendidos(data) {
-//     const response = await fetch('/vendidos', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json' 
-//         },
-//         body: JSON.stringify(data)
-//     })
-//     const result = await response.json()
-//     console.log(result)
-// }
+async function crearVendidos(ID) {
+    const id = parseInt(ID)
+    const responseGet = await fetch(`/productos/${id}`)
+    const producto = await responseGet.json()
+    console.log(producto)
+    const dataVendido = {
+        nombre: producto[0].nombre,
+        descripcion: producto[0].descripcion,
+        categoria: producto[0].categoria,
+        precio: producto[0].precio,
+        vendedor: producto[0].vendedor
+    }
 
-// generar ticket
+    const responsePost = await fetch('/vendidos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(dataVendido)
+    })
+    const result = await responsePost.json()
+    console.log(result)
+}
+
+
+
+

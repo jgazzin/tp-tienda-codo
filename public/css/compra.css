@@ -1,9 +1,9 @@
 .orden{
     min-height: 70vh;
-
 }
 
-.listado_productos_seleccionados .titulo {
+.listado_productos_seleccionados .titulo,
+.ticket .titulo {
     justify-content: left;
 }
 .t-row{
@@ -13,6 +13,42 @@
     place-items: center;
     padding: 4px 0;
 }
+.ticket{
+    width: min-content;
+    margin: 2rem auto 1rem auto;
+
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 0 16px 16px;
+
+}
+@media (max-width: 576px) {
+    .ticket{
+        width: 100%;
+        
+    }
+}
+.ticket .t-row{
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 2fr;
+    text-align: center;
+    place-items: center;
+    padding: 4px 0;
+}
+
+.btn-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+@media (max-width: 576px) {
+    .btn-row{
+        flex-direction: column;
+    }
+}
+
 .listado_productos_seleccionados .t-row p{
     padding: 4px;
     font-style: italic;
@@ -28,14 +64,14 @@
     cursor: pointer;
 }
 
-.listado_productos_seleccionados .t-row.head{
+.t-row.head{
     text-align: center;
     border-bottom: 2px solid grey;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.listado_productos_seleccionados .t-row:last-child{
+.t-row:last-child{
     border-bottom: 2px solid grey;
 }
 
@@ -62,3 +98,57 @@
         margin-top: 1rem;
     }
 }
+
+/* --- SPINNER */
+.spinner {
+    margin: 100px auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  .spinner > div {
+    background-color: #333;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  }
+  
+  .spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+  }
+  
+  .spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+  
+  .spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+  }
+  
+  .spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+  }
+  
+  @-webkit-keyframes sk-stretchdelay {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+    20% { -webkit-transform: scaleY(1.0) }
+  }
+  
+  @keyframes sk-stretchdelay {
+    0%, 40%, 100% { 
+      transform: scaleY(0.4);
+      -webkit-transform: scaleY(0.4);
+    }  20% { 
+      transform: scaleY(1.0);
+      -webkit-transform: scaleY(1.0);
+    }
+  }
