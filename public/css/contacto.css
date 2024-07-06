@@ -8,6 +8,10 @@
     margin: auto;
     padding: 10px;
   }
+
+  .form input{
+    outline: none;
+  }
   .h2form{
     text-align: center;
     padding-bottom: 10px;
@@ -23,7 +27,7 @@
     padding: 2rem;
   }
   
-   .inputContact, textarea, #categoria{
+   .inputContact, textarea, #productos{
     width: 100%;
     padding: 5px 10px;
     border: none;
