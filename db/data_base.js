@@ -84,6 +84,25 @@ connection.connect((err) =>{
                 console.log(('Tabla tienda_vendidos asegurada'));
             });
 
+            // TABLA MENSAJES
+            const createtableMensajesQuery = `
+            CREATE TABLE IF NOT EXISTS tienda_mensajes(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nombre VARCHAR(50) NOT NULL,
+            email VARCHAR(50) NOT NULL,
+            asunto VARCHAR(50) NOT NULL,
+            mensaje TEXT NOT NULL,
+            productoId INT NOT NULL,
+            vendedor INT NOT NULL);`;
+
+            connection.query(createtableMensajesQuery, (err, result) => {
+                if(err) {
+                    console.log('Error creando la tabla tienda_mensajes: ', err);
+                    return;
+                }
+                console.log(('Tabla tienda_mensajes asegurada'));
+            });
+
         });
     });
 });

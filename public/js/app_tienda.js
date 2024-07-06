@@ -1,91 +1,5 @@
 // -------    generación FRONT TIENDA  ---------
 
-// reemplazar por bd
-let productos_buck = [
-    {
-    id: 1,
-    imagen: 'producto-1.jpg',
-    nombre: 'cips carpeta',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '150',
-    categoria: 'libreria',
-    vendedor: 1
-    },
-    {
-    id: 2,
-    imagen: 'producto-2.jpg',
-    nombre: 'bibliorato',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '120',
-    categoria: 'oficina',
-    vendedor: 4
-    },
-    {
-    id: 3,
-    imagen: 'producto-3.jpg',
-    nombre: 'separadores',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '80',
-    categoria: 'papelería',
-    vendedor: 2
-    },
-    {
-    id: 4,
-    imagen: 'producto-4.jpg',
-    nombre: 'ganchos',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '50',
-    categoria: 'oficina',
-    vendedor: 2
-    },
-    {
-    id: 5,
-    imagen: 'producto-5.jpg',
-    nombre: 'birome',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '30',
-    categoria: 'librería',
-    vendedor: 3
-    },
-    {
-    id: 6,
-    imagen: 'producto-6.jpg',
-    nombre: 'corrector líquido',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '70',
-    categoria: 'librería',
-    vendedor: 4
-    },
-    {
-    id: 7,
-    imagen: 'producto-7.jpg',
-    nombre: 'agujereadora',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '140',
-    categoria: 'librería',
-    vendedor: 1
-    },
-    {
-    id: 8,
-    imagen: 'producto-8.jpg',
-    nombre: 'abrochadora',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '200',
-    categoria: 'librería',
-    vendedor: 2
-    },
-    {
-    id: 9,
-    imagen: 'producto-9.jpg',
-    nombre: 'tijera',
-    detalle:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, adipisci.',
-    precio: '90',
-    categoria: 'librería',
-    vendedor: 3
-    },
-];
-
-
 const contenedor_producto = document.querySelector('.productos');
 document.addEventListener('DOMContentLoaded', () =>{
     imprimirProductos()
@@ -101,6 +15,16 @@ async function imprimirProductos() {
     productos.forEach(product =>{
         contenedor_producto.appendChild(htmlProducto(product))
     })
+    // --- Consulta Producto ID
+    document.querySelectorAll('.consultaProducto').forEach(consulta => {
+        consulta.addEventListener('click', (e)=>{
+            const producto = e.target.parentElement.parentElement;
+            const idProducto = producto.getAttribute('data-id')
+            
+            sessionStorage.setItem('consultaProductoID', JSON.stringify(idProducto));
+            window.location.replace('contacto.html')
+        })
+    })
 }
 
 // fincion imprimir cada producto
@@ -110,26 +34,29 @@ function htmlProducto(product){
     card.setAttribute("data-id", product.id)
     card.setAttribute("data-vendedor", product.vendedor)
     card.innerHTML= `
-        <div class="img">
+        <div class="card_producto_row">
             <img src="img/${product.img}" width="100" alt="imagen producto">
-            <button class="btn comprar">agregar al carrito</button>
-        </div>
-            
-        <div class="textos">
-            <h3>${product.nombre}</h3>
-            <p class="detalle alto-ofw">${product.descripcion}</p>
-            <h2 class="plus">+</h2>
-            <div class="tags">
-                <h3 class="precio">$<span>${product.precio}</span>.-</h3>
-                <p class="categoria" data-id="cat_1">${product.categoria}</p>
+            <div class="textos">
+                <div>
+                    <h3>${product.nombre}</h3>
+                    <p class="detalle alto-ofw">${product.descripcion}</p>
+                </div>
+                <div class="tags">
+                    <h3 class="precio">$<span>${product.precio}</span>.-</h3>
+                    <p class="categoria" data-id="cat_1">${product.categoria}</p>
+                </div>
             </div>
         </div>
+        <div class="card_producto_row">
+            <button class="btn comprar">agregar al carrito</button>
+            <abutton class="btn guardar consultaProducto"><i class="fa-solid fa-envelope fa-xl"></i> MSG</button>
+        </div> 
+
     `;
     return card
 }
 
 // -------    formulario filtros  ---------
-const mostrarTexto= document.querySelectorAll('.productos .plus');
 const btnMenos= document.querySelector('.rango .btn-menos');
 const btnMas= document.querySelector('.rango .btn-mas');
 const btnCategoria = document.querySelector('.filtros .categoria');
@@ -230,11 +157,6 @@ async function imprimirPorPrecio(precio) {
     } 
 }
 
-
-mostrarTexto.forEach(plus => {
-    plus.addEventListener('click', mostrar);
-});
-
 btnMas.addEventListener('click', () => {
     rangoPrecio('mas');
 })
@@ -249,20 +171,6 @@ function rangoPrecio(params) {
     } else {
         barraPrecio.value -= 5;
     }
-}
-
-// funcion mostrar descripcion
-function mostrar(e) {
-    const detalle = e.target.previousElementSibling;
-
-    console.log(detalle)
-    if (detalle.classList.contains('alto-ofw')) {
-        e.target.textContent = '-';
-    } else {
-        e.target.textContent = '+';
-    }
-    
-    detalle.classList.toggle('alto-ofw');
 }
 
 
@@ -302,7 +210,7 @@ function vaciarCarrito() {
 // evento carrito
 listadoProductos.addEventListener('click', e => {
     if(e.target.classList.contains('comprar')) {
-        let producto = e.target.parentElement.nextElementSibling;
+        let producto = e.target.parentElement.parentElement;
         let productoContenedor = producto.parentElement;
 
         const datosProducto = {
@@ -387,8 +295,8 @@ infoProducto.addEventListener('click', (e) => {
 
 // guardar en sessionStorage
 function guardarCarritoSessionlST() {
-    //sessionStorage.removeItem('carritoSession');
-    // console.log(productosSeleccionados)
-    sessionStorage.setItem('carritoSession', JSON.stringify(productosSeleccionados));
-  
+    sessionStorage.setItem('carritoSession', JSON.stringify(productosSeleccionados)); 
 }
+
+
+

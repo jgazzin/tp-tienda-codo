@@ -9,7 +9,7 @@
 
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
       .tienda {
         grid-template-columns: 1fr;
         padding: 0 16px;
@@ -21,33 +21,44 @@
   }
 
   .producto{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-
     border: 1px solid grey;
     border-radius: 8px;
     padding: 8px;
+    margin-bottom: 0.5rem;
   }
 
   .producto:hover{
-    box-shadow: 4px 2px 10px rgb(125, 180, 181);
+    box-shadow: 2px 2px 5px rgb(125, 180, 181);
     transform: scale(1.01);
   }
   .producto:last-of-type{
     margin-bottom: 0;
   }
 
+  .card_producto_row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  
+  @media (max-width: 576px) {
+    .card_producto_row{
+      flex-direction: column;
+    }
+  }
+
   .producto .textos{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
   }
   .producto .textos .tags {
-    padding-right: 8px;
     display: flex;
-    flex-direction: column;
-    align-items: end;
+    align-items: center;
+    justify-content: space-between;
     gap:8px;
   }
 
@@ -56,15 +67,18 @@
     padding: 4px 8px;
     border-radius: 8px;
     display: inline-block;
+    min-width: 120px;
+    text-align: center;
   }
 
   .tags .categoria{
     background-color:#e0eff1;
-    padding: 4px 8px;
+    padding: 4px 0;
     border-radius: 8px;
-    display: inline-block;
     font-weight: 700;
     text-transform: uppercase;
+    min-width: 120px;
+    text-align: center;
   }
 
   .textos .plus {
@@ -78,20 +92,13 @@
   }
 
   .alto-ofw{
-    height: 60px;
+    height: 80px;
   }
-
-  .producto .img {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
 
 /*--- ASIDE ---*/
 .menu {
   text-align: left;
-  padding: 0 8px;
+  padding: 0 16px;
 }
 
 .menu .titulo {

@@ -7,6 +7,7 @@ let port = 3000;
 const usuariosRouters = require('./routes/usuarios');
 const productosRouters = require('./routes/productos');
 const vendidosRouters = require('./routes/vendidos')
+const mensajesRouters = require('./routes/mensajes')
 
 app.use(express.json());
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use('/usuarios', usuariosRouters);
 app.use('/productos', productosRouters);
 app.use('/vendidos', vendidosRouters);
+app.use('/mensajes', mensajesRouters);
 
 app.listen(port, () =>
 {

@@ -7,7 +7,16 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
     const mensaje = document.querySelector('#asunto')
     const terminos = document.querySelector('.checkbox')
     const alertasContainer = document.querySelector('.form .alertas')
-
+    const produtoConsulta = document.querySelector('#productos')
+    
+    let dataMensaje = {
+        nombre: nombre.value,
+        email: email.value,
+        asunto: '',
+        mensaje: mensaje.value,
+        productoId: produtoConsulta.value,
+        vendedor: ''
+    }
 
     e.preventDefault()
     validar()
@@ -58,7 +67,9 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
             validarterminos()) {
                 alertas('Enviando formulario...', 'ok')    
                 setTimeout(() => {
-                    window.location.replace('index.html');
+                    crearMensajeBD(dataMensaje)
+                    sessionStorage.removeItem('consultaProductoID')
+                    //window.location.replace('index.html');
                 }, 3000);
             }
     } 
@@ -77,6 +88,40 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
     }
 });
 
+// ------- HTML DEL SELECT PRODUCTOS DESDE BS
+async function obtenerCateroriasProductos() {
+    const select_productos = document.querySelector('#productos')
+
+    const response = await fetch('/productos')
+    const productos = await response.json()
+
+    productos.forEach(product =>{
+        const option = document.createElement('option')
+        option.value = product.id;
+        option.textContent = product.nombre.toUpperCase()
+        if(obtenerConsultaIdSessionST()== product.id){
+            option.selected = true
+        }
+
+        select_productos.appendChild(option)
+    })
+    
+} obtenerCateroriasProductos()
+
+function obtenerConsultaIdSessionST(){
+    const idConsulta = JSON.parse(sessionStorage.getItem('consultaProductoID'))  
+    return idConsulta
+
+}
 
 
+// ----- ENVIAR CONSULTA A BD
+async function crearMensajeBD(data) {
+    console.log(data);
+    // get producto id
 
+    // const producto.nombre
+    // const producto.vendedor
+
+    // post mensaje con data completo
+}
