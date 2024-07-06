@@ -143,18 +143,17 @@ input {
     padding-left: 0.8rem;
 }
 
-
-.crearProducto {
+.crearProducto1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
 }
 
-.crearProducto fieldset{
+.crearProducto1 fieldset{
     border: none;
 }
 
-.crearProducto textarea, input, select {
+.crearProducto1 textarea, input, select {
     margin: 8px 0;
     width: 90%;
     padding: 5px 10px;
@@ -162,11 +161,15 @@ input {
     border-radius: 6px;
     width: 100%;
 }
-.crearProducto .botonDerecha{
+.crearProducto1 .botonDerecha{
     text-align: right;
 }
+
+/*preguntar si sirve*/
+
+
 @media (max-width: 576px) {
-    .crearProducto{
+    .crearProductoNuevoForm{
         grid-template-columns: 1fr;
 
     }

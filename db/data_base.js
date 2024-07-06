@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
     //reemplazar con datos locales
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: 'Desdecasa24',
     //database: 'tienda_db'
 
 }

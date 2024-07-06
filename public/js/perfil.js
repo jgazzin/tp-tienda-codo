@@ -31,6 +31,10 @@ crearNuevoProductoBtn.addEventListener('click', () =>
     crearProducto.classList.toggle('hidden');
 });
 
+
+
+
+
 });
 /*
                                                //aca va la funcion get...//
