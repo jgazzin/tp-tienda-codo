@@ -174,7 +174,7 @@ function rangoPrecio(params) {
 }
 
 
-//---------- contenedor carrito
+//---------- CARRITO -----------
 const btnCarrito = document.querySelector('nav .carrito i')
 const contenedorCarrito = document.querySelector('.contenedor-carrito');
 
@@ -186,8 +186,10 @@ const rowProducto = document.querySelector('.contenedor-carrito .row-producto')
 const infoProducto = document.querySelector('.contenedor-carrito .info-producto')
 
 const listadoProductos = document.querySelector('.tienda .productos')
+
+// ------ PRODUCTOS SELECCIONADOS DESDE SESSION STG
 let productosSeleccionados = [];
-// arreglo de productos seleccionados
+
 if(JSON.parse(sessionStorage.getItem('carritoSession'))=== null){
     productosSeleccionados = []
 } else{
@@ -210,22 +212,23 @@ function vaciarCarrito() {
 // evento carrito
 listadoProductos.addEventListener('click', e => {
     if(e.target.classList.contains('comprar')) {
-        let producto = e.target.parentElement.parentElement;
-        let productoContenedor = producto.parentElement;
+        //let producto = e.target.parentElement;
+        let productoContenedor = e.target.parentElement.parentElement;
 
-        const datosProducto = {
+        let datosProducto = {
             cant: 1,
-            nombre: producto.querySelector('h3').textContent,
-            precio: producto.querySelector('.tags .precio span').textContent,
-            id: productoContenedor.getAttribute("data-id"),
-            vendedor: productoContenedor.getAttribute("data-vendedor")
+            nombre: productoContenedor.querySelector('h3').textContent,
+            precio: productoContenedor.querySelector('.tags .precio span').textContent,
+            id: productoContenedor.getAttribute('data-id'),
+            vendedor: productoContenedor.getAttribute('data-vendedor')
         }
 
-        // verificacion producto existentes
-        const existe = productosSeleccionados.some(producto => producto.nombre === datosProducto.nombre)
+        console.log(datosProducto);
+        // verificacion producto existentes  --- VERIFICAR CON ID
+        const existe = productosSeleccionados.some(producto => producto.id === datosProducto.id)
         if (existe) {
             const productos = productosSeleccionados.map(producto =>{
-                if(producto.nombre === datosProducto.nombre) {
+                if(producto.id === datosProducto.id) {
                     producto.cant++;
                     return producto
                 } else {
@@ -259,8 +262,10 @@ function imprimirCarrito() {
     let productosSession = JSON.parse(sessionStorage.getItem('carritoSession'));
     if(productosSession != null){
         productosSession.forEach( producto => {
+            // console.log(producto);
             const elementoProducto = document.createElement('div');
             elementoProducto.classList.add('row-producto');
+            elementoProducto.setAttribute('data-id', producto.id)
             elementoProducto.innerHTML = `
                 <span class="cantidad">${producto.cant}</span>
                 <span class="nombre">${producto.nombre}</span>
@@ -284,10 +289,10 @@ function imprimirCarrito() {
 infoProducto.addEventListener('click', (e) => {
     if(e.target.classList.contains('btn-eliminar')) {
         const producto = e.target.parentElement;
-        const nombre = producto.children[1].textContent;
-        
+        const idProd = producto.getAttribute('data-id')
+        //console.log(idProd);
         productosSeleccionados = JSON.parse(sessionStorage.getItem('carritoSession'))
-        productosSeleccionados = productosSeleccionados.filter(producto => producto.nombre !== nombre)
+        productosSeleccionados = productosSeleccionados.filter(producto => producto.id !== idProd)
         guardarCarritoSessionlST()
         imprimirCarrito()
     }

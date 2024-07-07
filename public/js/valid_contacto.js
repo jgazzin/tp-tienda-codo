@@ -1,6 +1,7 @@
 
 // validar
 document.querySelector('.contactar').addEventListener('click', (e) => {
+    e.preventDefault()
 
     const nombre = document.querySelector('.inputContact[name="Nombre"]');
     const email = document.querySelector('.inputContact[name="email"]');
@@ -8,7 +9,7 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
     const terminos = document.querySelector('.checkbox')
     const alertasContainer = document.querySelector('.form .alertas')
     const produtoConsulta = document.querySelector('#productos')
-    
+
     let dataMensaje = {
         nombre: nombre.value,
         email: email.value,
@@ -17,8 +18,8 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
         productoId: produtoConsulta.value,
         vendedor: ''
     }
+    // console.log(dataMensaje);
 
-    e.preventDefault()
     validar()
 
     // funciones
@@ -48,6 +49,14 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
         }
     }
 
+    function validarProducto() {
+        if(produtoConsulta.value === ''){
+            alertas('Seleccione un producto')
+        } else {
+            return true
+        }
+    }
+
     function validarterminos() {
         if(!terminos.checked) {
             alertas("Acepte los Términos de envío de información")
@@ -64,12 +73,14 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
         if (validarNombre() &
             validarEmail() &
             validarMensaje() &
-            validarterminos()) {
+            validarterminos() &
+            validarProducto()) {
                 alertas('Enviando formulario...', 'ok')    
                 setTimeout(() => {
+                    // envia mensaje + crea mensaje en bd
                     crearMensajeBD(dataMensaje)
                     sessionStorage.removeItem('consultaProductoID')
-                    //window.location.replace('index.html');
+                    window.location.replace('index.html');
                 }, 3000);
             }
     } 
@@ -86,6 +97,7 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
         elementoAlerta.textContent= texto;
         alertasContainer.append(elementoAlerta)
     }
+
 });
 
 // ------- HTML DEL SELECT PRODUCTOS DESDE BS
@@ -114,14 +126,52 @@ function obtenerConsultaIdSessionST(){
 
 }
 
+// obtener PRODDUCTO DE CONSULTADO
+// async function obtenerProductoNombre(ID) {
+//     // get producto id
+//     const id = parseInt(ID)
+//     const responseGet = await fetch(`/productos/${id}`)
+//     const producto = await responseGet.json()
+//     console.log(producto)
+//     const nombre = producto[0].nombre
+
+//     console.log(nombre);
+//     return nombre
+// }
+// async function obtenerProductoVendedor(ID) {
+//     // get producto id
+//     const id = parseInt(ID)
+//     const responseGet = await fetch(`/productos/${id}`)
+//     const producto = await responseGet.json()
+//     console.log(producto)
+//     const vendedor = producto[0].vendedor
+
+//     console.log(vendedor);
+//     return vendedor
+// }
+
 
 // ----- ENVIAR CONSULTA A BD
 async function crearMensajeBD(data) {
-    console.log(data);
-    // get producto id
 
-    // const producto.nombre
-    // const producto.vendedor
+    // datos faltantes
+    const id = parseInt(data.productoId)
+    const responseGet = await fetch(`/productos/${id}`)
+    const producto = await responseGet.json()
+    console.log(producto)
+
+    data.vendedor = producto[0].vendedor
+    data.asunto = producto[0].nombre
+    console.log(data);
 
     // post mensaje con data completo
+    const responsePost = await fetch('/mensajes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(data)
+    })
+    const result = await responsePost.json()
+    console.log(result)
 }
