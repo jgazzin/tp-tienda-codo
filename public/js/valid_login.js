@@ -62,7 +62,7 @@ registro.addEventListener('click', (e) => {
 
         if(form.classList.contains('form_registro')){
             const rePass= form.querySelector('#reg-repass');
-            if(rePass.value != pass.value || rePass.value === '' || pass.value.length < 8){
+            if(rePass.value != pass.value || rePass.value === '' || pass.value.length < 6){
                 alertas_login(form, 'Las contraseñas no coinciden');
                 rePass.classList.add('err')
             } else {

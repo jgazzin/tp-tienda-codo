@@ -1,0 +1,60 @@
+INSERT INTO `tienda_productos`(`nombre`,`descripcion`,`categoria`,`precio`,`vendedor`, `img`) VALUES('bibliorato','Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque.','oficina',120,2, 'producto-1.jpg');
+INSERT INTO `tienda_productos`(`nombre`,`descripcion`,`categoria`,`precio`,`vendedor`, `img`) VALUES('separadores','Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque.','papelería',80,2, 'producto-2.jpg');
+INSERT INTO `tienda_productos`(`nombre`,`descripcion`,`categoria`,`precio`,`vendedor`, `img`) VALUES('birome','Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque.','librería',30,1, 'producto-3.jpg');
+INSERT INTO `tienda_productos`(`nombre`,`descripcion`,`categoria`,`precio`,`vendedor`, `img`) VALUES('ganchos','Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores doloremque.','oficina',50,2, 'producto-4.jpg');
+
+
+
+DEPLOY
+VARIABLES DE ENTORNO:
+Importar e instalar modulo dotenv
+npm install dotenv (en terminal)
+require('dotenv').config() en data_base.js
+
+CAMBIAR LOS DATOS DE LA BD EN EL DATA_BASE (en lugar de localhost)
+
+{
+host: process.env.DB_HOST,
+user: process.env.DB_USER,
+password: process.env.DB_PASSWORD,
+database: process.env.DB_NAME
+}
+
+CREAR ARCHIVO .env 
+DB_HOST = 'localhost'
+DB_USER = 'root'
+DB_PASSWORD = root
+DB_NAME = 'tienda_db'
+
+NUEVO ARCHIVO JSON vercel.json
+{
+"version":2,
+"build":[....
+(ver en archivo proyecto)
+
+Actualizar el repositorio master de github
+* copiar la estructura de a bd en una base de datos creada en un hostin de sql
+freesqldatabase o alwaysdata
+
+alwaysdata - j.gazzin pass Mica7282 (user jgdisenio pass idem)
+host: mysql-jgdisenio.alwaysdata.net
+user: jgdisenio@2a00:b6e0:1:210:1::1 (o jgdisenio)
+password: Mica7282 (¿? probar)
+name: jgdisenio_tienda_codo
+
+* importar el githuba un nuevo proyecto de vercel
+* antes de hacer el deploy del front / editar las variables de entorno 
+* ir a enviroment variables (en vercel)
+host:
+key DB_HOST
+value mysql-jgdisenio.alwaysdata.net
+ 
+user:
+key DB_USER 
+value jgdisenio@2a00:b6e0:1:210:1::1 (o jgdisenio)
+
+password
+key DB_PASSWORD
+value Mica7282 (¿? probar)
+
+name: .... (cambiar en el proyecto el nombre de la bd)
