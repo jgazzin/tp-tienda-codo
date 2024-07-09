@@ -101,7 +101,7 @@ document.querySelector('.contactar').addEventListener('click', (e) => {
 });
 
 // ------- HTML DEL SELECT PRODUCTOS DESDE BS
-async function obtenerCateroriasProductos() {
+async function obtenerNombresProductos() {
     const select_productos = document.querySelector('#productos')
 
     const response = await fetch('/productos')
@@ -118,37 +118,17 @@ async function obtenerCateroriasProductos() {
         select_productos.appendChild(option)
     })
     
-} obtenerCateroriasProductos()
+} 
+document.addEventListener('DOMContentLoaded', ()=>{
+    obtenerNombresProductos()
+})
+
 
 function obtenerConsultaIdSessionST(){
     const idConsulta = JSON.parse(sessionStorage.getItem('consultaProductoID'))  
     return idConsulta
 
 }
-
-// obtener PRODDUCTO DE CONSULTADO
-// async function obtenerProductoNombre(ID) {
-//     // get producto id
-//     const id = parseInt(ID)
-//     const responseGet = await fetch(`/productos/${id}`)
-//     const producto = await responseGet.json()
-//     console.log(producto)
-//     const nombre = producto[0].nombre
-
-//     console.log(nombre);
-//     return nombre
-// }
-// async function obtenerProductoVendedor(ID) {
-//     // get producto id
-//     const id = parseInt(ID)
-//     const responseGet = await fetch(`/productos/${id}`)
-//     const producto = await responseGet.json()
-//     console.log(producto)
-//     const vendedor = producto[0].vendedor
-
-//     console.log(vendedor);
-//     return vendedor
-// }
 
 
 // ----- ENVIAR CONSULTA A BD

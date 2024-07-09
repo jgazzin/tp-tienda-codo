@@ -1,11 +1,19 @@
+require('dotenv').config()
+
 // conección con la BD
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
     //reemplazar con datos locales
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
+    // host: 'localhost',
+    // user: 'root',
+    // password: 'root',
     //database: 'tienda_db'
+
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD
+
+    //database: process.env.DB_NAME
 
 }
 );
@@ -18,16 +26,16 @@ connection.connect((err) =>{
     } 
     console.log('Conectado a la BD');
 
-    connection.query('CREATE DATABASE IF NOT EXISTS tienda_bd', (err, result) => {
+    connection.query('CREATE DATABASE IF NOT EXISTS jgdisenio_tienda_codo', (err, result) => {
         if(err){
             console.log("Error creando la base de datos");
             return;
         }
         console.log("Base de datos asegurada");
 
-        connection.changeUser({database: 'tienda_bd'}, (err) => {
+        connection.changeUser({database: 'jgdisenio_tienda_codo'}, (err) => {
             if(err) {
-                console.error('Error al cambiar a tienda_bd', err);
+                console.error('Error al cambiar a jgdisenio_tienda_codo', err);
             }
         
             // TABLA USUARIOS
@@ -53,6 +61,7 @@ connection.connect((err) =>{
             CREATE TABLE IF NOT EXISTS tienda_productos(
             id INT AUTO_INCREMENT PRIMARY KEY,
             nombre VARCHAR(50) NOT NULL,
+            img VARCHAR(50) NOT NULL,
             descripcion TEXT NOT NULL,
             categoria VARCHAR(50) NOT NULL,
             precio FLOAT(2) NOT NULL,
