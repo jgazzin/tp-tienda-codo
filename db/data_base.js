@@ -27,16 +27,16 @@ connection.connect((err) =>{
     } 
     console.log('Conectado a la BD');
 
-    connection.query('CREATE DATABASE IF NOT EXISTS jgdisenio_tienda_codo', (err, result) => {
+    connection.query('CREATE DATABASE IF NOT EXISTS sql3718803', (err, result) => {
         if(err){
             console.log("Error creando la base de datos");
             return;
         }
         console.log("Base de datos asegurada");
 
-        connection.changeUser({database: 'jgdisenio_tienda_codo'}, (err) => {
+        connection.changeUser({database: 'sql3718803'}, (err) => {
             if(err) {
-                console.error('Error al cambiar a jgdisenio_tienda_codo', err);
+                console.error('Error al cambiar a sql3718803', err);
             }
         
             // TABLA USUARIOS
