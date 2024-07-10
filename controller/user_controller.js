@@ -38,10 +38,10 @@ const creatUser = (req, res) => {
 };
 const modificarUser = (req, res) => {
     const {id} = req.params;
-    const {username, nombre, apellido, password} = req.body;
-    const sql = 'UPDATE tienda_usuarios SET nombre = ?, apellido = ?, password = ? WHERE id = ?';
+    const {user, email, nombre, apellido, password} = req.body;
+    const sql = 'UPDATE tienda_usuarios SET user = ?, email = ?, nombre = ?, apellido = ?, password = ? WHERE id = ?';
 
-    db.query(sql, [nombre, apellido, password, id], (err, result) => {
+    db.query(sql, [user, email, nombre, apellido, password, id], (err, result) => {
         if(err) {
             throw err;
         }
