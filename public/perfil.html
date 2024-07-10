@@ -178,20 +178,31 @@
             <div class="formularioActualizacionUsuarios">
                 <div class="formParte1">
                     <div>
-                        <label for="nombre">Nombre: </label>
+                        <label for="nombre">Nombre Usuario: </label>
                         <input class="inputForm" type="text" id="nombre" name="nombre" required placeholder="Nombre de Usuario">
                     </div>
                     <div>
-                        <label for="contraseña">Contraseña: </la>
-                        <input class="inputForm" type="password" id="contraseña" name="contraseña" required placeholder="*********">
+                        <label for="mail">Email</label>
+                        <input class="inputForm" type="email" id="mail" name="mail" required placeholder="Example@gmail.com">
+                    </div>
+                </div>
+                <div class="formParte3">
+                    <div>
+                        <label for="name">Nombre:</label>
+                        <input type="text" class="inputForm" id="name" name="name" required placeholder="Nombre completo">
+                    </div>
+                    <div>
+                        <label for="name">Apellido:</label>
+                        <input type="text" class="inputForm" id="apellido" name="apellido" required placeholder="Apellido completo">
                     </div>
                 </div>
 
                 <div class="formParte2">
                     <div>
-                        <label for="mail">Email</label>
-                        <input class="inputForm" type="email" id="mail" name="mail" required placeholder="Example@gmail.com">
+                        <label for="contraseña">Contraseña: </la>
+                        <input class="inputForm" type="password" id="contraseña" name="contraseña" required placeholder="*********">
                     </div>
+
                     <div>
                         <label for="repContraseña">Repetir Contraseña</label>
                         <input class="inputForm" type="password" id="repContraseña" name="repContraseña" required placeholder="*********">
@@ -299,11 +310,24 @@
 
                 </form>
             </div>
+     
+    </section>
+    <br>
 
-
-
-        
-    </section><br>
+    <section class="eliminarCuentaUsuario">
+        <div class="row">
+            <p><i class="fa-solid fa-triangle-exclamation fa-lg"></i> Eliminar la cuenta de usuario</p>
+            <button class="btn eliminar">eliminar</button>
+        </div>
+        <div class="alertaEliminar hidden">
+            <p>Si elimina la cuenta de usuario se eliminarán también todos sus datos guardados en PRODUCTOS y MENSAJES.</p>
+            <p>¿Desea continuar a ELIMINAR la cuenta?</p>
+            <div class="botones">
+                <button class="btn guardar">cancelar</button>
+                <button class="btn eliminar">eliminar</button>
+            </div>
+        </div>
+    </section>
 
     </main>
 

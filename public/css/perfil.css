@@ -180,7 +180,38 @@ input {
     }
 }
 
+/* CODIGO CAJA ELIMINAR CUENTA USUARIO*/
+.eliminarCuentaUsuario .row{
+    justify-content: space-between;
+    color: tomato;
+    font-weight: bold;
+}
+@media (max-width: 576px) {
+    .eliminarCuentaUsuario .row{
+        flex-direction: column;
+    }
+}
 
+/* CODIGO CAJA ELIMINAR CUENTA USUARIO*/
+.eliminarCuentaUsuario {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 2px solid tomato;
+    border-radius: 16px;
+    background-color: rgba(255, 99, 71, 0.158);
+}
+.eliminarCuentaUsuario .botones{
+    margin: 1rem;
+}
+.eliminarCuentaUsuario .botones .guardar{
+    color: green;
+    border: 2px solid green;
+}
+.eliminarCuentaUsuario .botones .eliminar{
+    background-color: tomato;
+    color: #fff;
+    border: 2px solid tomato;
+}
 
 
 
