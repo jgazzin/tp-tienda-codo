@@ -1,46 +1,34 @@
-document.addEventListener('DOMContentLoaded', () =>
-{
-    //guarda el btn
-    const mostrarFormBtn = document.getElementById('mostrarFormBtn');
-    //guarda el form
-    const formAct = document.getElementById('formAct');
-
-        //otras const
-
-        const mostrarListaProductosBtn = document.getElementById('mostrarListaProductosBtn');
-        //aca va lo que va a mostrar de la base de datos
-        const listaProductos = document.getElementById('listaProductos');
-        //boton de crear producto
-        const crearNuevoProductoBtn = document.getElementById('crearNuevoProductoBtn');
-    
-        //formulario de crear producto
-    
-        //mostrar u ocultar el form
-    
+// ---- mostrar form USUARIOS
+const mostrarFormBtn = document.getElementById('mostrarFormBtn');
+const formAct = document.getElementById('formAct');
 
 mostrarFormBtn.addEventListener('click', () =>
-{
-    formAct.classList.toggle('hidden');
-});
-
-});
+    {
+        formAct.classList.toggle('hidden');
+    });
 
 
 
-// -------- USUSARIOS ----------------
+// -------- ALERTA SI NO HAY USUARIO ----------------
+const contenedorEliminarCuentaUsuario = document.querySelector('.eliminarCuentaUsuario')
 
 let userSession = JSON.parse(sessionStorage.getItem('userSession'));
 // verificar si user exist
-const dataUser = document.querySelector('#formActualizarDatosUsuario .dataUser')
-console.log(dataUser);
+const divLinea = document.querySelector('.linea')
 if (userSession === null){
+    contenedorEliminarCuentaUsuario.classList.add('hidden')
     const alertaUser = document.createElement('p')
     alertaUser.classList.add('err')
     alertaUser.textContent = 'Necesita INICIAR SESIÓN o REGISTRARSE'
-    dataUser.appendChild(alertaUser)
+    divLinea.appendChild(alertaUser)
 } else {
     imprimirDatosUser()
+    contenedorEliminarCuentaUsuario.classList.remove('hidden')
 }
+
+// -------- USUSARIOS ----------------
+const dataUser = document.querySelector('#formActualizarDatosUsuario .dataUser')
+console.log(dataUser);
 
 // async para obtener datos de usuario logueado
 async function imprimirDatosUser(){
@@ -197,3 +185,70 @@ logoutIcon.addEventListener('click', ()=>{
     window.location.reload()
 })
 
+
+// ------ MIS VENDIDOS------
+if(userSession!= null){
+    listarVendidosUser()
+}
+const listaMensajesContainer = document.querySelector('.listaMensajes')
+const mostrarListaMensajesBtn = document.querySelector('#mostrarListaMensajesBtn')
+
+mostrarListaMensajesBtn.addEventListener('click', ()=>{
+    listaMensajesContainer.classList.toggle('hidden')
+    console.log(listaMensajesContainer);
+})
+
+
+// asyn para listar mensajes del usuario
+async function listarVendidosUser(){
+    const id = parseInt(userSession.id)
+    console.log(id);
+    const response = await fetch(`/mensajes`)
+    const mensajes =await response.json()
+
+    mensajes.forEach(msg =>{
+        if(msg.vendedor === id){
+            const divMensaje = document.createElement('div')
+            divMensaje.innerHTML = `
+            <div class="headerMsg">
+                <p class="nombre">${msg.nombre}</p>
+                <p class="email">${msg.email}</p>
+                <p class="asunto" data-id="${msg.productId}">${msg.asunto}</p>
+                <i class="fa-solid fa-arrow-down fa-lg"></i>
+            </div>
+            <div class="bodyMsg hidden">
+                <p class="mensaje">${msg.mensaje}</p>
+            </div>
+            `;
+            listaMensajesContainer.appendChild(divMensaje)
+        }
+
+    })
+
+    document.querySelectorAll('.headerMsg i').forEach(arrow =>{
+        arrow.addEventListener('click', (e)=> {
+        console.log('ver mensaje');
+        const bodyMsg = e.target.parentElement.nextElementSibling;
+        bodyMsg.classList.toggle('hidden')
+        e.target.classList.toggle('fa-arrow-down')
+        e.target.classList.toggle('fa-arrow-up')
+        })
+    })
+}
+
+
+// document.addEventListener('DOMContentLoaded', () =>
+//     {
+//             //otras const
+    
+//             const mostrarListaProductosBtn = document.getElementById('mostrarListaProductosBtn');
+//             //aca va lo que va a mostrar de la base de datos
+//             const listaProductos = document.getElementById('listaProductos');
+//             //boton de crear producto
+//             const crearNuevoProductoBtn = document.getElementById('crearNuevoProductoBtn');
+        
+//             //formulario de crear producto
+        
+//             //mostrar u ocultar el form
+    
+//     });
