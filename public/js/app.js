@@ -65,6 +65,7 @@ logout.addEventListener('click', ()=>{
     sessionStorage.removeItem('userSession');
     saludoUser.textContent = ''
     saludoUser.setAttribute("data-id-user", '')
+    window.location.reload()
 })
 
 // -------- CARRITO DESDE SESSION STG
