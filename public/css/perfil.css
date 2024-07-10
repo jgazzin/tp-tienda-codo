@@ -184,72 +184,78 @@ input {
 }
 
 
-
-
-
-
-
-
-/*.orden{
-    min-height: 70vh;
-
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.listado_productos_seleccionados .titulo {
-    justify-content: left;
+
+li {
+    background: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.listado_productos_seleccionados .t-row{
+
+
+li .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.contenedor {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.caja1 {
+width: 70%;
+}
+
+.caja2 {
+width: 10%;
+display: grid;
+justify-content: center;
+align-items: center;
+}
+
+.caja2 .vistaCategoria{
+    background-color:dimgrey ;
+    border-radius: 15px;
+    padding: 5px;
+}
+ .caja2 .vistaPrecio{
+    text-align: center;
+ }
+
+.botones{
+    width: 15%;
     display: grid;
-    grid-template-columns: 2fr 2fr 1fr 2fr 1.5fr;
-    text-align: center;
-    padding: 4px 0;
-}
-.listado_productos_seleccionados .t-row p{
-    padding: 4px;
-    font-style: italic;
-}
-.listado_productos_seleccionados .t-row p:first-of-type{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    font-style: normal;
+    justify-content: center;
 }
 
-.listado_productos_seleccionados .t-row p:first-of-type i{
-    cursor: pointer;
+.botones .actualizar {
+    background-color: transparent;
+    border: 2px solid rgb(8, 34, 8);
+    color: rgb(8, 34, 8);
 }
 
-.t-row.head{
-    text-align: center;
-    border-bottom: 2px solid grey;
-    text-transform: uppercase;
-    font-weight: bold;
+.botones .delete {
+    background-color: transparent;
+    border: 2px solid tomato;
+    color: tomato;
 }
 
-.listado_productos_seleccionados .t-row:last-child{
-    border-bottom: 2px solid grey;
-}
 
-.listado_productos_seleccionados .bottons{
-    margin: 4px 0;
-    width: 100%;
-    display: flex;
-    justify-content: right;
-    gap: 1rem;
-}
 
-@media (max-width: 576px) {
-    .listado_productos_seleccionados .t-row.head{
-        display: none;
-    }
-    .listado_productos_seleccionados .t-row{
-        grid-template-columns: 1fr;
-        text-align: left;
-        border-bottom: 2px solid grey;
-    }
-    .listado_productos_seleccionados .bottons{
-        flex-direction: column;
-        margin-top: 1rem;
-    }
-}
-    */
+
+
+
+
+
+
