@@ -2,10 +2,6 @@
     border-top: 2px solid grey;
 }
 
-/* .cabecera .titulo{
-    justify-content: left;
-    margin-bottom: -10px;
-} */
 .cabecera {
     display: flex;
     justify-content: space-between;
@@ -18,8 +14,7 @@
 
 
 .hashtag .t-row{
-    /* display: grid;
-    grid-template-columns: 2fr 2fr 1fr 2fr 1.5fr; */
+
     display: flex;
     text-align: center;
     gap: 1rem;
@@ -37,26 +32,6 @@
     transform: scale(1.05);
 }
 
-/* .hashtag .t-row.head h4 {
-    color: var(--color-complemento);
-    text-shadow:
-    1px 1px 0 var(--color-texto),
-    -1px 1px 0 var(--color-texto),
-    -1px -1px 0 var(--color-texto),
-    1px -1px 0 var(--color-texto);
-} */
-
-/* .cabecera2 .titulo{
-    justify-content: left;
-} */
-
-/*
-.cabecera2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
 .cabecera2 .btn{
     height: 40px;
 }
@@ -70,13 +45,6 @@
         grid-template-columns: 1fr;
     }
 }
-
-/* .inputForm{
-    padding: 5px 10px;
-    border: 2px solid var(--color-complemento);
-    border-radius: 6px;
-    margin-left: 10px;
-} */
 
 .boton {
     display: flex;
@@ -105,10 +73,6 @@
     justify-content: space-between;
     align-items: center;
 }
-
-/* .crearProductoNuevo .titulo{
-    justify-content: left;
-} */
 
 .crearProductoNuevo {
     display: flex;
@@ -165,6 +129,7 @@ input {
 .crearProducto .botonDerecha{
     text-align: right;
 }
+
 @media (max-width: 576px) {
     .crearProducto{
         grid-template-columns: 1fr;
@@ -218,7 +183,37 @@ input {
 }
 
 
+/* ------ MENSAJES -----*/
+#mostrarMisMensajes {
+    padding-bottom: 1rem;
+}
+#mostrarMisMensajes .t-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 0.5fr;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid grey;
+    padding: 8px 0;
+}
 
+.headerMsg{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 0.5fr;
+    place-items: center;
+    padding: 8px 0;
+}
+.headerMsg i{
+    cursor: pointer;
+}
+
+.bodyMsg {
+    padding-bottom: 8px;
+    font-style: italic;
+}
+.listaMensajes {
+    border-bottom: 1px solid grey;
+}
 
 
 

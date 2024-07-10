@@ -255,7 +255,7 @@
         <ul id="listaProductos"></ul><br><br>
     </section>
 
-    <br><section id="crearProducto">
+    <section id="crearProducto">
         <div class="crearProductoNuevo">
             <div class="titulo">
                 <i class="fa-solid fa-map-pin fa-lg"></i>
@@ -312,9 +312,49 @@
             </div>
      
     </section>
-    <br>
 
-    <section class="eliminarCuentaUsuario">
+    <section id="mostrarMisVendidos">
+        <div class="verYModificar">
+            <div class="titulo">
+                <i class="fa-solid fa-map-pin fa-lg"></i>
+                <h3>productos Vendidos</h3>
+            </div>
+            <div>
+                <button id="mostrarListaVendidosBtn" class="btn" type="submit">Mostrar</button>
+            </div>
+
+        </div>
+        <div class="linea"></div>
+
+        <ul id="listaVendidos"></ul>
+    </section>
+
+    <section id="mostrarMisMensajes">
+        <div class="verYModificar">
+            <div class="titulo">
+                <i class="fa-solid fa-map-pin fa-lg"></i>
+                <h3>mensajeria</h3>
+            </div>
+            <div>
+                <button id="mostrarListaMensajesBtn" class="btn" type="submit">Mostrar</button>
+            </div>
+        </div>
+        <div class="linea"></div>
+        <div class="t-row">
+            <p>nombre</p>
+            <p>email</p>
+            <p>asunto</p>
+            <p>ver</p>
+        </div>
+
+        <div class="listaMensajes hidden">
+            <!-- desde bd -->
+        </div>
+
+
+    </section>
+
+    <section class="eliminarCuentaUsuario hidden">
         <div class="row">
             <p><i class="fa-solid fa-triangle-exclamation fa-lg"></i> Eliminar la cuenta de usuario</p>
             <button class="btn eliminar">eliminar</button>
