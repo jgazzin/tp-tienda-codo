@@ -235,7 +235,7 @@ async function mostrarProductoID()
                 </div>
                 <div class="botonesEdit">
                     <button class="update" data-nombre="${producto.nombre}"  data-categoria="${producto.categoria}" data-precio="${producto.precio}"data-descripcion="${producto.descripcion}" data-img="${producto.img}"  data-id="${producto.id}"> Modificar  </button> 
-                    <button class="delete"> Eliminar </button>
+                    <button class="delete"  data-id="${producto.id}"> Eliminar </button>
                 </div>    
         </div>
             `;
@@ -303,6 +303,7 @@ async function mostrarProductoID()
             {
                 button.addEventListener('click', async(e)=>
                 {
+
                     const id = e.target.getAttribute('data-id');
                     const response = await fetch(`/productos/${id}`,{
                         method: 'DELETE'
