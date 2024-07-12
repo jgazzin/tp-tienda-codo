@@ -94,6 +94,7 @@
     width: 100%;
     border: 2px solid var(--color-complemento);
     border-radius: 6px;
+    margin-bottom: 20px;
 }
 .search input {
     border: none;
@@ -223,14 +224,28 @@ input {
     border-bottom: 1px solid grey;
 }
 
-ul {
+.contenedor {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 3fr 1.5fr 2fr;
+}
+
+.contenedor img {
+    width: 100px;
+}
+
+#listaProducto {
+    display: none;
+}
+
+#listaProductos ul {
     list-style-type: none;
     padding: 0;
-    margin: 15px;
+    margin-top: 40px;
 }
 
 
-li {
+#listaProductos li {
     background: #fff;
     margin: 5px 0;
     padding: 10px;
@@ -241,61 +256,85 @@ li {
     align-items: center;
 }
 
-
-li .actions {
-    display: flex;
-    gap: 10px;
+#listaVendidos ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 40px;
 }
 
-.contenedor {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 3fr 1.5fr 2fr;
-    
+#listaVendidos li {
+    background: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .contenedor2 {
     width: 100%;
     display: grid;
-    grid-template-columns: 2fr 4fr 2fr;
-}
-
-.contenedor img {
-    width: 100px;
-  
-}
-
-
-.caja2 {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 4fr 2fr 2fr;
+    justify-content: space-between;
     align-items: center;
-
 }
 
-.caja2 .vistaCategoria {
-    padding: 10px;
-    background-color: grey;
-    border-radius: 50%;
-    margin-bottom: 30px;
+.precio {
+    background-color: #7db4b5;
+    padding: 4px 8px;
+    border-radius: 8px;
+    min-width: 120px;
+    margin-left: 40px;
+    text-align: center;
 }
 
-.botones{
+.caja2 .categoria {
+    background-color:#e0eff1;
+    padding: 4px 0;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    min-width: 100px;
+    text-align: center;
+}
+
+.botonesEdit{
     display: flex;
     flex-direction: column;
+    justify-content: end;
     align-items: end;
 }
 
-.botones .actualizar {
+.botonesEdit .update {
     background-color: transparent;
     border: 2px solid rgb(8, 34, 8);
     color: rgb(8, 34, 8);
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    min-width: 150px;
+    margin-bottom: 5px;
 }
 
-.botones .delete {
+.botonesEdit .delete {
     background-color: transparent;
     border: 2px solid tomato;
     color: tomato;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    min-width: 150px;
+    margin-top: 5px;
+    margin-bottom: 13px;
 }
+
 
 /*.orden{
     min-height: 70vh;
