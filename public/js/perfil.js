@@ -287,7 +287,7 @@ async function mostrarProductoID()
                         precio: formModificar.querySelector('#editPrecio').value,
                         img: formModificar.querySelector('#imagenModificar').value,
                         descripcion: formModificar.querySelector('#editDescripcion').value,
-                        vendedor: userSession.id
+                        vendedor: parseInt(userSession.id)
                     }
                     modificarProductoBD(datosNuevos)
                 })
@@ -420,7 +420,7 @@ async function mostrarProductosvendidosId()
     listaVendidos.innerHTML = '';
 
     productos.forEach(producto => {
-        if (producto.vendedor === parseInt(userSession.id)){
+        if (producto.vendedor == parseInt(userSession.id)){
             const li = document.createElement('li');
             li.innerHTML = `
         <div class="contenedor2">

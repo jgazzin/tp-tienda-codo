@@ -19,7 +19,7 @@ async function imprimirProductos() {
     document.querySelectorAll('.consultaProducto').forEach(consulta => {
         consulta.addEventListener('click', (e)=>{
             const producto = e.target.parentElement.parentElement;
-            const idProducto = producto.getAttribute('data-id')
+            const idProducto = parseInt(producto.getAttribute('data-id')) 
             
             sessionStorage.setItem('consultaProductoID', JSON.stringify(idProducto));
             window.location.replace('contacto.html')
@@ -228,7 +228,7 @@ listadoProductos.addEventListener('click', e => {
         const existe = productosSeleccionados.some(producto => producto.id === datosProducto.id)
         if (existe) {
             const productos = productosSeleccionados.map(producto =>{
-                if(producto.id === datosProducto.id) {
+                if(producto.id == datosProducto.id) {
                     producto.cant++;
                     return producto
                 } else {
