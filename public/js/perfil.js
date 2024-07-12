@@ -191,14 +191,49 @@ logoutIcon.addEventListener('click', ()=>{
 const idSession = JSON.parse(sessionStorage.getItem('userSession'));
 const idUsarioLogueado = idSession.id
 
+//buscar por nombre
+const search = document.querySelector('.search .buscador');
+console.log(search)
+
+search.querySelector('i').addEventListener('click', () =>{
+    const nombreABuscar = search.querySelector('input').value;
+    console.log(nombreABuscar)
+
+    async function mostrarProductoID()
+{
+    const response = await fetch(`/productos/`,
+        {
+            method: 'GET'
+        });
+    const productos = await response.json();
+    
+    nombreProducto.innerHTML = '';
+
+    productos.forEach(producto => {
+        if (producto.vendedor === parseInt(userSession.id) && producto.nombre === (nombreABuscar));
+        {
+            imprimirProductos();
+        }
+    });
+    }
+});
+ 
+
+
+
 
 //mostrar productos por id
+if (userSession != null){
+    mostrarProductoID()
+}
 const mostrarListaProductosBtn = document.getElementById('mostrarListaProductosBtn');
 //aca va lo que va a mostrar de la base de datos
 const listaProductos = document.getElementById('listaProductos');
 
-mostrarListaProductosBtn.addEventListener('click', mostrarProductoID);
-    
+mostrarListaProductosBtn.addEventListener('click', () => {
+    listaProductos.classList.toggle('hidden');
+});
+
 async function mostrarProductoID()
 {
     const response = await fetch(`/productos/`,
@@ -224,24 +259,18 @@ async function mostrarProductoID()
                     <p>${producto.descripcion}</p>
                 </div> 
                 <div class="caja2"> 
-                    <h3 class="vistaCategoria">${producto.categoria}</h3> 
-                    <h3 clas="vistaPrecio">$ ${producto.precio}</h3> 
+                    <h3 class="categoria">${producto.categoria}</h3> 
+                    <h3 class="precio">$ ${producto.precio}</h3> 
                 </div>
-                 <div class="botones">
-                    <div>
-                        <button class="update btn actualizar" data-nombre="${producto.nombre}"  data-categoria="${producto.categoria}" data-precio="${producto.precio}"data-descripcion="${producto.descripcion}" > Modificar  </button> 
-                    </div>
-                    <div>
-                        <button class="delete btn delete" data-id="${producto.id}"> Eliminar </button>
-                    </div>
+                <div class="botonesEdit">
+                    <button class="update" data-nombre="${producto.nombre}"  data-categoria="${producto.categoria}" data-precio="${producto.precio}"data-descripcion="${producto.descripcion}" > Modificar  </button> 
+                    <button class="delete" data-id="${producto.id}"> Eliminar </button>
                 </div>    
         </div>
-            
-            
             `;
 
             listaProductos.appendChild(li);
-            
+                
         } 
     });
     document.querySelectorAll('.update').forEach(button => 
@@ -260,7 +289,8 @@ async function mostrarProductoID()
                 document.getElementById('editPrecio').value = precio;
                 document.getElementById('editDescripcion').value = descripcion;
     
-                focus(modificarElProducto.classList.remove('hidden'));
+                focus(modificarElProducto.classList.toggle('hidden'));
+    
             });
         });
         document.querySelectorAll('.delete').forEach(button => 
@@ -293,7 +323,7 @@ crearNuevoProductoBtn.addEventListener('click', () =>
 
 
 //crear producto nuevo DUDA DE COMO PASAR LOS VALORES
-/*
+
 formCrearProducto.addEventListener('submit', async (e) => 
 {
         e.preventDefault();
@@ -324,15 +354,20 @@ formCrearProducto.addEventListener('submit', async (e) =>
         crearUsuarioForm.classList.add('hidden');
         listarUsuarios();
 });
- */
+
 
 // ------ MIS VENDIDOS------
-//vendidos
+//vendidos si hay una sesion iniciada con id mostra los producto pero los escondo en el html con hidden
+if (userSession!= null){
+    mostrarProductosvendidosId()
+}
 const mostrarListaVendidosBtn = document.getElementById('mostrarListaVendidosBtn');
 
 const listaVendidos = document.getElementById('listaVendidos');
 
-mostrarListaVendidosBtn.addEventListener('click', mostrarProductosvendidosId);
+mostrarListaVendidosBtn.addEventListener('click', () => {
+    listaVendidos.classList.toggle('hidden')
+})
 
 async function mostrarProductosvendidosId()
 {
@@ -344,30 +379,28 @@ async function mostrarProductosvendidosId()
 
 
     //lista para mostrar elementos por ID
-    listaProductos.innerHTML = '';
+    listaVendidos.innerHTML = '';
 
     productos.forEach(producto => {
         if (producto.vendedor === parseInt(userSession.id)){
             const li = document.createElement('li');
             li.innerHTML = `
         <div class="contenedor2">
-            <div class="caja">
-                <img src="img/${producto.img}">
-            </div>
                 <div class="caja1">
                     <h4><b>${producto.nombre}</b></h4> 
                     <p>${producto.descripcion}</p>
                 </div> 
                 <div class="caja2"> 
-                    <h3 class="vistaCategoria">${producto.categoria}</h3> 
-                    <h3 clas="vistaPrecio">$ ${producto.precio}</h3> 
+                    <h3 class="categoria">${producto.categoria}</h3> 
+                </div>
+                <div>
+                    <h3 class="precio">$ ${producto.precio}</h3> 
                 </div>
         </div>
-            
-            
             `;
 
             listaVendidos.appendChild(li);
+            
             
         } 
     });
