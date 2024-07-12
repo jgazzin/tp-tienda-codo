@@ -191,6 +191,7 @@ logoutIcon.addEventListener('click', ()=>{
 const idSession = JSON.parse(sessionStorage.getItem('userSession'));
 const idUsarioLogueado = idSession.id
 
+/*
 //buscar por nombre
 const search = document.querySelector('.search .buscador');
 console.log(search)
@@ -200,7 +201,7 @@ search.querySelector('i').addEventListener('click', () =>{
     console.log(nombreABuscar)
 
     async function mostrarProductoID()
-{
+    {
     const response = await fetch(`/productos/`,
         {
             method: 'GET'
@@ -210,14 +211,69 @@ search.querySelector('i').addEventListener('click', () =>{
     nombreProducto.innerHTML = '';
 
     productos.forEach(producto => {
-        if (producto.vendedor === parseInt(userSession.id) && producto.nombre === (nombreABuscar));
-        {
-            imprimirProductos();
+        if (producto.vendedor === parseInt(userSession.id) && producto.nombre == (nombreABuscar));{
+        const buscador = document.createElement('li');
+        li.innerHTML = `
+        <div class="contenedor">
+            <div class="caja">
+                <img src="img/${producto.img}">
+            </div>
+                <div class="caja1">
+                    <h4><b>${producto.nombre}</b></h4> 
+                    <p>${producto.descripcion}</p>
+                </div> 
+                <div class="caja2"> 
+                    <h3 class="categoria">${producto.categoria}</h3> 
+                    <h3 class="precio">$ ${producto.precio}</h3> 
+                </div>
+                <div class="botonesEdit">
+                    <button class="update" data-nombre="${producto.nombre}"  data-categoria="${producto.categoria}" data-precio="${producto.precio}"data-descripcion="${producto.descripcion}" > Modificar  </button> 
+                    <button class="delete" data-id="${producto.id}"> Eliminar </button>
+                </div>    
+        </div>
+        
+        `;      
+        nombreProducto.appendChild(li);
         }
     });
+    document.querySelectorAll('.update').forEach(button => 
+        {
+            button.addEventListener('click',(e) => 
+            {
+                const id = e.target.getAttribute('data-id');                    
+                const nombre = e.target.getAttribute('data-nombre');                                        
+                const categoria = e.target.getAttribute('data-categoria');
+                const precio = e.target.getAttribute('data-precio');
+                const descripcion = e.target.getAttribute('data-descripcion');
+    
+                document.getElementById('editID').value = id;
+                document.getElementById('editNombre').value = nombre;
+                document.getElementById('editCategorias').value = categoria;
+                document.getElementById('editPrecio').value = precio;
+                document.getElementById('editDescripcion').value = descripcion;
+    
+                focus(modificarElProducto.classList.toggle('hidden'));
+    
+            });
+        });
+        document.querySelectorAll('.delete').forEach(button => 
+            {
+                button.addEventListener('click', async(e)=>
+                {
+                    const id = e.target.getAttribute('data-id');
+                    const response = await fetch(`/productos/${id}`,{
+                        method: 'DELETE'
+                    });
+    
+                    const result = await response.json();
+                    alert(result.mensaje);
+                    mostrarProductoID();
+                });
+    
+            });
     }
 });
- 
+ */
 
 
 
