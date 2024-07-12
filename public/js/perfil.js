@@ -188,94 +188,9 @@ logoutIcon.addEventListener('click', ()=>{
 })
 
 
+//---- PRODUCTOS ------
 const idSession = JSON.parse(sessionStorage.getItem('userSession'));
 const idUsarioLogueado = idSession.id
-
-/*
-//buscar por nombre
-const search = document.querySelector('.search .buscador');
-console.log(search)
-
-search.querySelector('i').addEventListener('click', () =>{
-    const nombreABuscar = search.querySelector('input').value;
-    console.log(nombreABuscar)
-
-    async function mostrarProductoID()
-    {
-    const response = await fetch(`/productos/`,
-        {
-            method: 'GET'
-        });
-    const productos = await response.json();
-    
-    nombreProducto.innerHTML = '';
-
-    productos.forEach(producto => {
-        if (producto.vendedor === parseInt(userSession.id) && producto.nombre == (nombreABuscar));{
-        const buscador = document.createElement('li');
-        li.innerHTML = `
-        <div class="contenedor">
-            <div class="caja">
-                <img src="img/${producto.img}">
-            </div>
-                <div class="caja1">
-                    <h4><b>${producto.nombre}</b></h4> 
-                    <p>${producto.descripcion}</p>
-                </div> 
-                <div class="caja2"> 
-                    <h3 class="categoria">${producto.categoria}</h3> 
-                    <h3 class="precio">$ ${producto.precio}</h3> 
-                </div>
-                <div class="botonesEdit">
-                    <button class="update" data-nombre="${producto.nombre}"  data-categoria="${producto.categoria}" data-precio="${producto.precio}"data-descripcion="${producto.descripcion}" > Modificar  </button> 
-                    <button class="delete" data-id="${producto.id}"> Eliminar </button>
-                </div>    
-        </div>
-        
-        `;      
-        nombreProducto.appendChild(li);
-        }
-    });
-    document.querySelectorAll('.update').forEach(button => 
-        {
-            button.addEventListener('click',(e) => 
-            {
-                const id = e.target.getAttribute('data-id');                    
-                const nombre = e.target.getAttribute('data-nombre');                                        
-                const categoria = e.target.getAttribute('data-categoria');
-                const precio = e.target.getAttribute('data-precio');
-                const descripcion = e.target.getAttribute('data-descripcion');
-    
-                document.getElementById('editID').value = id;
-                document.getElementById('editNombre').value = nombre;
-                document.getElementById('editCategorias').value = categoria;
-                document.getElementById('editPrecio').value = precio;
-                document.getElementById('editDescripcion').value = descripcion;
-    
-                focus(modificarElProducto.classList.toggle('hidden'));
-    
-            });
-        });
-        document.querySelectorAll('.delete').forEach(button => 
-            {
-                button.addEventListener('click', async(e)=>
-                {
-                    const id = e.target.getAttribute('data-id');
-                    const response = await fetch(`/productos/${id}`,{
-                        method: 'DELETE'
-                    });
-    
-                    const result = await response.json();
-                    alert(result.mensaje);
-                    mostrarProductoID();
-                });
-    
-            });
-    }
-});
- */
-
-
 
 
 //mostrar productos por id
@@ -319,8 +234,8 @@ async function mostrarProductoID()
                     <h3 class="precio">$ ${producto.precio}</h3> 
                 </div>
                 <div class="botonesEdit">
-                    <button class="update" data-nombre="${producto.nombre}"  data-categoria="${producto.categoria}" data-precio="${producto.precio}"data-descripcion="${producto.descripcion}" > Modificar  </button> 
-                    <button class="delete" data-id="${producto.id}"> Eliminar </button>
+                    <button class="update" data-nombre="${producto.nombre}"  data-categoria="${producto.categoria}" data-precio="${producto.precio}"data-descripcion="${producto.descripcion}" data-img="${producto.img}"  data-id="${producto.id}"> Modificar  </button> 
+                    <button class="delete"> Eliminar </button>
                 </div>    
         </div>
             `;
@@ -329,26 +244,61 @@ async function mostrarProductoID()
                 
         } 
     });
-    document.querySelectorAll('.update').forEach(button => 
+    document.querySelectorAll('.botonesEdit .update').forEach(button => 
         {
+            console.log('modificar');
             button.addEventListener('click',(e) => 
             {
-                const id = e.target.getAttribute('data-id');                    
+                e.preventDefault()
+                const id = e.target.getAttribute('data-id');
+                console.log(id);                    
                 const nombre = e.target.getAttribute('data-nombre');                                        
                 const categoria = e.target.getAttribute('data-categoria');
                 const precio = e.target.getAttribute('data-precio');
                 const descripcion = e.target.getAttribute('data-descripcion');
     
-                document.getElementById('editID').value = id;
+                document.getElementById('editNombre').setAttribute('data-id', id)
                 document.getElementById('editNombre').value = nombre;
-                document.getElementById('editCategorias').value = categoria;
+                document.querySelectorAll('#editCategorias option').forEach(op=>{
+                    if(op.value === e.target.getAttribute('data-categoria')){
+                        op.selected = true
+                    }
+                })
+
+
                 document.getElementById('editPrecio').value = precio;
                 document.getElementById('editDescripcion').value = descripcion;
+                document.querySelectorAll('#imagenModificar option').forEach(op=>{
+                    if(op.value === e.target.getAttribute('data-img')){
+                        op.selected = true
+                        //console.log(e.target.getAttribute('data-img'));
+                    }
+                })
+
+
+                document.querySelector('#modificarElProducto .btn.guardar').addEventListener('click', (e)=> {
+                    e.preventDefault()
+                    const formModificar = e.target.parentElement.parentElement.parentElement.parentElement;
+
+                    const datosNuevos = {
+                        id: parseInt( formModificar.querySelector('#editNombre').getAttribute('data-id') ),
+                        nombre: formModificar.querySelector('#editNombre').value,
+                        categoria: formModificar.querySelector('#editCategorias').value,
+                        precio: formModificar.querySelector('#editPrecio').value,
+                        img: formModificar.querySelector('#imagenModificar').value,
+                        descripcion: formModificar.querySelector('#editDescripcion').value,
+                        vendedor: userSession.id
+                    }
+                    modificarProductoBD(datosNuevos)
+                })
     
                 focus(modificarElProducto.classList.toggle('hidden'));
+
     
             });
         });
+
+
         document.querySelectorAll('.delete').forEach(button => 
             {
                 button.addEventListener('click', async(e)=>
@@ -367,14 +317,37 @@ async function mostrarProductoID()
            
 }
 
+// async put PRODUCTOS
+async function modificarProductoBD(data) {
+
+    console.log(data);
+
+    if(Object.values(data).includes('')){
+        alert('Todos los campos deben estar completos')
+    } else {
+        console.log('put producto');
+
+        const response = await fetch(`/productos/${data.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        const result = await response.json()
+        console.log(result);
+        window.location.reload()
+    }
+
+}
 
 const crearNuevoProductoBtn = document.getElementById('crearNuevoProductoBtn');
 //guardar el form
-const formCrearProducto = document.getElementById('formCrearProducto');
+const formCrearProducto = document.getElementById('formCrearProducto1');
 
 crearNuevoProductoBtn.addEventListener('click', () =>
     {
-        formCrearProducto.classList.toggle('hidden');
+        formCrearProducto.parentElement.classList.toggle('hidden');
     });
 
 
@@ -383,7 +356,7 @@ crearNuevoProductoBtn.addEventListener('click', () =>
 formCrearProducto.addEventListener('submit', async (e) => 
 {
         e.preventDefault();
-        const guardarDatosForm = new FormData(formCrearProducto);
+        let guardarDatosForm = new FormData(formCrearProducto);
         const data = 
         {
             nombre: guardarDatosForm.get('nombre'),
@@ -391,24 +364,32 @@ formCrearProducto.addEventListener('submit', async (e) =>
             categoria: guardarDatosForm.get('categoria'),
             precio: guardarDatosForm.get('precio'),
             img: guardarDatosForm.get('img'),
-            vendedor: guardarDatosForm('userSession.id')
+            vendedor: parseInt(idUsarioLogueado)
         };
-        console.log(data)
-        const response = await fetch('/productos',
-        {
-            method: 'POST',
-            headers:{
-                'Content-Type' : 'application/JSON'
-            },
-            body: JSON.stringify(data)
-        })
+        
+        if(Object.values(data).includes('')){
+            console.log(data)
             
-        const result = await response.json();
-        alert("Usuario Creado Con EXITO");
+            const alertaUser = document.createElement('p')
+            alertaUser.classList.add('err')
+            alertaUser.textContent = 'TODOS LOS CAMPOS deben estar completos'
+            formCrearProducto.appendChild(alertaUser)
+        } else {
+            const response = await fetch('/productos',
+                {
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    
+                const result = await response.json();
+                console.log(result.mensaje);
+        
+                window.location.reload()
+        }
 
-        crearUsuarioForm.reset();
-        crearUsuarioForm.classList.add('hidden');
-        listarUsuarios();
 });
 
 

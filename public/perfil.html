@@ -278,16 +278,16 @@
                     <div>
                         <label> Adjuntar imagen</label>
                         <select name="imagenModificar" id="imagenModificar">
-                            <option value="/img/producto-1.jpg">Broches plasticos para carpeta</option>
-                            <option value="/img/producto-2.jpg">Archivador tamaño carta</option>
-                            <option value="/img/producto-3.jpg">Carpeta  de carton. Colores varios</option>
-                            <option value="/img/producto-4.jpg">Clip doble negro</option>
-                            <option value="/img/producto-5.jpg">Lapiceras</option>
-                            <option value="/img/producto-6.jpg">Corrector líquido</option>
-                            <option value="/img/producto-7.jpg">Perforadora</option>
-                            <option value="/img/producto-8.jpg">Abrochadora</option>
-                            <option value="/img/producto-9.jpg">Tijera</option>
-                            <option value="/img/producto-10.jpg">Notas adhesivas de colores</option>
+                            <option value="producto-1.jpg">Broches plasticos para carpeta</option>
+                            <option value="producto-2.jpg">Archivador tamaño carta</option>
+                            <option value="producto-3.jpg">Carpeta  de carton. Colores varios</option>
+                            <option value="producto-4.jpg">Clip doble negro</option>
+                            <option value="producto-5.jpg">Lapiceras</option>
+                            <option value="producto-6.jpg">Corrector líquido</option>
+                            <option value="producto-7.jpg">Perforadora</option>
+                            <option value="producto-8.jpg">Abrochadora</option>
+                            <option value="producto-9.jpg">Tijera</option>
+                            <option value="producto-10.jpg">Notas adhesivas de colores</option>
                         </select>
                     </div>
     
@@ -296,7 +296,7 @@
                         <textarea name="editDescripcion" id="editDescripcion" rows="5" placeholder="Escriba una descripción del producto"></textarea>
                     </div>
                     <div class="botonDerecha">
-                        <button class="btn eliminar" type="submit">Modificar</button>
+                        <button class="btn guardar" >guardar</button>
                     </div>
                 </fieldset>
             </div>
@@ -330,11 +330,11 @@
                     <fieldset>
                         <div>
                             <label>Nombre</label>
-                            <input type="text" placeholder="Nombre del producto">
+                            <input type="text" placeholder="Nombre del producto" name="nombre">
                         </div>
                         <div>
                             <label>Categoria</label>
-                            <select name="categoria" id="categoria">
+                            <select name="categoria" id="categoria" name="categoria">
                                 <option value="oficina">Oficina</option>
                                 <option value="libreria">Libreria</option>
                                 <option value="papeleria">Papeleria</option>
@@ -344,30 +344,30 @@
                         </div>
                         <div>
                             <label>Precio</label>
-                            <input type="number" placeholder="Sin $ y puntos">
+                            <input type="number" placeholder="Sin $ y puntos" name="precio">
                         </div>
                     </fieldset>
 
                     <fieldset>
                         <div>
                             <label> Adjuntar imagen</label>
-                            <select name="imagenCrear" id="imagenCrear">
-                                <option value="/img/producto-1.jpg">Broches plasticos para carpeta</option>
-                                <option value="/img/producto-2.jpg">Archivador tamaño carta</option>
-                                <option value="/img/producto-3.jpg">Carpeta  de carton. Colores varios</option>
-                                <option value="/img/producto-4.jpg">Clip doble negro</option>
-                                <option value="/img/producto-5.jpg">Lapiceras</option>
-                                <option value="/img/producto-6.jpg">Corrector líquido</option>
-                                <option value="/img/producto-7.jpg">Perforadora</option>
-                                <option value="/img/producto-8.jpg">Abrochadora</option>
-                                <option value="/img/producto-9.jpg">Tijera</option>
-                                <option value="/img/producto-10.jpg">Notas adhesivas de colores</option>
+                            <select id="imagenCrear" name="img">
+                                <option value="producto-1.jpg">Broches plasticos para carpeta</option>
+                                <option value="producto-2.jpg">Archivador tamaño carta</option>
+                                <option value="producto-3.jpg">Carpeta  de carton. Colores varios</option>
+                                <option value="producto-4.jpg">Clip doble negro</option>
+                                <option value="producto-5.jpg">Lapiceras</option>
+                                <option value="producto-6.jpg">Corrector líquido</option>
+                                <option value="producto-7.jpg">Perforadora</option>
+                                <option value="producto-8.jpg">Abrochadora</option>
+                                <option value="producto-9.jpg">Tijera</option>
+                                <option value="producto-10.jpg">Notas adhesivas de colores</option>
                             </select>
                         </div>
     
                         <div>
                             <label>Descripcion</label>
-                            <textarea name="" id="" rows="5" placeholder="Escriba una descripción del producto"></textarea>
+                            <textarea name="descripcion" id="" rows="5" placeholder="Escriba una descripción del producto"></textarea>
                         </div>
                         <div class="botonDerecha">
                             <button class="btn eliminar" type="submit">Crear Producto</button>

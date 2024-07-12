@@ -31,7 +31,7 @@ const creatProducto = (req, res) => {
     const { nombre, descripcion, categoria, precio, vendedor, img } = req.body;
     const sql = 'INSERT INTO tienda_productos (nombre, descripcion, categoria, precio, vendedor, img) VALUES (?, ?, ?, ?, ?, ?)';
 
-    db.query(sql, [nombre, descripcion, categoria, precio, vendedor], (err, result) => {
+    db.query(sql, [nombre, descripcion, categoria, precio, vendedor, img], (err, result) => {
         if(err) {
             throw err;
         }
@@ -44,10 +44,10 @@ const creatProducto = (req, res) => {
 
 const modificarProducto = (req, res) => {
     const {id} = req.params;
-    const {nombre, descripcion, categoria, precio} = req.body;
-    const sql = 'UPDATE usuarios SET nombre = ?, descripcion = ?, categoria = ?, precio = ? WHERE id = ?';
+    const {nombre, img, descripcion, categoria, precio, vendedor} = req.body;
+    const sql = 'UPDATE tienda_productos SET nombre = ?, img = ?, descripcion = ?, categoria = ?, precio = ?, vendedor = ? WHERE id = ?';
 
-    db.query(sql, [nombre, descripcion, categoria, precio, id], (err, result) => {
+    db.query(sql, [nombre, img, descripcion, categoria, precio, vendedor, id], (err, result) => {
         if(err) {
             throw err;
         }
