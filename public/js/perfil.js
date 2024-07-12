@@ -70,6 +70,8 @@ btnMostrarFormBtn.addEventListener('click', () =>{
 
 })
 
+
+
 // async put usuario
 async function modificarUsuarioBD(form) {
     const dataUsuarioMod = {
@@ -186,7 +188,192 @@ logoutIcon.addEventListener('click', ()=>{
 })
 
 
+const idSession = JSON.parse(sessionStorage.getItem('userSession'));
+const idUsarioLogueado = idSession.id
+
+
+//mostrar productos por id
+const mostrarListaProductosBtn = document.getElementById('mostrarListaProductosBtn');
+//aca va lo que va a mostrar de la base de datos
+const listaProductos = document.getElementById('listaProductos');
+
+mostrarListaProductosBtn.addEventListener('click', mostrarProductoID);
+    
+async function mostrarProductoID()
+{
+    const response = await fetch(`/productos/`,
+        {
+            method: 'GET'
+        });
+    const productos = await response.json();
+
+
+    //lista para mostrar elementos por ID
+    listaProductos.innerHTML = '';
+
+    productos.forEach(producto => {
+        if (producto.vendedor === parseInt(userSession.id)){
+            const li = document.createElement('li');
+            li.innerHTML = `
+        <div class="contenedor">
+            <div class="caja">
+                <img src="img/${producto.img}">
+            </div>
+                <div class="caja1">
+                    <h4><b>${producto.nombre}</b></h4> 
+                    <p>${producto.descripcion}</p>
+                </div> 
+                <div class="caja2"> 
+                    <h3 class="vistaCategoria">${producto.categoria}</h3> 
+                    <h3 clas="vistaPrecio">$ ${producto.precio}</h3> 
+                </div>
+                 <div class="botones">
+                    <div>
+                        <button class="update btn actualizar" data-nombre="${producto.nombre}"  data-categoria="${producto.categoria}" data-precio="${producto.precio}"data-descripcion="${producto.descripcion}" > Modificar  </button> 
+                    </div>
+                    <div>
+                        <button class="delete btn delete" data-id="${producto.id}"> Eliminar </button>
+                    </div>
+                </div>    
+        </div>
+            
+            
+            `;
+
+            listaProductos.appendChild(li);
+            
+        } 
+    });
+    document.querySelectorAll('.update').forEach(button => 
+        {
+            button.addEventListener('click',(e) => 
+            {
+                const id = e.target.getAttribute('data-id');                    
+                const nombre = e.target.getAttribute('data-nombre');                                        
+                const categoria = e.target.getAttribute('data-categoria');
+                const precio = e.target.getAttribute('data-precio');
+                const descripcion = e.target.getAttribute('data-descripcion');
+    
+                document.getElementById('editID').value = id;
+                document.getElementById('editNombre').value = nombre;
+                document.getElementById('editCategorias').value = categoria;
+                document.getElementById('editPrecio').value = precio;
+                document.getElementById('editDescripcion').value = descripcion;
+    
+                focus(modificarElProducto.classList.remove('hidden'));
+            });
+        });
+        document.querySelectorAll('.delete').forEach(button => 
+            {
+                button.addEventListener('click', async(e)=>
+                {
+                    const id = e.target.getAttribute('data-id');
+                    const response = await fetch(`/productos/${id}`,{
+                        method: 'DELETE'
+                    });
+    
+                    const result = await response.json();
+                    alert(result.mensaje);
+                    mostrarProductoID();
+                });
+    
+            });
+           
+}
+
+
+const crearNuevoProductoBtn = document.getElementById('crearNuevoProductoBtn');
+//guardar el form
+const formCrearProducto = document.getElementById('formCrearProducto');
+
+crearNuevoProductoBtn.addEventListener('click', () =>
+    {
+        formCrearProducto.classList.toggle('hidden');
+    });
+
+
+//crear producto nuevo DUDA DE COMO PASAR LOS VALORES
+/*
+formCrearProducto.addEventListener('submit', async (e) => 
+{
+        e.preventDefault();
+        const guardarDatosForm = new FormData(formCrearProducto);
+        const data = 
+        {
+            nombre: guardarDatosForm.get('nombre'),
+            descripcion: guardarDatosForm.get('descripcion'),
+            categoria: guardarDatosForm.get('categoria'),
+            precio: guardarDatosForm.get('precio'),
+            img: guardarDatosForm.get('img'),
+            vendedor: guardarDatosForm('userSession.id')
+        };
+        console.log(data)
+        const response = await fetch('/productos',
+        {
+            method: 'POST',
+            headers:{
+                'Content-Type' : 'application/JSON'
+            },
+            body: JSON.stringify(data)
+        })
+            
+        const result = await response.json();
+        alert("Usuario Creado Con EXITO");
+
+        crearUsuarioForm.reset();
+        crearUsuarioForm.classList.add('hidden');
+        listarUsuarios();
+});
+ */
+
 // ------ MIS VENDIDOS------
+//vendidos
+const mostrarListaVendidosBtn = document.getElementById('mostrarListaVendidosBtn');
+
+const listaVendidos = document.getElementById('listaVendidos');
+
+mostrarListaVendidosBtn.addEventListener('click', mostrarProductosvendidosId);
+
+async function mostrarProductosvendidosId()
+{
+    const response = await fetch(`/vendidos`,
+        {
+            method: 'GET'
+        });
+    const productos = await response.json();
+
+
+    //lista para mostrar elementos por ID
+    listaProductos.innerHTML = '';
+
+    productos.forEach(producto => {
+        if (producto.vendedor === parseInt(userSession.id)){
+            const li = document.createElement('li');
+            li.innerHTML = `
+        <div class="contenedor2">
+            <div class="caja">
+                <img src="img/${producto.img}">
+            </div>
+                <div class="caja1">
+                    <h4><b>${producto.nombre}</b></h4> 
+                    <p>${producto.descripcion}</p>
+                </div> 
+                <div class="caja2"> 
+                    <h3 class="vistaCategoria">${producto.categoria}</h3> 
+                    <h3 clas="vistaPrecio">$ ${producto.precio}</h3> 
+                </div>
+        </div>
+            
+            
+            `;
+
+            listaVendidos.appendChild(li);
+            
+        } 
+    });
+};
+
+//mensajes
 if(userSession!= null){
     listarVendidosUser()
 }
@@ -235,20 +422,3 @@ async function listarVendidosUser(){
         })
     })
 }
-
-
-// document.addEventListener('DOMContentLoaded', () =>
-//     {
-//             //otras const
-    
-//             const mostrarListaProductosBtn = document.getElementById('mostrarListaProductosBtn');
-//             //aca va lo que va a mostrar de la base de datos
-//             const listaProductos = document.getElementById('listaProductos');
-//             //boton de crear producto
-//             const crearNuevoProductoBtn = document.getElementById('crearNuevoProductoBtn');
-        
-//             //formulario de crear producto
-        
-//             //mostrar u ocultar el form
-    
-//     });
